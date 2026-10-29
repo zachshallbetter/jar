@@ -50,3 +50,4 @@ human authority         Parents and adults maintain explicit authority; kids can
 ## Non-goals
 
 Building a proprietary cloud hosting platform. Re-implementing a distributed multi-node Kubernetes scheduler. Requiring proprietary GPUs when standard CPUs or Apple Silicon are present.
+

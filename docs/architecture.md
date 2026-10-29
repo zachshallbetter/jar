@@ -53,3 +53,4 @@
 * `~/.jar/config/`: System identity keys, box setup markers, and appliance configurations.
 * `~/.jar/logs/`: Local execution and turn audit logs.
 * `~/.jar/tmp/`: Scratch storage for transient audio / document conversions.
+

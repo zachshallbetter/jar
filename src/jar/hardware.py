@@ -160,3 +160,4 @@ def inspect_all() -> Dict[str, Any]:
         "accelerators": acc,
         "recommendation": rec,
     }
+

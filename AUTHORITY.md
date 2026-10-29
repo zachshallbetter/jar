@@ -17,3 +17,4 @@ $$\text{Architecture \& Doctrine} \to \text{Ontology \& Vocabulary} \to \text{Fo
 - **Documented $\neq$ Implemented $\neq$ Tested $\neq$ Empirically Validated.**
 - Features are marked according to their true implementation state.
 - Offline and local capability is primary; cloud capabilities are strictly treated as optional accelerators.
+

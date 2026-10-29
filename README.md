@@ -80,3 +80,4 @@ jar logs      # Stream live operational logs
 * [Architecture & Storage Contract](docs/architecture.md)
 * [Hierarchy of Authority (AUTHORITY.md)](AUTHORITY.md)
 * [Project Intent (PROJECT_INTENT.md)](PROJECT_INTENT.md)
+
