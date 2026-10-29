@@ -1,0 +1,72 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "admin",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-alex"
+  },
+  "dependencies": [],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 0,
+     "group": "g-person",
+     "rule": null
+    }
+   ],
+   "ordering": [
+    "id"
+   ]
+  },
+  "fingerprint": "sha256:a95a94a4cb4344dffb907db1882f139496d86728cb43533797db696010576758",
+  "groups": [
+   {
+    "id": "g-person",
+    "label": {
+     "key": "items.person",
+     "text": "Person"
+    },
+    "members": [],
+    "ordering": "id",
+    "role": "primary"
+   }
+  ],
+  "operations": [],
+  "profile": "collection",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "resolutionId": "rs-a95a94a4cb4344df",
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  },
+  "subject": {
+   "id": "p-robin",
+   "kind": "person"
+  }
+ },
+ "status": 200
+}

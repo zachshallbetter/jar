@@ -1,0 +1,1553 @@
+{
+ "about": "One fictional household for the relational FE graph (#1399; spec docs/relational-fe-graph.md §10.1). Shaped per source store, in each store's own row shape, so P1's loader writes it into the real stores (temp copies) and graph_sync projects from them. Every name is invented (fixtures rule). Times are in the household zone; 'now' is below. 5w.json asks who/what/where/when/why over it.",
+ "zone": "America/Los_Angeles",
+ "now": "2026-10-10T16:00:00-07:00",
+ "salt": "graph-golden-test-salt",
+ "people": [
+  {
+   "id": "p_alex",
+   "name": "Alex Quarry",
+   "role": "admin",
+   "parents": [],
+   "aliases": [
+    "Al"
+   ],
+   "places": {
+    "home": "Home"
+   },
+   "emails": [
+    "alex.quarry@mail.example.org"
+   ]
+  },
+  {
+   "id": "p_robin",
+   "name": "Robin Quarry",
+   "role": "adult",
+   "parents": [],
+   "aliases": [],
+   "places": {
+    "home": "Home",
+    "work": "Lakeside Clinic"
+   },
+   "emails": [
+    "robin.q@lakes.example.org"
+   ]
+  },
+  {
+   "id": "p_jordan",
+   "name": "Jordan Hale",
+   "role": "adult",
+   "parents": [],
+   "aliases": [
+    "Jo"
+   ],
+   "places": {
+    "home": "Home"
+   }
+  },
+  {
+   "id": "p_ava",
+   "name": "Ava Quarry",
+   "role": "kid",
+   "parents": [
+    "p_alex",
+    "p_robin"
+   ],
+   "aliases": [],
+   "places": {
+    "school": "Cedar School"
+   }
+  },
+  {
+   "id": "p_leo",
+   "name": "Leo Hale",
+   "role": "kid",
+   "parents": [
+    "p_jordan"
+   ],
+   "aliases": [],
+   "places": {
+    "school": "Cedar School"
+   }
+  }
+ ],
+ "world": {
+  "household": {
+   "entities": [
+    {
+     "id": "harbor-mobile",
+     "type": "org",
+     "name": "Harbor Mobile",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "id": "lakeside-clinic",
+     "type": "org",
+     "name": "Lakeside Clinic",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "id": "pine-park-club",
+     "type": "org",
+     "name": "Pine Park Club",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "id": "cedar-school",
+     "type": "org",
+     "name": "Cedar School",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "id": "summit-dental",
+     "type": "org",
+     "name": "Summit Dental",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "id": "leo-soccer",
+     "type": "activity",
+     "name": "Leo's soccer",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "id": "alex-quarry",
+     "type": "person",
+     "name": "Alex Quarry",
+     "owner": null,
+     "audience": "household",
+     "person_id": "p_alex"
+    },
+    {
+     "id": "robin-quarry",
+     "type": "person",
+     "name": "Robin Quarry",
+     "owner": null,
+     "audience": "household",
+     "person_id": "p_robin"
+    },
+    {
+     "id": "jordan-hale",
+     "type": "person",
+     "name": "Jordan Hale",
+     "owner": null,
+     "audience": "household",
+     "person_id": "p_jordan"
+    },
+    {
+     "id": "ava-quarry",
+     "type": "person",
+     "name": "Ava Quarry",
+     "owner": null,
+     "audience": "household",
+     "person_id": "p_ava"
+    },
+    {
+     "id": "leo-hale",
+     "type": "person",
+     "name": "Leo Hale",
+     "owner": null,
+     "audience": "household",
+     "person_id": "p_leo"
+    }
+   ],
+   "aliases": [
+    {
+     "entity_id": "harbor-mobile",
+     "alias": "Harbor"
+    },
+    {
+     "entity_id": "harbor-mobile",
+     "alias": "harbormobile.com"
+    },
+    {
+     "entity_id": "lakeside-clinic",
+     "alias": "Lakeside"
+    },
+    {
+     "entity_id": "pine-park-club",
+     "alias": "the club"
+    },
+    {
+     "entity_id": "pine-park-club",
+     "alias": "PPC"
+    },
+    {
+     "entity_id": "summit-dental",
+     "alias": "the dentist"
+    },
+    {
+     "entity_id": "cedar-school",
+     "alias": "Cedar"
+    }
+   ],
+   "claims": [
+    {
+     "entity": "lakeside-clinic",
+     "attr": "address",
+     "value": "12 Shore Rd",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "cedar-school",
+     "attr": "address",
+     "value": "40 Cedar Ave",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "leo-soccer",
+     "attr": "place",
+     "value": null,
+     "owner": null,
+     "audience": "household",
+     "note": "no place known: 'where is Leo's practice' must be unknown"
+    },
+    {
+     "entity": "jordan-hale",
+     "attr": "relation",
+     "value_entity": "leo-hale",
+     "value": "parent",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "alex-quarry",
+     "attr": "relation",
+     "value_entity": "ava-quarry",
+     "value": "parent",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "robin-quarry",
+     "attr": "relation",
+     "value_entity": "ava-quarry",
+     "value": "parent",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "lakeside-clinic",
+     "attr": "domain",
+     "value": "lakesideclinic.org",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "pine-park-club",
+     "attr": "domain",
+     "value": "pineparkclub.org",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "summit-dental",
+     "attr": "domain",
+     "value": "summitdental.com",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "robin-quarry",
+     "attr": "phone",
+     "value": "+1 555 010 0001",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "jordan-hale",
+     "attr": "phone",
+     "value": "+1 555 010 0003",
+     "owner": null,
+     "audience": "household"
+    },
+    {
+     "entity": "ava-quarry",
+     "attr": "dentist",
+     "value": "Summit Dental",
+     "owner": null,
+     "audience": "household",
+     "value_entity": "summit-dental"
+    },
+    {
+     "entity": "pine-park-club",
+     "attr": "serves",
+     "value": "Leo Hale",
+     "owner": null,
+     "audience": "household",
+     "value_entity": "leo-hale"
+    }
+   ]
+  },
+  "p_alex": {
+   "entities": [
+    {
+     "id": "harbor-mobile-billing",
+     "type": "org",
+     "name": "Harbor Mobile Billing",
+     "owner": "p_alex",
+     "audience": "private",
+     "merge_expect": "same_as harbor-mobile: alias 'Harbor' plus the shared hard key party:domain harbormobile.com"
+    },
+    {
+     "id": "morgan-reyes-coach",
+     "type": "person",
+     "name": "Morgan Reyes",
+     "owner": "p_alex",
+     "audience": "private",
+     "merge_expect": "never merge with p_robin's 'Morgan Reyes' (same name, no shared hard key)"
+    }
+   ],
+   "aliases": [
+    {
+     "entity_id": "harbor-mobile-billing",
+     "alias": "Harbor"
+    }
+   ],
+   "claims": [
+    {
+     "entity": "harbor-mobile-billing",
+     "attr": "domain",
+     "value": "harbormobile.com",
+     "owner": "p_alex",
+     "audience": "private"
+    },
+    {
+     "entity": "morgan-reyes-coach",
+     "attr": "role",
+     "value": "Pine Park Club coach",
+     "owner": "p_alex",
+     "audience": "private"
+    }
+   ]
+  },
+  "p_robin": {
+   "entities": [
+    {
+     "id": "morgan-reyes-colleague",
+     "type": "person",
+     "name": "Morgan Reyes",
+     "owner": "p_robin",
+     "audience": "private"
+    }
+   ],
+   "aliases": [],
+   "claims": [
+    {
+     "entity": "morgan-reyes-colleague",
+     "attr": "role",
+     "value": "Lakeside Clinic nurse",
+     "owner": "p_robin",
+     "audience": "private"
+    }
+   ]
+  }
+ },
+ "items": [
+  {
+   "id": "dev-text-plan-1",
+   "source": "texts",
+   "kind": "text",
+   "title": "Text from Robin",
+   "observed_at": "2026-10-09T18:02:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "from_person": "p_robin",
+    "to": [
+     "p_alex"
+    ]
+   },
+   "body": "Saturday 10:00 at Pine Park? Bring the kids."
+  },
+  {
+   "id": "dev-text-plan-2",
+   "source": "texts",
+   "kind": "text",
+   "title": "Text to Robin",
+   "observed_at": "2026-10-09T18:10:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "from_person": "p_alex",
+    "to": [
+     "p_robin"
+    ],
+    "reply_to": "dev-text-plan-1"
+   },
+   "body": "Yes! Jordan and Leo are coming too."
+  },
+  {
+   "id": "dev-text-plan-3",
+   "source": "texts",
+   "kind": "text",
+   "title": "Text from Robin",
+   "observed_at": "2026-10-09T18:12:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "from_person": "p_robin",
+    "to": [
+     "p_alex"
+    ],
+    "reply_to": "dev-text-plan-2"
+   },
+   "body": "Meet at the playground entrance."
+  },
+  {
+   "id": "cx-meeting-club-1",
+   "source": "meeting",
+   "kind": "meeting_notes",
+   "title": "Pine Park Club board",
+   "observed_at": "2026-10-08T19:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "org": "pine-park-club",
+    "location": "the clubhouse",
+    "speakers": 6,
+    "decisions": [
+     "The fall cleanup is on October 24",
+     "Dues rise to $40 from January",
+     "Alex runs the volunteer sign-up"
+    ],
+    "agreed": [
+     "Alex",
+     "Morgan"
+    ],
+    "dates": [
+     {
+      "when": "2026-10-24T09:00",
+      "what": "fall cleanup"
+     },
+     {
+      "when": "2026-11-12T19:00",
+      "what": "next board meeting"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cx-mail-club-2",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Board minutes",
+   "observed_at": "2026-10-09T08:30:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Pine Park Club",
+    "from_addr": "board@pineparkclub.org",
+    "location": "Pine Park"
+   },
+   "body": "Minutes attached. Cleanup Oct 24 at 9:00 at Pine Park.",
+   "summary": "Board minutes: the fall cleanup is Oct 24 at Pine Park."
+  },
+  {
+   "id": "dev-text-trade-1",
+   "source": "texts",
+   "kind": "text",
+   "title": "Harbor Mobile",
+   "observed_at": "2026-09-28T11:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "harbor-mobile"
+   },
+   "body": "Your trade-in kit for order HM-55821 has shipped."
+  },
+  {
+   "id": "cx-mail-trade-2",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Trade-in received",
+   "observed_at": "2026-10-06T09:15:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Harbor Mobile",
+    "from_addr": "trades@harbormobile.com",
+    "amount": 180.0
+   },
+   "body": "We received your trade-in for order HM-55821. A $180 credit is pending review.",
+   "summary": "Harbor Mobile received the trade-in phone; a $180 credit is pending inspection."
+  },
+  {
+   "id": "cx-mail-bill-1",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Overdue notice",
+   "observed_at": "2026-09-18T07:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Lakeside Clinic",
+    "from_addr": "billing@lakesideclinic.org",
+    "amount": 95.0,
+    "due": "2026-09-15"
+   },
+   "summary": "Lakeside Clinic: $95 is overdue (due Sep 15)."
+  },
+  {
+   "id": "cx-mail-bill-2",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Payment received",
+   "observed_at": "2026-09-24T12:40:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Lakeside Clinic",
+    "from_addr": "billing@lakesideclinic.org",
+    "amount": 95.0
+   },
+   "summary": "Lakeside Clinic received a $95 payment."
+  },
+  {
+   "id": "cx-mail-bill-3",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Your Harbor Mobile bill",
+   "observed_at": "2026-10-03T07:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Harbor Mobile",
+    "from_addr": "billing@harbormobile.com",
+    "amount": 62.5,
+    "due": "2026-10-14"
+   },
+   "summary": "Harbor Mobile bill: $62.50 due Oct 14."
+  },
+  {
+   "id": "cx-calendar-dentist",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Ava dentist",
+   "observed_at": "2026-10-01T10:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "household",
+   "fields": {
+    "start": "2026-10-13T15:00:00-07:00",
+    "end": "2026-10-13T15:45:00-07:00",
+    "location": "Summit Dental",
+    "attendees": [
+     "p_ava",
+     "Alex.Quarry@mail.example.org"
+    ],
+    "organiser": "p_alex"
+   }
+  },
+  {
+   "id": "cx-mail-dentist",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Appointment change",
+   "observed_at": "2026-10-10T09:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Summit Dental",
+    "from_addr": "front@summitdental.com"
+   },
+   "body": "Ava's appointment on October 13 has moved to 4:00 pm.",
+   "summary": "Summit Dental moved Ava's Oct 13 appointment from 3:00 to 4:00 pm."
+  },
+  {
+   "id": "cx-calendar-practice",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Leo soccer practice",
+   "observed_at": "2026-10-02T09:00:00-07:00",
+   "owner": "p_jordan",
+   "audience": "household",
+   "fields": {
+    "start": "2026-10-11T17:30:00-07:00",
+    "end": "2026-10-11T18:30:00-07:00",
+    "location": null,
+    "attendees": [
+     "p_leo"
+    ],
+    "organiser": "p_jordan"
+   }
+  },
+  {
+   "id": "dev-text-surprise",
+   "source": "texts",
+   "kind": "text",
+   "title": "Text from Jordan",
+   "observed_at": "2026-10-09T21:00:00-07:00",
+   "owner": "p_robin",
+   "audience": "private",
+   "fields": {
+    "from_person": "p_jordan",
+    "to": [
+     "p_robin"
+    ]
+   },
+   "body": "Surprise party for Alex on the 18th at the clubhouse. Don't tell!"
+  },
+  {
+   "id": "cx-calendar-pickup",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Ava pickup",
+   "observed_at": "2026-10-05T08:00:00-07:00",
+   "owner": "p_robin",
+   "audience": "household",
+   "fields": {
+    "start": "2026-10-10T15:15:00-07:00",
+    "end": "2026-10-10T15:30:00-07:00",
+    "location": "40 Cedar Ave",
+    "attendees": [
+     "p_robin",
+     "p_ava"
+    ],
+    "organiser": "robin.q@lakes.example.org"
+   }
+  },
+  {
+   "id": "cx-calendar-yoga",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Robin yoga",
+   "observed_at": "2026-10-03T08:00:00-07:00",
+   "owner": "p_robin",
+   "audience": "private",
+   "fields": {
+    "start": "2026-10-12T07:00:00-07:00",
+    "end": "2026-10-12T08:00:00-07:00",
+    "location": "Willow Studio",
+    "attendees": [
+     "p_robin"
+    ],
+    "organiser": "p_robin"
+   }
+  },
+  {
+   "id": "cx-calendar-yoga-2",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Robin yoga",
+   "observed_at": "2026-10-03T08:00:00-07:00",
+   "owner": "p_robin",
+   "audience": "private",
+   "fields": {
+    "start": "2026-10-05T07:00:00-07:00",
+    "end": "2026-10-05T08:00:00-07:00",
+    "location": "Willow Studio",
+    "attendees": [
+     "p_robin"
+    ],
+    "organiser": "p_robin"
+   }
+  },
+  {
+   "id": "cx-calendar-yoga-3",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Robin yoga",
+   "observed_at": "2026-09-27T08:00:00-07:00",
+   "owner": "p_robin",
+   "audience": "private",
+   "fields": {
+    "start": "2026-09-28T07:00:00-07:00",
+    "end": "2026-09-28T08:00:00-07:00",
+    "location": "Willow Studio",
+    "attendees": [
+     "p_robin"
+    ],
+    "organiser": "p_robin"
+   }
+  },
+  {
+   "id": "cx-calendar-bookclub",
+   "source": "calendar",
+   "kind": "event",
+   "title": "Book club",
+   "observed_at": "2026-10-04T08:00:00-07:00",
+   "owner": "p_jordan",
+   "audience": "private",
+   "fields": {
+    "start": "2026-10-15T19:00:00-07:00",
+    "end": "2026-10-15T21:00:00-07:00",
+    "location": "Ember Café",
+    "attendees": [
+     "p_jordan"
+    ],
+    "organiser": "p_jordan"
+   }
+  },
+  {
+   "id": "cx-note-wifi",
+   "source": "notes",
+   "kind": "note",
+   "title": "Guest wifi",
+   "observed_at": "2026-09-01T10:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "household",
+   "fields": {},
+   "body": "The guest wifi is called Quarry-Guest."
+  },
+  {
+   "id": "cx-note-health",
+   "source": "notes",
+   "kind": "note",
+   "title": "Ava allergy plan",
+   "observed_at": "2026-09-20T10:00:00-07:00",
+   "owner": "p_alex",
+   "audience": "adults",
+   "fields": {
+    "about_person": "p_ava"
+   },
+   "body": "Ava's allergy plan: carry the inhaler on outings."
+  },
+  {
+   "id": "chat-alex-1",
+   "source": "chat",
+   "kind": "chat_turn",
+   "title": "Chat",
+   "observed_at": "2026-10-09T18:20:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "person": "p_alex"
+   },
+   "body": "The Saturday park thing is at the playground entrance, not the parking lot."
+  },
+  {
+   "id": "cx-mail-bill-4",
+   "source": "mail",
+   "kind": "mail",
+   "title": "Your Pine Water bill",
+   "observed_at": "2026-10-06T07:30:00-07:00",
+   "owner": "p_alex",
+   "audience": "private",
+   "fields": {
+    "vendor": "Pine Water",
+    "from_addr": "billing@pinewater.example",
+    "amount": 48.2,
+    "due": "2026-10-20"
+   },
+   "body": "Your Pine Water bill: $48.20 is due October 20.",
+   "summary": "Pine Water bill: $48.20 due Oct 20."
+  }
+ ],
+ "hooks": [
+  {
+   "item": "dev-text-trade-1",
+   "kind": "id:order",
+   "raw": "HM-55821"
+  },
+  {
+   "item": "cx-mail-trade-2",
+   "kind": "id:order",
+   "raw": "HM-55821"
+  },
+  {
+   "item": "cx-mail-trade-2",
+   "kind": "party:domain",
+   "raw": "harbormobile.com"
+  },
+  {
+   "item": "cx-mail-bill-3",
+   "kind": "party:domain",
+   "raw": "harbormobile.com"
+  },
+  {
+   "item": "cx-mail-bill-1",
+   "kind": "party:domain",
+   "raw": "lakesideclinic.org"
+  },
+  {
+   "item": "cx-mail-bill-2",
+   "kind": "party:domain",
+   "raw": "lakesideclinic.org"
+  },
+  {
+   "item": "cx-mail-club-2",
+   "kind": "party:domain",
+   "raw": "pineparkclub.org"
+  },
+  {
+   "item": "cx-mail-dentist",
+   "kind": "party:domain",
+   "raw": "summitdental.com"
+  },
+  {
+   "item": "dev-text-plan-1",
+   "kind": "party:phone",
+   "raw": "+15550100001"
+  },
+  {
+   "item": "dev-text-plan-2",
+   "kind": "party:phone",
+   "raw": "+15550100001"
+  },
+  {
+   "item": "dev-text-plan-3",
+   "kind": "party:phone",
+   "raw": "+15550100001"
+  },
+  {
+   "item": "dev-text-surprise",
+   "kind": "party:phone",
+   "raw": "+15550100003"
+  },
+  {
+   "item": "dev-text-plan-1",
+   "kind": "mention:entity",
+   "raw": "household:pine-park-club"
+  },
+  {
+   "item": "cx-meeting-club-1",
+   "kind": "mention:entity",
+   "raw": "household:pine-park-club"
+  },
+  {
+   "item": "cx-mail-club-2",
+   "kind": "mention:entity",
+   "raw": "household:pine-park-club"
+  },
+  {
+   "item": "dev-text-plan-1",
+   "kind": "date:mention",
+   "raw": "2026-10-10"
+  },
+  {
+   "item": "cx-meeting-club-1",
+   "kind": "date:mention",
+   "raw": "2026-10-24"
+  },
+  {
+   "item": "cx-mail-club-2",
+   "kind": "date:mention",
+   "raw": "2026-10-24"
+  },
+  {
+   "item": "cx-mail-dentist",
+   "kind": "date:mention",
+   "raw": "2026-10-13"
+  },
+  {
+   "item": "cx-mail-club-2",
+   "kind": "party:addr",
+   "raw": "board@pineparkclub.org"
+  },
+  {
+   "item": "cx-mail-bill-1",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-1",
+   "note": "the mail's own id (hooks.index), so a record filed from it finds it"
+  },
+  {
+   "item": "rec-cx-mail-bill-1",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-1",
+   "note": "the bill/receipt record filed from this mail (its derived_from)"
+  },
+  {
+   "item": "cx-mail-bill-2",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-2",
+   "note": "the mail's own id (hooks.index), so a record filed from it finds it"
+  },
+  {
+   "item": "rec-cx-mail-bill-2",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-2",
+   "note": "the bill/receipt record filed from this mail (its derived_from)"
+  },
+  {
+   "item": "cx-mail-bill-3",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-3",
+   "note": "the mail's own id (hooks.index), so a record filed from it finds it"
+  },
+  {
+   "item": "rec-cx-mail-bill-3",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-3",
+   "note": "the bill/receipt record filed from this mail (its derived_from)"
+  },
+  {
+   "item": "cx-mail-bill-1",
+   "kind": "amount",
+   "raw": "95.00"
+  },
+  {
+   "item": "rec-cx-mail-bill-1",
+   "kind": "amount",
+   "raw": "95.00"
+  },
+  {
+   "item": "cx-mail-bill-2",
+   "kind": "amount",
+   "raw": "95.00"
+  },
+  {
+   "item": "rec-cx-mail-bill-2",
+   "kind": "amount",
+   "raw": "95.00"
+  },
+  {
+   "item": "cx-mail-bill-3",
+   "kind": "amount",
+   "raw": "62.50"
+  },
+  {
+   "item": "rec-cx-mail-bill-3",
+   "kind": "amount",
+   "raw": "62.50"
+  },
+  {
+   "item": "rec-cx-mail-bill-1",
+   "kind": "party:vendor",
+   "raw": "lakeside clinic",
+   "note": "a record's vendor, obligations.account_of"
+  },
+  {
+   "item": "rec-cx-mail-bill-2",
+   "kind": "party:vendor",
+   "raw": "lakeside clinic",
+   "note": "a record's vendor, obligations.account_of"
+  },
+  {
+   "item": "rec-cx-mail-bill-3",
+   "kind": "party:vendor",
+   "raw": "harbor mobile",
+   "note": "a record's vendor, obligations.account_of"
+  },
+  {
+   "item": "cx-mail-bill-4",
+   "kind": "party:domain",
+   "raw": "pinewater.example"
+  },
+  {
+   "item": "cx-mail-bill-4",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-4",
+   "note": "the mail's own id (hooks.index), so a record filed from it finds it"
+  },
+  {
+   "item": "rec-cx-mail-bill-4",
+   "kind": "id:source",
+   "raw": "cx-mail-bill-4",
+   "note": "the bill/receipt record filed from this mail (its derived_from)"
+  },
+  {
+   "item": "cx-mail-bill-4",
+   "kind": "amount",
+   "raw": "48.20"
+  },
+  {
+   "item": "rec-cx-mail-bill-4",
+   "kind": "amount",
+   "raw": "48.20"
+  },
+  {
+   "item": "rec-cx-mail-bill-4",
+   "kind": "party:vendor",
+   "raw": "pine water",
+   "note": "a record's vendor, obligations.account_of"
+  }
+ ],
+ "links": [
+  {
+   "a": "dev-text-trade-1",
+   "b": "cx-mail-trade-2",
+   "state": "verified",
+   "typed": "id:order",
+   "why": "same order number"
+  },
+  {
+   "a": "cx-meeting-club-1",
+   "b": "cx-mail-club-2",
+   "state": "accepted",
+   "typed": "party+date",
+   "why": "same club and the same cleanup date"
+  },
+  {
+   "a": "cx-mail-bill-1",
+   "b": "cx-mail-bill-2",
+   "state": "accepted",
+   "typed": "party+amount",
+   "why": "same clinic and the same amount after the notice"
+  },
+  {
+   "a": "cx-mail-trade-2",
+   "b": "cx-mail-bill-3",
+   "state": "rejected",
+   "typed": "party",
+   "why": "same carrier; Alex said these are unrelated"
+  },
+  {
+   "a": "cx-mail-bill-3",
+   "b": "cx-note-wifi",
+   "state": "candidate",
+   "typed": "topic",
+   "why": "weak topic overlap; must never answer"
+  }
+ ],
+ "link_statements": [
+  {
+   "a": "cx-mail-trade-2",
+   "b": "cx-mail-bill-3",
+   "related": false,
+   "by": "p_alex",
+   "source": "chat"
+  },
+  {
+   "a": "dev-text-trade-1",
+   "b": "cx-mail-trade-2",
+   "related": true,
+   "by": "p_alex",
+   "source": "chat"
+  }
+ ],
+ "places": [
+  {
+   "id": "pl-home",
+   "label": "Home",
+   "kind": "home",
+   "owner": null,
+   "audience": "household",
+   "aliases": [],
+   "org_entity": null,
+   "sightings": 0
+  },
+  {
+   "id": "pl-pine-park",
+   "label": "Pine Park",
+   "kind": "park",
+   "owner": null,
+   "audience": "household",
+   "aliases": [
+    "the park",
+    "the playground entrance"
+   ],
+   "org_entity": null,
+   "sightings": 4
+  },
+  {
+   "id": "pl-clubhouse",
+   "label": "Pine Park Clubhouse",
+   "kind": "venue",
+   "owner": null,
+   "audience": "household",
+   "aliases": [
+    "the clubhouse"
+   ],
+   "org_entity": "household:pine-park-club",
+   "sightings": 2
+  },
+  {
+   "id": "pl-cedar",
+   "label": "Cedar School",
+   "kind": "school",
+   "owner": null,
+   "audience": "household",
+   "aliases": [
+    "40 Cedar Ave"
+   ],
+   "org_entity": "household:cedar-school",
+   "sightings": 2
+  },
+  {
+   "id": "pl-lakeside",
+   "label": "Lakeside Clinic",
+   "kind": "clinic",
+   "owner": null,
+   "audience": "household",
+   "aliases": [
+    "12 Shore Rd"
+   ],
+   "org_entity": "household:lakeside-clinic",
+   "sightings": 1
+  },
+  {
+   "id": "pl-summit",
+   "label": "Summit Dental",
+   "kind": "clinic",
+   "owner": null,
+   "audience": "household",
+   "aliases": [],
+   "org_entity": "household:summit-dental",
+   "sightings": 1
+  },
+  {
+   "id": "pl-cand-willow",
+   "label": "Willow Studio",
+   "kind": "candidate",
+   "owner": "p_robin",
+   "audience": "private",
+   "aliases": [],
+   "org_entity": null,
+   "sightings": 3,
+   "expect": "seen 3 times (Robin's yoga): becomes a place for Robin"
+  },
+  {
+   "id": "pl-cand-ember",
+   "label": "Ember Café",
+   "kind": "candidate",
+   "owner": "p_jordan",
+   "audience": "private",
+   "aliases": [],
+   "org_entity": null,
+   "sightings": 1,
+   "expect": "seen once: stays a candidate, never used in an answer"
+  }
+ ],
+ "place_events": [
+  {
+   "id": "pe-ava-1",
+   "person": "p_ava",
+   "event": "arrived",
+   "place": "Cedar School",
+   "at": "2026-10-10T15:20:00-07:00",
+   "device": "dev-ava-watch"
+  },
+  {
+   "id": "pe-alex-1",
+   "person": "p_alex",
+   "event": "left",
+   "place": "Home",
+   "at": "2026-10-10T15:40:00-07:00",
+   "device": "dev-alex-phone"
+  }
+ ],
+ "event_proposals": [
+  {
+   "owner": "p_alex",
+   "sig_id": "a1b2c3d4e5f60718",
+   "thread_ref": "0f1e2d3c4b5a6978",
+   "title": "Pine Park with the kids",
+   "start": "2026-10-10T10:00:00-07:00",
+   "end": null,
+   "place": "Pine Park",
+   "participants": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo"
+   ],
+   "others": 0,
+   "with_name": "Robin",
+   "confidence": 0.86,
+   "state": "new",
+   "note": "the 10-09 'plan in texts' twin; its hook came from dev-text-plan-1..3"
+  }
+ ],
+ "obligation_claims": [
+  {
+   "id": "oc-alex-lakeside-0924",
+   "owner": "p_alex",
+   "audience": "private",
+   "account": "lakeside clinic",
+   "kind": "paid",
+   "date": "2026-09-24",
+   "source": "chat",
+   "turn_id": null,
+   "superseded_by": null,
+   "asked": null,
+   "about": null,
+   "note": "Alex said the clinic bill is paid; its state (resolved) and chain are computed per viewer from the bill records (cx-mail-bill-1/2) plus this word, never stored"
+  }
+ ],
+ "obligation_signals": [
+  {
+   "owner": "p_alex",
+   "sig_id": "b2c3d4e5f6071829",
+   "signal": "paid",
+   "account": "harbor mobile",
+   "amount": 62.5,
+   "on_day": "2026-10-08",
+   "confidence": 0.9,
+   "note": "a text on Alex's device says the Harbor Mobile bill (cx-mail-bill-3) is paid; evidence on Alex's view only"
+  }
+ ],
+ "scenarios": [
+  {
+   "task_id": "task-tradein",
+   "owner": "p_alex",
+   "goal": "Make sure the Harbor Mobile trade-in credit is applied",
+   "state": "waiting",
+   "deps": {
+    "entities": [
+     "household:harbor-mobile"
+    ],
+    "items": [
+     "cx-mail-trade-2"
+    ],
+    "watch": [
+     "id:order"
+    ]
+   }
+  }
+ ],
+ "fences": [
+  {
+   "item": "cx-note-health",
+   "hidden_from": [
+    "p_jordan"
+   ],
+   "by": "p_alex",
+   "why": "audience 'adults' alone would show it to Jordan; the fence hides it"
+  }
+ ],
+ "expected": {
+  "about": "P1: per viewer, the node ids graph_sync's projection must return by kind (and nothing else). screen = a shared household screen. event: a calendar item or a proposal (the proposal is its owner's, private); obligation: an account+cycle node (viewer-independent; its state is computed per viewer at read time), visible as its bill records are. Cycle keys follow obligations.py (the first notice's mail day) and are checked by the loader test.",
+  "p_alex": {
+   "person": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo",
+    "p_alex:morgan-reyes-coach"
+   ],
+   "org": [
+    "household:harbor-mobile",
+    "household:lakeside-clinic",
+    "household:pine-park-club",
+    "household:cedar-school",
+    "household:summit-dental"
+   ],
+   "place": [
+    "pl-home",
+    "pl-pine-park",
+    "pl-clubhouse",
+    "pl-cedar",
+    "pl-lakeside",
+    "pl-summit"
+   ],
+   "item": [
+    "dev-text-plan-1",
+    "dev-text-plan-2",
+    "dev-text-plan-3",
+    "cx-meeting-club-1",
+    "cx-mail-club-2",
+    "dev-text-trade-1",
+    "cx-mail-trade-2",
+    "cx-mail-bill-1",
+    "cx-mail-bill-2",
+    "cx-mail-bill-3",
+    "cx-calendar-dentist",
+    "cx-mail-dentist",
+    "cx-calendar-practice",
+    "cx-calendar-pickup",
+    "cx-note-wifi",
+    "cx-note-health",
+    "chat-alex-1",
+    "cx-mail-bill-4"
+   ],
+   "scenario": [
+    "task-tradein"
+   ],
+   "event": [
+    "event:cx-calendar-dentist",
+    "event:cx-calendar-practice",
+    "event:cx-calendar-pickup",
+    "event:ep-a1b2c3d4e5f60718"
+   ],
+   "obligation": [
+    "obligation:harbor mobile:2026-10-03",
+    "obligation:lakeside clinic:2026-09-18",
+    "obligation:pine water:2026-10-06"
+   ]
+  },
+  "p_robin": {
+   "person": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo",
+    "p_robin:morgan-reyes-colleague"
+   ],
+   "org": [
+    "household:harbor-mobile",
+    "household:lakeside-clinic",
+    "household:pine-park-club",
+    "household:cedar-school",
+    "household:summit-dental"
+   ],
+   "place": [
+    "pl-home",
+    "pl-pine-park",
+    "pl-clubhouse",
+    "pl-cedar",
+    "pl-lakeside",
+    "pl-summit",
+    "pl-cand-willow"
+   ],
+   "item": [
+    "cx-calendar-dentist",
+    "cx-calendar-practice",
+    "dev-text-surprise",
+    "cx-calendar-pickup",
+    "cx-calendar-yoga",
+    "cx-calendar-yoga-2",
+    "cx-calendar-yoga-3",
+    "cx-note-wifi",
+    "cx-note-health"
+   ],
+   "scenario": [],
+   "event": [
+    "event:cx-calendar-dentist",
+    "event:cx-calendar-practice",
+    "event:cx-calendar-pickup",
+    "event:cx-calendar-yoga",
+    "event:cx-calendar-yoga-2",
+    "event:cx-calendar-yoga-3"
+   ],
+   "obligation": []
+  },
+  "p_jordan": {
+   "person": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo"
+   ],
+   "org": [
+    "household:harbor-mobile",
+    "household:lakeside-clinic",
+    "household:pine-park-club",
+    "household:cedar-school",
+    "household:summit-dental"
+   ],
+   "place": [
+    "pl-home",
+    "pl-pine-park",
+    "pl-clubhouse",
+    "pl-cedar",
+    "pl-lakeside",
+    "pl-summit"
+   ],
+   "item": [
+    "cx-calendar-dentist",
+    "cx-calendar-practice",
+    "cx-calendar-pickup",
+    "cx-calendar-bookclub",
+    "cx-note-wifi"
+   ],
+   "scenario": [],
+   "event": [
+    "event:cx-calendar-dentist",
+    "event:cx-calendar-practice",
+    "event:cx-calendar-pickup",
+    "event:cx-calendar-bookclub"
+   ],
+   "obligation": []
+  },
+  "p_ava": {
+   "person": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo"
+   ],
+   "org": [
+    "household:harbor-mobile",
+    "household:lakeside-clinic",
+    "household:pine-park-club",
+    "household:cedar-school",
+    "household:summit-dental"
+   ],
+   "place": [
+    "pl-home",
+    "pl-pine-park",
+    "pl-clubhouse",
+    "pl-cedar",
+    "pl-lakeside",
+    "pl-summit"
+   ],
+   "item": [
+    "cx-calendar-dentist",
+    "cx-calendar-practice",
+    "cx-calendar-pickup",
+    "cx-note-wifi"
+   ],
+   "scenario": [],
+   "event": [
+    "event:cx-calendar-dentist",
+    "event:cx-calendar-practice",
+    "event:cx-calendar-pickup"
+   ],
+   "obligation": []
+  },
+  "p_leo": {
+   "person": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo"
+   ],
+   "org": [
+    "household:harbor-mobile",
+    "household:lakeside-clinic",
+    "household:pine-park-club",
+    "household:cedar-school",
+    "household:summit-dental"
+   ],
+   "place": [
+    "pl-home",
+    "pl-pine-park",
+    "pl-clubhouse",
+    "pl-cedar",
+    "pl-lakeside",
+    "pl-summit"
+   ],
+   "item": [
+    "cx-calendar-dentist",
+    "cx-calendar-practice",
+    "cx-calendar-pickup",
+    "cx-note-wifi"
+   ],
+   "scenario": [],
+   "event": [
+    "event:cx-calendar-dentist",
+    "event:cx-calendar-practice",
+    "event:cx-calendar-pickup"
+   ],
+   "obligation": []
+  },
+  "screen": {
+   "person": [
+    "p_alex",
+    "p_robin",
+    "p_jordan",
+    "p_ava",
+    "p_leo"
+   ],
+   "org": [
+    "household:harbor-mobile",
+    "household:lakeside-clinic",
+    "household:pine-park-club",
+    "household:cedar-school",
+    "household:summit-dental"
+   ],
+   "place": [
+    "pl-home",
+    "pl-pine-park",
+    "pl-clubhouse",
+    "pl-cedar",
+    "pl-lakeside",
+    "pl-summit"
+   ],
+   "item": [
+    "cx-calendar-dentist",
+    "cx-calendar-practice",
+    "cx-calendar-pickup",
+    "cx-note-wifi"
+   ],
+   "scenario": [],
+   "event": [
+    "event:cx-calendar-dentist",
+    "event:cx-calendar-practice",
+    "event:cx-calendar-pickup"
+   ],
+   "obligation": []
+  }
+ },
+ "expected_edges": {
+  "about": "P2: every edge graph_sync builds from these stores (viewer-independent), as 'a type b · state · plane' (valid_from, if any, after an @). The per-viewer checks are test_graph_sync's property test plus its named privacy cases.",
+  "edges": [
+   "cx-mail-bill-1 from household:lakeside-clinic · accepted · typed",
+   "cx-mail-bill-1 related cx-mail-bill-2 · accepted · measured",
+   "cx-mail-bill-2 from household:lakeside-clinic · accepted · typed",
+   "cx-mail-bill-3 from household:harbor-mobile · accepted · typed",
+   "cx-mail-bill-3 related cx-mail-trade-2 · rejected · measured",
+   "cx-mail-bill-3 related cx-note-wifi · candidate · measured",
+   "cx-mail-club-2 from household:pine-park-club · accepted · typed",
+   "cx-mail-club-2 mentions household:pine-park-club · accepted · typed",
+   "cx-mail-club-2 related cx-meeting-club-1 · accepted · measured",
+   "cx-mail-dentist about event:cx-calendar-dentist · accepted · measured",
+   "cx-mail-dentist from household:summit-dental · accepted · typed",
+   "cx-mail-trade-2 from household:harbor-mobile · accepted · typed",
+   "cx-mail-trade-2 related dev-text-trade-1 · verified · typed",
+   "cx-meeting-club-1 decided md-9a8b7c6d5e4f3021-0 · verified · typed",
+   "cx-meeting-club-1 decided md-9a8b7c6d5e4f3021-1 · verified · typed",
+   "cx-meeting-club-1 decided md-9a8b7c6d5e4f3021-2 · verified · typed",
+   "cx-meeting-club-1 mentions household:pine-park-club · accepted · typed",
+   "dev-text-plan-1 from p_robin · candidate · typed",
+   "dev-text-plan-1 mentions household:pine-park-club · accepted · typed",
+   "dev-text-plan-2 from p_robin · candidate · typed",
+   "dev-text-plan-3 from p_robin · candidate · typed",
+   "dev-text-surprise from p_jordan · candidate · typed",
+   "event:cx-calendar-dentist at pl-summit · accepted · typed",
+   "event:cx-calendar-pickup at pl-cedar · accepted · typed",
+   "event:cx-calendar-yoga at pl-cand-willow · accepted · typed",
+   "event:cx-calendar-yoga-2 at pl-cand-willow · accepted · typed",
+   "event:cx-calendar-yoga-3 at pl-cand-willow · accepted · typed",
+   "event:ep-a1b2c3d4e5f60718 at pl-pine-park · accepted · typed",
+   "household:cedar-school located_at pl-cedar · accepted · typed",
+   "household:lakeside-clinic located_at pl-lakeside · accepted · typed",
+   "household:pine-park-club located_at pl-clubhouse · accepted · typed",
+   "household:summit-dental located_at pl-summit · accepted · typed",
+   "p_alex attends event:cx-calendar-dentist · verified · typed",
+   "p_alex attends event:ep-a1b2c3d4e5f60718 · accepted · typed",
+   "p_alex located_at pl-home · verified · typed",
+   "p_alex located_at pl-home · verified · typed @2026-10-10T15:40:00-07:00",
+   "p_alex organises event:cx-calendar-dentist · accepted · typed",
+   "p_alex organises event:ep-a1b2c3d4e5f60718 · candidate · typed",
+   "p_alex parent_of p_ava · verified · typed",
+   "p_ava attends event:cx-calendar-dentist · accepted · typed",
+   "p_ava attends event:cx-calendar-pickup · accepted · typed",
+   "p_ava attends event:ep-a1b2c3d4e5f60718 · accepted · typed",
+   "p_ava located_at pl-cedar · verified · typed",
+   "p_ava located_at pl-cedar · verified · typed @2026-10-10T15:20:00-07:00",
+   "p_ava sees household:summit-dental · accepted · typed",
+   "p_jordan attends event:cx-calendar-bookclub · accepted · typed",
+   "p_jordan attends event:ep-a1b2c3d4e5f60718 · accepted · typed",
+   "p_jordan located_at pl-home · verified · typed",
+   "p_jordan organises event:cx-calendar-bookclub · accepted · typed",
+   "p_jordan organises event:cx-calendar-practice · accepted · typed",
+   "p_jordan parent_of p_leo · verified · typed",
+   "p_leo attends event:cx-calendar-practice · accepted · typed",
+   "p_leo attends event:ep-a1b2c3d4e5f60718 · accepted · typed",
+   "p_leo located_at pl-cedar · verified · typed",
+   "p_leo member_of household:pine-park-club · accepted · typed",
+   "p_robin attends event:cx-calendar-pickup · accepted · typed",
+   "p_robin attends event:cx-calendar-yoga · accepted · typed",
+   "p_robin attends event:cx-calendar-yoga-2 · accepted · typed",
+   "p_robin attends event:cx-calendar-yoga-3 · accepted · typed",
+   "p_robin attends event:ep-a1b2c3d4e5f60718 · accepted · typed",
+   "p_robin located_at pl-home · verified · typed",
+   "p_robin located_at pl-lakeside · verified · typed",
+   "p_robin organises event:cx-calendar-pickup · verified · typed",
+   "p_robin organises event:cx-calendar-yoga · accepted · typed",
+   "p_robin organises event:cx-calendar-yoga-2 · accepted · typed",
+   "p_robin organises event:cx-calendar-yoga-3 · accepted · typed",
+   "p_robin parent_of p_ava · verified · typed",
+   "task-tradein depends_on cx-mail-trade-2 · verified · typed",
+   "task-tradein depends_on household:harbor-mobile · verified · typed"
+  ]
+ },
+ "meeting_decisions": {
+  "about": "links.db meeting_summaries + meeting_decisions (#1421) for Alex's board meeting: owner-only rows, read through meeting_notes.decisions_for; each decision is an item md-<sig>-<idx> with a `decided` edge from the meeting's item.",
+  "owner": "p_alex",
+  "sig_id": "9a8b7c6d5e4f3021",
+  "kb_id": "cx-meeting-club-1",
+  "title": "Pine Park Club board",
+  "day": "2026-10-08",
+  "decisions": [
+   "The fall cleanup is on October 24",
+   "Dues rise to $40 from January",
+   "Alex runs the volunteer sign-up"
+  ]
+ }
+}

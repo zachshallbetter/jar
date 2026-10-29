@@ -1,0 +1,7 @@
+{
+ "body": {
+  "projects": []
+ },
+ "not_sss": "GET /v1/projects: the plain project list, not a ResolvedSurface",
+ "status": 200
+}

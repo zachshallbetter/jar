@@ -1,0 +1,351 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "admin",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-alex"
+  },
+  "dependencies": [
+   {
+    "revision": "1791554410.0",
+    "subject": {
+     "id": "todo:todo-alex"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:01:00+00:00",
+    "subject": {
+     "id": "chat:th-alex-filed"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 2,
+     "group": "g-project",
+     "rule": "filed-under"
+    }
+   ],
+   "ordering": [
+    "id"
+   ]
+  },
+  "fingerprint": "sha256:f1f40a08742c0c3fa4d639b73ae066fb106e0450047e7c639d8023770a36f9b5",
+  "groups": [
+   {
+    "id": "g-project",
+    "label": {
+     "key": "items.project",
+     "text": "Project"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "projects"
+        ],
+        "kind": "declared",
+        "rule": "filed-under"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-alex-filed",
+        "op-file-chat:th-alex-filed",
+        "op-unfile-chat:th-alex-filed"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:00+00:00",
+       "projects": [
+        "pr-kitchen"
+       ],
+       "title": "Grout colour for the kitchen"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-alex-filed",
+       "kind": "chat"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "projects"
+        ],
+        "kind": "declared",
+        "rule": "filed-under"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-todo:todo-alex",
+        "op-done-todo:todo-alex",
+        "op-file-todo:todo-alex",
+        "op-unfile-todo:todo-alex"
+       ],
+       "audience": "private",
+       "projects": [
+        "pr-kitchen"
+       ],
+       "title": "Renew the parking permit"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "todo:todo-alex",
+       "kind": "todo"
+      }
+     }
+    ],
+    "operations": [
+     "op-add-todo-pr-kitchen",
+     "op-ask-pr-kitchen",
+     "op-rename-pr-kitchen"
+    ],
+    "ordering": "id",
+    "role": "primary"
+   }
+  ],
+  "name_source": "person",
+  "next": {
+   "id": "todo:todo-alex",
+   "kind": "todo",
+   "owner": "p-alex",
+   "title": "Renew the parking permit"
+  },
+  "operations": [
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-alex-filed",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-alex-filed",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-alex-filed",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-alex-filed"
+    },
+    "subject": {
+     "id": "chat:th-alex-filed",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.unfile@1",
+    "exposure": "available",
+    "id": "op-unfile-chat:th-alex-filed",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/chat:th-alex-filed/unfile"
+    },
+    "subject": {
+     "id": "chat:th-alex-filed",
+     "kind": "chat"
+    },
+    "verb": "unfile",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.open@1",
+    "exposure": "available",
+    "id": "op-open-todo:todo-alex",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.done@1",
+    "exposure": "available",
+    "id": "op-done-todo:todo-alex",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos/todo-alex/done"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "done",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.file@1",
+    "exposure": "available",
+    "id": "op-file-todo:todo-alex",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-alex/file"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.unfile@1",
+    "exposure": "available",
+    "id": "op-unfile-todo:todo-alex",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-alex/unfile"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "unfile",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.add@1",
+    "exposure": "available",
+    "id": "op-add-todo-pr-kitchen",
+    "params": {
+     "project": "pr-kitchen"
+    },
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos"
+    },
+    "subject": {
+     "id": "pr-kitchen",
+     "kind": "project"
+    },
+    "verb": "add",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.project.ask@1",
+    "exposure": "available",
+    "id": "op-ask-pr-kitchen",
+    "params": {
+     "project": "pr-kitchen"
+    },
+    "reversibility": "compensatable",
+    "route": {
+     "method": "POST",
+     "path": "/v1/prompt/stream"
+    },
+    "subject": {
+     "id": "pr-kitchen",
+     "kind": "project"
+    },
+    "verb": "ask",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.project.rename@1",
+    "exposure": "available",
+    "id": "op-rename-pr-kitchen",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/projects/pr-kitchen"
+    },
+    "subject": {
+     "id": "pr-kitchen",
+     "kind": "project"
+    },
+    "verb": "edit",
+    "verification": "none"
+   }
+  ],
+  "people": [
+   {
+    "id": "p-alex",
+    "name": "Alex",
+    "role": "admin"
+   },
+   {
+    "id": "p-robin",
+    "name": "Robin",
+    "role": "adult"
+   }
+  ],
+  "profile": "collection",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "related": [],
+  "resolutionId": "rs-f1f40a08742c0c3f",
+  "sentence": {
+   "facts": {
+    "next": null,
+    "open": 2,
+    "project": "Kitchen remodel",
+    "waiting_on": [],
+    "waiting_on_you": 0
+   },
+   "key": "items.project.sentence",
+   "source": "template",
+   "text": "Kitchen remodel: 2 open."
+  },
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  },
+  "subject": {
+   "id": "pr-kitchen",
+   "kind": "project"
+  }
+ },
+ "status": 200
+}

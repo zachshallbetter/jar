@@ -1,0 +1,69 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "kid",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-ava"
+  },
+  "dependencies": [],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 0,
+     "group": "g-unsorted",
+     "rule": null
+    }
+   ],
+   "ordering": [
+    "newest"
+   ]
+  },
+  "fingerprint": "sha256:d1c1dc8bef0756c2e0b0ae8399b2a830492ffb52f23386691c73e33db40c2361",
+  "groups": [
+   {
+    "id": "g-unsorted",
+    "label": {
+     "key": "items.unsorted",
+     "text": "Unsorted"
+    },
+    "members": [],
+    "ordering": "newest",
+    "role": "primary"
+   }
+  ],
+  "operations": [],
+  "profile": "collection",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "suggested",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "resolutionId": "rs-d1c1dc8bef0756c2",
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  }
+ },
+ "status": 200
+}

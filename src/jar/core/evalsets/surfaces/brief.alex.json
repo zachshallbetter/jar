@@ -1,0 +1,1341 @@
+{
+ "accessProjection": {
+  "role": "admin",
+  "rule": "composition of this viewer's schedule, items (now) and cards surfaces; titan's sources only",
+  "viewer": "alex"
+ },
+ "dependencies": [
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-cap"
+   }
+  },
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-lock"
+   }
+  },
+  {
+   "revision": "2026-10-06T16:30:00-07:00|2026-10-06T17:30:00-07:00",
+   "subject": {
+    "id": "e1"
+   }
+  },
+  {
+   "revision": "2026-10-07T20:00:00-07:00|",
+   "subject": {
+    "id": "e2"
+   }
+  },
+  {
+   "revision": "2026-10-06T09:00:00-07:00|2026-10-06T10:00:00-07:00",
+   "subject": {
+    "id": "e3"
+   }
+  },
+  {
+   "revision": "2026-10-06T09:30:00-07:00|2026-10-06T10:15:00-07:00",
+   "subject": {
+    "id": "e4"
+   }
+  },
+  {
+   "revision": "2026-10-07|",
+   "subject": {
+    "id": "e6"
+   }
+  },
+  {
+   "revision": "2026-10-07T10:00:00-07:00|",
+   "subject": {
+    "id": "e7"
+   }
+  },
+  {
+   "revision": "1.0",
+   "subject": {
+    "id": "scheduled:s1"
+   }
+  },
+  {
+   "revision": "1.0",
+   "subject": {
+    "id": "scheduled:s2"
+   }
+  },
+  {
+   "revision": "1",
+   "subject": {
+    "id": "task:t2"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 4,
+    "group": "g-needs-you",
+    "rule": "card"
+   },
+   {
+    "count": 4,
+    "group": "g-today",
+    "rule": "visible-event"
+   },
+   {
+    "count": 3,
+    "group": "g-coming-up",
+    "rule": "visible-event"
+   }
+  ],
+  "ordering": [
+   "priority",
+   "time",
+   "time"
+  ]
+ },
+ "fingerprint": "sha256:a37138c401c859d6f61309c8606b6a8082e0675f018881dbffdbe250adba4050",
+ "groups": [
+  {
+   "id": "g-needs-you",
+   "label": {
+    "key": "brief.needs_you",
+    "text": "Needs you"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [
+       {
+        "id": "approve",
+        "kind": "reply",
+        "label": "Approve",
+        "value": "cap:k-7:40"
+       },
+       {
+        "id": "decline",
+        "kind": "reply",
+        "label": "Not now",
+        "value": "decline"
+       }
+      ],
+      "approval": true,
+      "can_mute": true,
+      "created_at": 1791330540.0,
+      "data": {
+       "cap_id": "k-7",
+       "default": 40,
+       "format": "Up to ${value}",
+       "kind": "approve_cap",
+       "max": 80,
+       "min": 10,
+       "step": 5,
+       "unit": "usd"
+      },
+      "detail": null,
+      "expires_at": null,
+      "id": "c-cap",
+      "kind": "approve_cap",
+      "source": "approve-cap",
+      "title": "Raise the grocery cap?",
+      "updated_at": 1791330600.0,
+      "urgency": 2
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-ask-c-cap",
+       "op-act-c-cap-approve",
+       "op-act-c-cap-decline",
+       "op-later-c-cap",
+       "op-done-c-cap",
+       "op-mute-c-cap"
+      ],
+      "meta": "approve-cap",
+      "status": {
+       "text": "card.urgent",
+       "tone": "attention"
+      },
+      "title": "Raise the grocery cap?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-cap",
+      "kind": "card"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [
+       {
+        "id": "a0",
+        "kind": "reply",
+        "label": "Lock up"
+       }
+      ],
+      "approval": true,
+      "can_mute": false,
+      "created_at": 1791330540.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-lock",
+      "kind": "info",
+      "source": "lock-up",
+      "title": "Lock up for the night?",
+      "updated_at": 1791330600.0,
+      "urgency": 2
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-ask-c-lock",
+       "op-act-c-lock-a0",
+       "op-later-c-lock",
+       "op-done-c-lock",
+       "op-mute-c-lock"
+      ],
+      "meta": "lock-up",
+      "status": {
+       "text": "card.urgent",
+       "tone": "attention"
+      },
+      "title": "Lock up for the night?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-lock",
+      "kind": "card"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "owner",
+        "state",
+        "time"
+       ],
+       "kind": "derived",
+       "rule": "waits-on-you"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-scheduled:s1",
+       "op-remove-scheduled:s1",
+       "op-file-scheduled:s1",
+       "op-later-scheduled:s1"
+      ],
+      "audience": "private",
+      "meta": "2026-10-06T14:00:00Z",
+      "projects": [],
+      "title": "Return the library books"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "scheduled:s1",
+      "kind": "scheduled"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "owner",
+        "state",
+        "time"
+       ],
+       "kind": "derived",
+       "rule": "waits-on-you"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-task:t2",
+       "op-file-task:t2",
+       "op-later-task:t2"
+      ],
+      "audience": "private",
+      "projects": [],
+      "status": {
+       "text": "waiting",
+       "tone": "attention"
+      },
+      "title": "Wait on the quote"
+     },
+     "state": "eligible",
+     "steps": [
+      {
+       "next_at": null,
+       "state": "blocked",
+       "title": "a",
+       "who": "alex"
+      }
+     ],
+     "subject": {
+      "id": "task:t2",
+      "kind": "task"
+     }
+    }
+   ],
+   "ordering": "priority",
+   "role": "attention"
+  },
+  {
+   "focus": true,
+   "id": "g-today",
+   "label": {
+    "key": "brief.today",
+    "text": "Today"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Work",
+      "end": "2026-10-06T10:00:00-07:00",
+      "id": "e3",
+      "location": "Harbor Dental",
+      "managed_by": "alex",
+      "managed_by_you": true,
+      "start": "2026-10-06T09:00:00-07:00",
+      "title": "Dentist"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e3",
+       "op-ask-e3"
+      ],
+      "meta": "2026-10-06T09:00:00-07:00",
+      "subtitle": "Harbor Dental",
+      "title": "Dentist"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e3",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "alex",
+      "name": "Alex",
+      "you": true
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Work",
+      "end": "2026-10-06T10:15:00-07:00",
+      "id": "e4",
+      "location": null,
+      "managed_by": "alex",
+      "managed_by_you": true,
+      "start": "2026-10-06T09:30:00-07:00",
+      "title": "Budget call"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e4",
+       "op-ask-e4"
+      ],
+      "meta": "2026-10-06T09:30:00-07:00",
+      "title": "Budget call"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e4",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "alex",
+      "name": "Alex",
+      "you": true
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Ava",
+      "end": "2026-10-06T17:30:00-07:00",
+      "id": "e1",
+      "location": null,
+      "managed_by": "ava",
+      "managed_by_you": false,
+      "start": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e1",
+       "op-ask-e1"
+      ],
+      "audience": "Ava",
+      "meta": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e1",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "ava",
+      "name": "Ava",
+      "you": false
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "today"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-scheduled:s2",
+       "op-remove-scheduled:s2",
+       "op-file-scheduled:s2",
+       "op-later-scheduled:s2"
+      ],
+      "audience": "private",
+      "meta": "2026-10-06T16:00:00Z",
+      "projects": [],
+      "title": "Call the plumber"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "scheduled:s2",
+      "kind": "scheduled"
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "primary"
+  },
+  {
+   "id": "g-coming-up",
+   "label": {
+    "key": "brief.coming_up",
+    "text": "Coming up"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": true,
+      "calendar": "Family",
+      "end": null,
+      "id": "e6",
+      "location": null,
+      "managed_by": "household",
+      "managed_by_you": false,
+      "start": "2026-10-07",
+      "title": "School holiday"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e6",
+       "op-ask-e6"
+      ],
+      "all_day": true,
+      "meta": "2026-10-07",
+      "title": "School holiday"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e6",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "household",
+      "name": null,
+      "you": false
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Robin",
+      "end": null,
+      "id": "e7",
+      "location": null,
+      "managed_by": "robin",
+      "managed_by_you": false,
+      "start": "2026-10-07T10:00:00-07:00",
+      "title": "Coffee with Hale"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e7",
+       "op-ask-e7"
+      ],
+      "audience": "Robin",
+      "meta": "2026-10-07T10:00:00-07:00",
+      "title": "Coffee with Hale"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e7",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "robin",
+      "name": "Robin",
+      "you": false
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Family",
+      "end": null,
+      "id": "e2",
+      "location": null,
+      "managed_by": "household",
+      "managed_by_you": false,
+      "start": "2026-10-07T20:00:00-07:00",
+      "title": "Take out the bins"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e2",
+       "op-ask-e2"
+      ],
+      "meta": "2026-10-07T20:00:00-07:00",
+      "title": "Take out the bins"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e2",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "household",
+      "name": null,
+      "you": false
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "supporting"
+  }
+ ],
+ "header": {
+  "date": "Tue Oct 6",
+  "weather": {
+   "high": 68,
+   "low": 50,
+   "now": 61,
+   "place": "Home",
+   "rain": 0,
+   "sky": "clear",
+   "unit": "F"
+  }
+ },
+ "operations": [
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-cap",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-cap",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "action": {
+    "id": "approve",
+    "kind": "reply",
+    "value": "cap:k-7:40"
+   },
+   "contract": "jellybean.card.action@1",
+   "exposure": "available",
+   "id": "op-act-c-cap-approve",
+   "input": {
+    "cap_id": "k-7",
+    "default": 40,
+    "format": "Up to ${value}",
+    "kind": "range",
+    "max": 80,
+    "min": 10,
+    "sends": "value",
+    "step": 5,
+    "unit": "usd",
+    "value_format": "cap:{cap_id}:{value}"
+   },
+   "label": {
+    "text": "Approve"
+   },
+   "params": {
+    "action_id": "approve"
+   },
+   "reversibility": "unknown",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-cap/action"
+   },
+   "subject": {
+    "id": "c-cap",
+    "kind": "card"
+   },
+   "variant": "primary",
+   "verb": "reply",
+   "verification": "none"
+  },
+  {
+   "action": {
+    "id": "decline",
+    "kind": "reply",
+    "value": "decline"
+   },
+   "contract": "jellybean.card.action@1",
+   "exposure": "available",
+   "id": "op-act-c-cap-decline",
+   "label": {
+    "text": "Not now"
+   },
+   "params": {
+    "action_id": "decline"
+   },
+   "reversibility": "unknown",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-cap/action"
+   },
+   "subject": {
+    "id": "c-cap",
+    "kind": "card"
+   },
+   "verb": "reply",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "available",
+   "id": "op-later-c-cap",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-cap/snooze"
+   },
+   "subject": {
+    "id": "c-cap",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-cap",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-cap/ack"
+   },
+   "subject": {
+    "id": "c-cap",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "available",
+   "id": "op-mute-c-cap",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-cap/mute"
+   },
+   "subject": {
+    "id": "c-cap",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-lock",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "action": {
+    "id": "a0",
+    "kind": "reply",
+    "value": null
+   },
+   "contract": "jellybean.card.action@1",
+   "exposure": "available",
+   "id": "op-act-c-lock-a0",
+   "label": {
+    "text": "Lock up"
+   },
+   "params": {
+    "action_id": "a0"
+   },
+   "reversibility": "unknown",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/action"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "variant": "primary",
+   "verb": "reply",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "unavailable",
+   "id": "op-later-c-lock",
+   "params": {
+    "until": null
+   },
+   "reason": {
+    "key": "card.safety"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/snooze"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-lock",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/ack"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "unavailable",
+   "id": "op-mute-c-lock",
+   "reason": {
+    "key": "card.safety"
+   },
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/mute"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.open@1",
+   "exposure": "available",
+   "id": "op-open-scheduled:s1",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.remove@1",
+   "exposure": "available",
+   "id": "op-remove-scheduled:s1",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/scheduled/s1"
+   },
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.file@1",
+   "exposure": "available",
+   "id": "op-file-scheduled:s1",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s1/file"
+   },
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.later@1",
+   "exposure": "available",
+   "id": "op-later-scheduled:s1",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s1/later"
+   },
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.open@1",
+   "exposure": "available",
+   "id": "op-open-scheduled:s2",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.remove@1",
+   "exposure": "available",
+   "id": "op-remove-scheduled:s2",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/scheduled/s2"
+   },
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.file@1",
+   "exposure": "available",
+   "id": "op-file-scheduled:s2",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s2/file"
+   },
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.later@1",
+   "exposure": "available",
+   "id": "op-later-scheduled:s2",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s2/later"
+   },
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.task.open@1",
+   "exposure": "available",
+   "id": "op-open-task:t2",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "task:t2",
+    "kind": "task"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.task.file@1",
+   "exposure": "available",
+   "id": "op-file-task:t2",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/task:t2/file"
+   },
+   "subject": {
+    "id": "task:t2",
+    "kind": "task"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.task.later@1",
+   "exposure": "available",
+   "id": "op-later-task:t2",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/task:t2/later"
+   },
+   "subject": {
+    "id": "task:t2",
+    "kind": "task"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e3",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e3",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e3",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e3",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e3",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e4",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e4",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e4",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e4",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e4",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e7",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e7",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e7",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e7",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e7",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e1",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e1",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e1",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e1",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e1",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e6",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e6",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e6",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e6",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e6",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e2",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e2",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e2",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e2",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e2",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  }
+ ],
+ "profile": "temporal",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "schedule@1",
+   "items@1",
+   "cards@1",
+   "weather",
+   "today",
+   "viewer"
+  ],
+  "resolver": "brief@1"
+ },
+ "purpose": "orient",
+ "resolutionId": "rs-a37138c401c859d6",
+ "sizeClass": "dozens",
+ "sources": {
+  "cards": "cards@1",
+  "items": "items@1",
+  "schedule": "schedule@1"
+ },
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

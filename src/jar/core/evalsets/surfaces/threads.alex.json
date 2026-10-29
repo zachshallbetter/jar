@@ -1,0 +1,771 @@
+{
+ "accessProjection": {
+  "role": "admin",
+  "rule": "chat_threads.build (this person's own conversations)",
+  "viewer": "alex"
+ },
+ "dependencies": [
+  {
+   "revision": "2026-09-21T14:13:23+00:00",
+   "subject": {
+    "id": "chat:th-a1"
+   }
+  },
+  {
+   "revision": "2026-09-21T14:33:23+00:00",
+   "subject": {
+    "id": "chat:th-a2"
+   }
+  },
+  {
+   "revision": "2026-09-21T19:13:23+00:00",
+   "subject": {
+    "id": "chat:th-a3"
+   }
+  },
+  {
+   "revision": "2026-09-21T19:28:23+00:00",
+   "subject": {
+    "id": "chat:th-a4"
+   }
+  },
+  {
+   "revision": "2026-09-22T05:13:23+00:00",
+   "subject": {
+    "id": "chat:th-a5"
+   }
+  },
+  {
+   "revision": "2026-09-22T15:13:23+00:00",
+   "subject": {
+    "id": "chat:th-a6"
+   }
+  },
+  {
+   "revision": "2026-09-23T09:33:23+00:00",
+   "subject": {
+    "id": "chat:th-a7"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 2,
+    "group": "g-thread-ct-5b31921869bd",
+    "rule": "thread-linker"
+   },
+   {
+    "count": 2,
+    "group": "g-thread-ct-09b370c36e68",
+    "rule": "thread-linker"
+   },
+   {
+    "count": 3,
+    "group": "g-other",
+    "rule": "recent"
+   }
+  ],
+  "ordering": [
+   "newest-first",
+   "newest-first",
+   "newest-first"
+  ]
+ },
+ "facets": {
+  "device": [
+   {
+    "count": 5,
+    "value": "Alex's iPhone"
+   },
+   {
+    "count": 2,
+    "value": "Alex's Mac"
+   }
+  ],
+  "kind": [
+   {
+    "count": 3,
+    "value": "calendar"
+   },
+   {
+    "count": 2,
+    "value": "home"
+   },
+   {
+    "count": 1,
+    "value": "files"
+   },
+   {
+    "count": 1,
+    "value": "web"
+   }
+  ],
+  "person": [
+   {
+    "count": 2,
+    "label": "Robin",
+    "value": "robin"
+   }
+  ],
+  "place": [],
+  "project": [
+   {
+    "count": 1,
+    "label": "House",
+    "value": "pj-house"
+   }
+  ],
+  "room": []
+ },
+ "filters": [],
+ "fingerprint": "sha256:0f92d5fa313d02f8ef080e2696296da971f57ba35d9d070631c931e32d7f6fdf",
+ "groups": [
+  {
+   "edges": [
+    {
+     "a": "chat-th-a3",
+     "b": "chat-th-a4",
+     "state": "accepted",
+     "type": "continues",
+     "why": "same home device (typed); 14.9 min later (measured)"
+    }
+   ],
+   "fringe": [],
+   "fringe_ops": [],
+   "id": "g-thread-ct-5b31921869bd",
+   "label": {
+    "key": "threads.thread",
+    "text": "2 chats \u00b7 home"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "edges"
+       ],
+       "kind": "derived",
+       "rule": "thread-linker"
+      }
+     ],
+     "item_id": "chat-th-a4",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a4",
+       "op-file-chat:th-a4",
+       "op-notin-ct-5b31921869bd-chat:th-a4"
+      ],
+      "meta": "2026-09-21T19:28:23+00:00",
+      "subtitle": "Done.",
+      "title": "Is the garage closed now?",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a4",
+      "kind": "chat"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "edges"
+       ],
+       "kind": "derived",
+       "rule": "thread-linker"
+      }
+     ],
+     "item_id": "chat-th-a3",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a3",
+       "op-file-chat:th-a3",
+       "op-notin-ct-5b31921869bd-chat:th-a3"
+      ],
+      "meta": "2026-09-21T19:13:23+00:00",
+      "projects": [
+       "pj-house"
+      ],
+      "subtitle": "Done.",
+      "title": "Close the garage",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a3",
+      "kind": "chat"
+     }
+    }
+   ],
+   "ordering": "newest-first",
+   "role": "primary",
+   "same_op": "op-same-ct-5b31921869bd",
+   "summary": "2 chats \u00b7 home"
+  },
+  {
+   "edges": [
+    {
+     "a": "chat-th-a1",
+     "b": "chat-th-a2",
+     "state": "accepted",
+     "type": "continues",
+     "why": "same record touched (typed); 19.9 min later (measured)"
+    }
+   ],
+   "fringe": [],
+   "fringe_ops": [],
+   "id": "g-thread-ct-09b370c36e68",
+   "label": {
+    "key": "threads.thread",
+    "text": "Lakeside Clinic"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "edges"
+       ],
+       "kind": "derived",
+       "rule": "thread-linker"
+      }
+     ],
+     "item_id": "chat-th-a2",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a2",
+       "op-file-chat:th-a2",
+       "op-notin-ct-09b370c36e68-chat:th-a2"
+      ],
+      "meta": "2026-09-21T14:33:23+00:00",
+      "subtitle": "Done.",
+      "title": "Move the Lakeside Clinic referral reminder to Friday",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a2",
+      "kind": "chat"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "edges"
+       ],
+       "kind": "derived",
+       "rule": "thread-linker"
+      }
+     ],
+     "item_id": "chat-th-a1",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a1",
+       "op-file-chat:th-a1",
+       "op-notin-ct-09b370c36e68-chat:th-a1"
+      ],
+      "meta": "2026-09-21T14:13:23+00:00",
+      "subtitle": "Done.",
+      "title": "Remind me to call Lakeside Clinic about the referral",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a1",
+      "kind": "chat"
+     }
+    }
+   ],
+   "ordering": "newest-first",
+   "role": "primary",
+   "same_op": "op-same-ct-09b370c36e68",
+   "summary": "2 chats \u00b7 calendar"
+  },
+  {
+   "id": "g-other",
+   "label": {
+    "key": "threads.other",
+    "text": "Other chats"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "last_at"
+       ],
+       "kind": "declared",
+       "rule": "recent"
+      }
+     ],
+     "item_id": "chat-th-a7",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a7",
+       "op-file-chat:th-a7"
+      ],
+      "meta": "2026-09-23T09:33:23+00:00",
+      "subtitle": "Done.",
+      "title": "Did Robin confirm the dinner?",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a7",
+      "kind": "chat"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "last_at"
+       ],
+       "kind": "declared",
+       "rule": "recent"
+      }
+     ],
+     "item_id": "chat-th-a6",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a6",
+       "op-file-chat:th-a6"
+      ],
+      "meta": "2026-09-22T15:13:23+00:00",
+      "subtitle": "Done.",
+      "title": "What does Robin have on Thursday?",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a6",
+      "kind": "chat"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "last_at"
+       ],
+       "kind": "declared",
+       "rule": "recent"
+      }
+     ],
+     "item_id": "chat-th-a5",
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-chat:th-a5",
+       "op-file-chat:th-a5"
+      ],
+      "meta": "2026-09-22T05:13:23+00:00",
+      "subtitle": "Done.",
+      "title": "What's the weather this weekend?",
+      "trailing": {
+       "value": "2"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "chat:th-a5",
+      "kind": "chat"
+     }
+    }
+   ],
+   "ordering": "newest-first",
+   "role": "supporting"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.thread.relate@1",
+   "exposure": "available",
+   "id": "op-same-ct-5b31921869bd",
+   "params": {
+    "pairs": [
+     [
+      "chat-th-a3",
+      "chat-th-a4"
+     ]
+    ],
+    "related": true
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/threads/relate"
+   },
+   "subject": {
+    "id": "ct-5b31921869bd",
+    "kind": "thread"
+   },
+   "verb": "relate",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.thread.unrelate@1",
+   "exposure": "available",
+   "id": "op-notin-ct-5b31921869bd-chat:th-a4",
+   "params": {
+    "pairs": [
+     [
+      "chat-th-a3",
+      "chat-th-a4"
+     ]
+    ],
+    "related": false
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/threads/relate"
+   },
+   "subject": {
+    "id": "ct-5b31921869bd",
+    "kind": "thread"
+   },
+   "verb": "unrelate",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.thread.unrelate@1",
+   "exposure": "available",
+   "id": "op-notin-ct-5b31921869bd-chat:th-a3",
+   "params": {
+    "pairs": [
+     [
+      "chat-th-a3",
+      "chat-th-a4"
+     ]
+    ],
+    "related": false
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/threads/relate"
+   },
+   "subject": {
+    "id": "ct-5b31921869bd",
+    "kind": "thread"
+   },
+   "verb": "unrelate",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.thread.relate@1",
+   "exposure": "available",
+   "id": "op-same-ct-09b370c36e68",
+   "params": {
+    "pairs": [
+     [
+      "chat-th-a1",
+      "chat-th-a2"
+     ]
+    ],
+    "related": true
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/threads/relate"
+   },
+   "subject": {
+    "id": "ct-09b370c36e68",
+    "kind": "thread"
+   },
+   "verb": "relate",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.thread.unrelate@1",
+   "exposure": "available",
+   "id": "op-notin-ct-09b370c36e68-chat:th-a2",
+   "params": {
+    "pairs": [
+     [
+      "chat-th-a1",
+      "chat-th-a2"
+     ]
+    ],
+    "related": false
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/threads/relate"
+   },
+   "subject": {
+    "id": "ct-09b370c36e68",
+    "kind": "thread"
+   },
+   "verb": "unrelate",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.thread.unrelate@1",
+   "exposure": "available",
+   "id": "op-notin-ct-09b370c36e68-chat:th-a1",
+   "params": {
+    "pairs": [
+     [
+      "chat-th-a1",
+      "chat-th-a2"
+     ]
+    ],
+    "related": false
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/threads/relate"
+   },
+   "subject": {
+    "id": "ct-09b370c36e68",
+    "kind": "thread"
+   },
+   "verb": "unrelate",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a1",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a1",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a1",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a1"
+   },
+   "subject": {
+    "id": "chat:th-a1",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a2",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a2",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a2",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a2"
+   },
+   "subject": {
+    "id": "chat:th-a2",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a3",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a3",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a3",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a3"
+   },
+   "subject": {
+    "id": "chat:th-a3",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a4",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a4",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a4",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a4"
+   },
+   "subject": {
+    "id": "chat:th-a4",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a5",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a5",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a5",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a5"
+   },
+   "subject": {
+    "id": "chat:th-a5",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a6",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a6",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a6",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a6"
+   },
+   "subject": {
+    "id": "chat:th-a6",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.open@1",
+   "exposure": "available",
+   "id": "op-open-chat:th-a7",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "chat:th-a7",
+    "kind": "chat"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.chat.file@1",
+   "exposure": "available",
+   "id": "op-file-chat:th-a7",
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/conversations/th-a7"
+   },
+   "subject": {
+    "id": "chat:th-a7",
+    "kind": "chat"
+   },
+   "verb": "file",
+   "verification": "none"
+  }
+ ],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-09-24T14:13:20Z",
+  "inputs": [
+   "conversations",
+   "linker",
+   "now",
+   "viewer"
+  ],
+  "resolver": "threads@1"
+ },
+ "purpose": "browse",
+ "resolutionId": "rs-0f92d5fa313d02f8",
+ "sizeClass": "dozens",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "adult",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-robin"
+  },
+  "dependencies": [
+   {
+    "revision": "2026-10-09T14:01:03+00:00",
+    "subject": {
+     "id": "chat:th-robin-new"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 1,
+     "group": "g-unsorted",
+     "rule": "not-filed"
+    }
+   ],
+   "ordering": [
+    "newest"
+   ]
+  },
+  "fingerprint": "sha256:c0d679014931954eb7b1118035e468fbbaeb4c3b389af2c4f8055288a746cbbd",
+  "groups": [
+   {
+    "id": "g-unsorted",
+    "label": {
+     "key": "items.unsorted",
+     "text": "Unsorted"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "projects"
+        ],
+        "kind": "declared",
+        "rule": "not-filed"
+       },
+       {
+        "inputs": [
+         "links"
+        ],
+        "kind": "derived",
+        "rule": "suggested-project"
+       }
+      ],
+      "priority": 2,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-robin-new",
+        "op-file-chat:th-robin-new"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:03+00:00",
+       "projects": [],
+       "subtitle": "Same record touched as a chat in Surprise party",
+       "title": "the cake again"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-robin-new",
+       "kind": "chat"
+      },
+      "suggestion": {
+       "auto": false,
+       "project": "pr-party",
+       "state": "accepted"
+      }
+     }
+    ],
+    "ordering": "newest",
+    "role": "primary"
+   }
+  ],
+  "operations": [
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-robin-new",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-robin-new",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-robin-new",
+    "params": {
+     "project": "pr-party"
+    },
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-robin-new"
+    },
+    "subject": {
+     "id": "chat:th-robin-new",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   }
+  ],
+  "profile": "collection",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "suggested",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "resolutionId": "rs-c0d679014931954e",
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  }
+ },
+ "status": 200
+}

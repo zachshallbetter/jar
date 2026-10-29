@@ -1,0 +1,29 @@
+# Justified hits for test_zone_lint.py (#1570). One per line: file:function:rule  # why. An entry that stops matching fails the lint,
+# so delete it when the code changes. rules: today, localtime, strftime, now, fromts, zoneliteral. Prefer fixing: local_time.zone() / now() / clock().
+agent_runtime_lib.py:host_status:now  # epoch arithmetic only (.timestamp() of a naive now), not a date shown to anyone; the zone does not change it
+agent_runtime_lib.py:prompt_agent_14:now  # epoch arithmetic only (.timestamp() of a naive now), not a date shown to anyone; the zone does not change it
+autonomous_coder.py:_carry_out:strftime  # operator log stamp, naive host time (UTC on titan); UTC with Z is #1568
+connectors_runner.py:_index_series:now  # fallback only when the UTC stamp above cannot be parsed; a UTC-by-design read
+contacts_connector.py:ingest:today  # observation date, the host's day (UTC on titan); household-day follow-up in #1567
+contacts_connector.py:same_as_member:today  # observation date, the host's day (UTC on titan); household-day follow-up in #1567
+correction_digest.py:run:strftime  # text a person reads, printed in host time; fixed by #1568
+graph_query.py:relationship:fromts  # naive epoch converted with .astimezone() to the host zone for a label; shown zone-aware
+household_eval_nightly.py:main:strftime  # operator log stamp, naive host time (UTC on titan); UTC with Z is #1568
+household_identity.py:_facts:localtime  # birth-year age compares a year, not a day; a one-day error at New Year is not worth the zone
+household_identity.py:update_person:localtime  # birth-year age compares a year, not a day; a one-day error at New Year is not worth the zone
+household_reset.py:main:strftime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+jev_client.py:main:strftime  # operator log stamp, naive host time (UTC on titan); UTC with Z is #1568
+kb_hygiene.py:apply:strftime  # operator log stamp, naive host time (UTC on titan); UTC with Z is #1568
+kb_import.py:build:strftime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+kb_lifecycle.py:expire:fromts  # backup filename stamp, naive host time (UTC on titan); Z suffix is #1568
+local_time.py:clock:fromts  # local_time owns the zone: the host-zone fallback for when the household zone cannot load
+local_time.py:day:fromts  # local_time owns the zone: the host-zone fallback for when the household zone cannot load
+local_time.py:now:now  # local_time owns the zone: the host-zone fallback for when the household zone cannot load
+mail_cutover.py:retire:localtime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+mail_cutover.py:retire:strftime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+mail_server.py:redact_store:localtime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+mail_server.py:redact_store:strftime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+sitter.py:_midnight:fromts  # fallback when the household zone cannot load; the zoned branch is the one used
+skillopt/pick_eval.py:main:strftime  # filename or run-label stamp, naive host time (UTC on titan); Z suffix is #1568
+world.py:main:fromts  # operator CLI listing printed on the operator's own host
+world.py:now:fromts  # the zoned branch is the real one; the naive form is the fallback when the household zone cannot load

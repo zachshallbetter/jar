@@ -1,0 +1,744 @@
+{
+ "accessProjection": {
+  "role": "kid",
+  "rule": "world.entity_list (household bubble, per viewer)",
+  "viewer": "ava"
+ },
+ "dependencies": [
+  {
+   "revision": "known:dog:2024-05-01T00:00:00-07:00",
+   "subject": {
+    "id": "household:biscuit#species"
+   }
+  },
+  {
+   "revision": "stale:Maple Animal Clinic:2020-01-10T00:00:00-08:00",
+   "subject": {
+    "id": "household:biscuit#vet"
+   }
+  },
+  {
+   "revision": "known:12 Elm Road:2026-09-01T00:00:00-07:00",
+   "subject": {
+    "id": "household:maple-animal-clinic#address"
+   }
+  },
+  {
+   "revision": "stale:(555) 0142:2019-03-01T00:00:00-08:00",
+   "subject": {
+    "id": "household:maple-animal-clinic#phone"
+   }
+  },
+  {
+   "revision": "Cedar School:school:False:True",
+   "subject": {
+    "id": "pl-g3"
+   }
+  },
+  {
+   "revision": "Shore Cafe:shop:True:True",
+   "subject": {
+    "id": "pl-g4"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 2,
+    "group": "g-needs-a-look",
+    "rule": "household-fact"
+   },
+   {
+    "count": 2,
+    "group": "g-entity-household:maple-animal-clinic",
+    "rule": "household-fact"
+   },
+   {
+    "count": 2,
+    "group": "g-entity-household:biscuit",
+    "rule": "household-fact"
+   },
+   {
+    "count": 2,
+    "group": "g-places",
+    "rule": "place"
+   }
+  ],
+  "ordering": [
+   "oldest-first",
+   "attribute",
+   "attribute",
+   "name"
+  ]
+ },
+ "fingerprint": "sha256:f8bffcd6f4f77d38ca30af550ad8fbc391c6c77a7cc10f4d84ae585a3be896bc",
+ "groups": [
+  {
+   "id": "g-needs-a-look",
+   "label": {
+    "key": "household.needs_a_look",
+    "text": "Needs a look"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:maple-animal-clinic#phone"
+      ],
+      "meta": "2019-03-01T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "phone",
+      "trailing": {
+       "value": "(555) 0142"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:maple-animal-clinic#phone",
+      "kind": "fact"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:biscuit#vet"
+      ],
+      "meta": "2020-01-10T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "vet",
+      "trailing": {
+       "value": "Maple Animal Clinic"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:biscuit#vet",
+      "kind": "fact"
+     }
+    }
+   ],
+   "ordering": "oldest-first",
+   "role": "attention"
+  },
+  {
+   "id": "g-entity-household:maple-animal-clinic",
+   "label": {
+    "key": "household.entity",
+    "text": "Maple Animal Clinic"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:maple-animal-clinic#address"
+      ],
+      "meta": "2026-09-01T00:00:00-07:00",
+      "title": "address",
+      "trailing": {
+       "value": "12 Elm Road"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:maple-animal-clinic#address",
+      "kind": "fact"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:maple-animal-clinic#phone"
+      ],
+      "meta": "2019-03-01T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "phone",
+      "trailing": {
+       "value": "(555) 0142"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:maple-animal-clinic#phone",
+      "kind": "fact"
+     }
+    }
+   ],
+   "operations": [
+    "op-confirm-all-household:maple-animal-clinic"
+   ],
+   "ordering": "attribute",
+   "role": "primary"
+  },
+  {
+   "id": "g-entity-household:biscuit",
+   "label": {
+    "key": "household.entity",
+    "text": "Biscuit"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:biscuit#species"
+      ],
+      "meta": "2024-05-01T00:00:00-07:00",
+      "title": "species",
+      "trailing": {
+       "value": "dog"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:biscuit#species",
+      "kind": "fact"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:biscuit#vet"
+      ],
+      "meta": "2020-01-10T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "vet",
+      "trailing": {
+       "value": "Maple Animal Clinic"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:biscuit#vet",
+      "kind": "fact"
+     }
+    }
+   ],
+   "operations": [
+    "op-confirm-all-household:biscuit"
+   ],
+   "ordering": "attribute",
+   "role": "primary"
+  },
+  {
+   "id": "g-places",
+   "label": {
+    "key": "household.places",
+    "text": "Places"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "places registry"
+       ],
+       "kind": "declared",
+       "rule": "place"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-place-edit-pl-g3",
+       "op-place-remove-pl-g3"
+      ],
+      "media": {
+       "symbol": "mappin"
+      },
+      "meta": "Private",
+      "subtitle": "School",
+      "title": "Cedar School"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "pl-g3",
+      "kind": "place"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "places registry"
+       ],
+       "kind": "declared",
+       "rule": "place"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [],
+      "media": {
+       "symbol": "mappin"
+      },
+      "meta": "Shared with the household",
+      "subtitle": "Shop",
+      "title": "Shore Cafe"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "pl-g4",
+      "kind": "place"
+     }
+    }
+   ],
+   "operations": [
+    "op-place-add"
+   ],
+   "ordering": "name",
+   "role": "primary"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:biscuit#species",
+   "params": {
+    "attribute": "species",
+    "value": "dog"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:biscuit/facts"
+   },
+   "subject": {
+    "id": "household:biscuit#species",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:biscuit#vet",
+   "params": {
+    "attribute": "vet",
+    "value": "Maple Animal Clinic"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:biscuit/facts"
+   },
+   "subject": {
+    "id": "household:biscuit#vet",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm_all@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-all-household:biscuit",
+   "params": {
+    "entity": "household:biscuit"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/surfaces/household-facts/confirm"
+   },
+   "subject": {
+    "id": "household:biscuit",
+    "kind": "entity"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:maple-animal-clinic#address",
+   "params": {
+    "attribute": "address",
+    "value": "12 Elm Road"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:maple-animal-clinic/facts"
+   },
+   "subject": {
+    "id": "household:maple-animal-clinic#address",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:maple-animal-clinic#phone",
+   "params": {
+    "attribute": "phone",
+    "value": "(555) 0142"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:maple-animal-clinic/facts"
+   },
+   "subject": {
+    "id": "household:maple-animal-clinic#phone",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm_all@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-all-household:maple-animal-clinic",
+   "params": {
+    "entity": "household:maple-animal-clinic"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/surfaces/household-facts/confirm"
+   },
+   "subject": {
+    "id": "household:maple-animal-clinic",
+    "kind": "entity"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.place.add@1",
+   "exposure": "unavailable",
+   "fields": [
+    {
+     "key": "name",
+     "kind": "text",
+     "label": "Name",
+     "required": true
+    },
+    {
+     "choices": [
+      {
+       "label": "Named",
+       "value": "named"
+      },
+      {
+       "label": "Home",
+       "value": "home"
+      },
+      {
+       "label": "School",
+       "value": "school"
+      },
+      {
+       "label": "Work",
+       "value": "work"
+      },
+      {
+       "label": "Park",
+       "value": "park"
+      },
+      {
+       "label": "Venue",
+       "value": "venue"
+      },
+      {
+       "label": "Clinic",
+       "value": "clinic"
+      },
+      {
+       "label": "Shop",
+       "value": "shop"
+      },
+      {
+       "label": "Other",
+       "value": "other"
+      }
+     ],
+     "key": "kind",
+     "kind": "choice",
+     "label": "Kind",
+     "required": true,
+     "value": "named"
+    },
+    {
+     "choices": [
+      {
+       "label": "Just me",
+       "value": "private"
+      },
+      {
+       "label": "The household",
+       "value": "household"
+      }
+     ],
+     "key": "visibility",
+     "kind": "choice",
+     "label": "Who sees it",
+     "required": true,
+     "value": "private"
+    }
+   ],
+   "id": "op-place-add",
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/places"
+   },
+   "subject": {
+    "id": "g-places",
+    "kind": "group"
+   },
+   "verb": "add",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.place.edit@1",
+   "exposure": "unavailable",
+   "fields": [
+    {
+     "key": "name",
+     "kind": "text",
+     "label": "Name",
+     "required": true,
+     "value": "Cedar School"
+    },
+    {
+     "choices": [
+      {
+       "label": "Named",
+       "value": "named"
+      },
+      {
+       "label": "Home",
+       "value": "home"
+      },
+      {
+       "label": "School",
+       "value": "school"
+      },
+      {
+       "label": "Work",
+       "value": "work"
+      },
+      {
+       "label": "Park",
+       "value": "park"
+      },
+      {
+       "label": "Venue",
+       "value": "venue"
+      },
+      {
+       "label": "Clinic",
+       "value": "clinic"
+      },
+      {
+       "label": "Shop",
+       "value": "shop"
+      },
+      {
+       "label": "Other",
+       "value": "other"
+      }
+     ],
+     "key": "kind",
+     "kind": "choice",
+     "label": "Kind",
+     "required": true,
+     "value": "school"
+    },
+    {
+     "choices": [
+      {
+       "label": "Just me",
+       "value": "private"
+      },
+      {
+       "label": "The household",
+       "value": "household"
+      }
+     ],
+     "key": "visibility",
+     "kind": "choice",
+     "label": "Who sees it",
+     "required": true,
+     "value": "private"
+    }
+   ],
+   "id": "op-place-edit-pl-g3",
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/places/pl-g3"
+   },
+   "subject": {
+    "id": "pl-g3",
+    "kind": "place"
+   },
+   "verb": "edit",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.place.remove@1",
+   "exposure": "unavailable",
+   "id": "op-place-remove-pl-g3",
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/places/pl-g3"
+   },
+   "subject": {
+    "id": "pl-g3",
+    "kind": "place"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  }
+ ],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "world:household",
+   "now",
+   "viewer",
+   "places"
+  ],
+  "resolver": "household-facts@1"
+ },
+ "purpose": "edit",
+ "resolutionId": "rs-f8bffcd6f4f77d38",
+ "sizeClass": "dozens",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

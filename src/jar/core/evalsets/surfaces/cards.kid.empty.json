@@ -1,0 +1,89 @@
+{
+ "accessProjection": {
+  "role": "kid",
+  "rule": "proactive.list_cards (this viewer's own cards) + card_items",
+  "viewer": "ava"
+ },
+ "dependencies": [],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 0,
+    "group": "g-needs-a-decision",
+    "rule": null
+   },
+   {
+    "count": 0,
+    "group": "g-cards",
+    "rule": null
+   },
+   {
+    "count": 0,
+    "group": "g-done-today",
+    "rule": null
+   }
+  ],
+  "ordering": [
+   "priority,then-newest",
+   "priority,then-newest",
+   "newest-first"
+  ]
+ },
+ "fingerprint": "sha256:70311cf04ba6b1e4d49d356b78cad050a260d20534958394396ed848fb3fd3a0",
+ "groups": [
+  {
+   "id": "g-needs-a-decision",
+   "label": {
+    "key": "cards.needs_a_decision",
+    "text": "Needs a decision"
+   },
+   "members": [],
+   "ordering": "priority,then-newest",
+   "role": "attention"
+  },
+  {
+   "id": "g-cards",
+   "label": {
+    "key": "cards.all",
+    "text": "Cards"
+   },
+   "members": [],
+   "ordering": "priority,then-newest",
+   "role": "supporting"
+  },
+  {
+   "id": "g-done-today",
+   "label": {
+    "key": "cards.done_today",
+    "text": "Done today"
+   },
+   "members": [],
+   "ordering": "newest-first",
+   "role": "history"
+  }
+ ],
+ "now": 1791331200.0,
+ "operations": [],
+ "profile": "attention",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "proactive:cards",
+   "now",
+   "day_start",
+   "viewer"
+  ],
+  "resolver": "cards@1"
+ },
+ "purpose": "act",
+ "resolutionId": "rs-70311cf04ba6b1e4",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

@@ -1,0 +1,122 @@
+{
+  "_comment": "Brokers are deployed under the same target root as runtimes and run as systemd units, but they are not runtimes: they hold provider credentials (custody rule P1) and are not managed by `titan.sh runtime`. They are listed here so preflight covers them.",
+  "brokers": [
+    {
+      "name": "llm-model-broker",
+      "kind": "rust",
+      "port": 9000,
+      "health_url": "http://127.0.0.1:9000/v1/health"
+    },
+    {
+      "name": "image-broker",
+      "kind": "rust",
+      "port": 9020,
+      "health_url": "http://127.0.0.1:9020/v1/health"
+    },
+    {
+      "name": "decision-broker",
+      "kind": "rust",
+      "port": 8030,
+      "health_url": "http://127.0.0.1:8030/v1/health"
+    }
+  ],
+  "runtimes": [
+    {
+      "name": "fetch-runtime",
+      "kind": "rust",
+      "port": 8300,
+      "health_url": "http://127.0.0.1:8300/health",
+      "needs_template": false
+    },
+    {
+      "name": "document-runtime",
+      "kind": "rust",
+      "port": 8800,
+      "health_url": "http://127.0.0.1:8800/v1/health",
+      "needs_template": true
+    },
+    {
+      "name": "epistemic-runtime",
+      "kind": "rust",
+      "port": 8500,
+      "health_url": "http://127.0.0.1:8500/v1/health",
+      "needs_template": true
+    },
+    {
+      "name": "identity-runtime",
+      "kind": "rust",
+      "port": 8000,
+      "health_url": "http://127.0.0.1:8000/health",
+      "needs_template": false
+    },
+    {
+      "name": "image-runtime",
+      "kind": "rust",
+      "port": 8001,
+      "health_url": "http://127.0.0.1:8001/v1/health",
+      "needs_template": true
+    },
+    {
+      "name": "policy-runtime",
+      "kind": "rust",
+      "port": 8600,
+      "health_url": "http://127.0.0.1:8600/health",
+      "needs_template": true
+    },
+    {
+      "name": "record-runtime",
+      "kind": "rust",
+      "port": 8950,
+      "health_url": "http://127.0.0.1:8950/health",
+      "needs_template": false
+    },
+    {
+      "name": "retrieval-runtime",
+      "kind": "rust",
+      "port": 9100,
+      "health_url": "http://127.0.0.1:9100/health",
+      "needs_template": false
+    },
+    {
+      "name": "event-runtime",
+      "kind": "rust",
+      "port": 9200,
+      "health_url": "http://127.0.0.1:9200/health",
+      "needs_template": false
+    },
+    {
+      "name": "posture-runtime",
+      "kind": "rust",
+      "port": 8200,
+      "health_url": "http://127.0.0.1:8200/health",
+      "needs_template": false
+    },
+    {
+      "name": "workflow-runtime",
+      "kind": "rust",
+      "port": 9300,
+      "health_url": "http://127.0.0.1:9300/health",
+      "needs_template": false
+    },
+    {
+      "name": "text-runtime",
+      "kind": "rust",
+      "port": 8100,
+      "health_url": "http://127.0.0.1:8100/v1/health",
+      "needs_template": true
+    },
+    {
+      "name": "intelligence-runtime",
+      "kind": "rust",
+      "port": 8250,
+      "health_url": "http://127.0.0.1:8250/health"
+    },
+    {
+      "name": "observer-runtime",
+      "kind": "rust",
+      "port": 3110,
+      "health_url": "http://127.0.0.1:3110/health",
+      "needs_template": false
+    }
+  ]
+}

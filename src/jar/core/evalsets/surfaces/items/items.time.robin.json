@@ -1,0 +1,458 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "adult",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-robin"
+  },
+  "dependencies": [
+   {
+    "revision": "1791554427.0",
+    "subject": {
+     "id": "scheduled:sch-alex"
+    }
+   },
+   {
+    "revision": "1791554428.0",
+    "subject": {
+     "id": "scheduled:sch-robin"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:00:51+00:00",
+    "subject": {
+     "id": "chat:s-uuid-2"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:01:02+00:00",
+    "subject": {
+     "id": "chat:th-robin-filed"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:01:03+00:00",
+    "subject": {
+     "id": "chat:th-robin-new"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 4,
+     "group": "g-day-2026-10-09",
+     "rule": "in-range"
+    },
+    {
+     "count": 1,
+     "group": "g-day-2026-10-10",
+     "rule": "in-range"
+    }
+   ],
+   "ordering": [
+    "time",
+    "time"
+   ]
+  },
+  "fingerprint": "sha256:e32932bd38e040eac7302a4aac6aab507403896ee25364582e6a7cdd9bbacc42",
+  "groups": [
+   {
+    "id": "g-day-2026-10-09",
+    "label": {
+     "args": {
+      "date": "2026-10-09"
+     },
+     "key": "items.time.day",
+     "text": "Today"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:s-uuid-2",
+        "op-file-chat:s-uuid-2"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:00:51+00:00",
+       "projects": [],
+       "title": "Ideas for the party playlist"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:s-uuid-2",
+       "kind": "chat"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-robin-filed",
+        "op-file-chat:th-robin-filed",
+        "op-unfile-chat:th-robin-filed"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:02+00:00",
+       "projects": [
+        "pr-party"
+       ],
+       "title": "Cake for the party"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-robin-filed",
+       "kind": "chat"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-robin-new",
+        "op-file-chat:th-robin-new"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:03+00:00",
+       "projects": [],
+       "title": "the cake again"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-robin-new",
+       "kind": "chat"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-scheduled:sch-robin",
+        "op-remove-scheduled:sch-robin",
+        "op-file-scheduled:sch-robin"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T19:00:00Z",
+       "projects": [],
+       "title": "Pay Hale Water"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "scheduled:sch-robin",
+       "kind": "scheduled"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "primary"
+   },
+   {
+    "id": "g-day-2026-10-10",
+    "label": {
+     "args": {
+      "date": "2026-10-10"
+     },
+     "key": "items.time.day",
+     "text": "Sat Oct 10"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-scheduled:sch-alex",
+        "op-remove-scheduled:sch-alex",
+        "op-file-scheduled:sch-alex"
+       ],
+       "audience": "household",
+       "meta": "2026-10-10T19:00:00Z",
+       "projects": [],
+       "title": "Water the plants"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "scheduled:sch-alex",
+       "kind": "scheduled"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "supporting"
+   }
+  ],
+  "operations": [
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:s-uuid-2",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:s-uuid-2",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:s-uuid-2",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/s-uuid-2"
+    },
+    "subject": {
+     "id": "chat:s-uuid-2",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-robin-filed",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-robin-filed",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-robin-filed",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-robin-filed"
+    },
+    "subject": {
+     "id": "chat:th-robin-filed",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.unfile@1",
+    "exposure": "available",
+    "id": "op-unfile-chat:th-robin-filed",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/chat:th-robin-filed/unfile"
+    },
+    "subject": {
+     "id": "chat:th-robin-filed",
+     "kind": "chat"
+    },
+    "verb": "unfile",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-robin-new",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-robin-new",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-robin-new",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-robin-new"
+    },
+    "subject": {
+     "id": "chat:th-robin-new",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.open@1",
+    "exposure": "available",
+    "id": "op-open-scheduled:sch-alex",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.remove@1",
+    "exposure": "available",
+    "id": "op-remove-scheduled:sch-alex",
+    "reversibility": "compensatable",
+    "route": {
+     "method": "DELETE",
+     "path": "/v1/scheduled/sch-alex"
+    },
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "remove",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.file@1",
+    "exposure": "available",
+    "id": "op-file-scheduled:sch-alex",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/scheduled:sch-alex/file"
+    },
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.open@1",
+    "exposure": "available",
+    "id": "op-open-scheduled:sch-robin",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "scheduled:sch-robin",
+     "kind": "scheduled"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.remove@1",
+    "exposure": "available",
+    "id": "op-remove-scheduled:sch-robin",
+    "reversibility": "compensatable",
+    "route": {
+     "method": "DELETE",
+     "path": "/v1/scheduled/sch-robin"
+    },
+    "subject": {
+     "id": "scheduled:sch-robin",
+     "kind": "scheduled"
+    },
+    "verb": "remove",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.file@1",
+    "exposure": "available",
+    "id": "op-file-scheduled:sch-robin",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/scheduled:sch-robin/file"
+    },
+    "subject": {
+     "id": "scheduled:sch-robin",
+     "kind": "scheduled"
+    },
+    "verb": "file",
+    "verification": "none"
+   }
+  ],
+  "profile": "temporal",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "resolutionId": "rs-e32932bd38e040ea",
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  }
+ },
+ "status": 200
+}

@@ -1,0 +1,3 @@
+# Tests the parallel gate (GATE_JOBS > 1) runs alone, after the others: one name per line, with why.
+# Add a test here only with the measured collision that put it here. (10-10: test_box_reset looked like one,
+# but it depended on an earlier test leaving the gate's shared folders; fixed in box_backup, not listed.)

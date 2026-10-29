@@ -1,0 +1,1361 @@
+{
+ "accessProjection": {
+  "role": "admin",
+  "rule": "composition of this viewer's schedule, items (now) and cards surfaces; titan's sources only",
+  "viewer": "alex"
+ },
+ "dependencies": [
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-ok-1"
+   }
+  },
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-ok-2"
+   }
+  },
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-ok-3"
+   }
+  },
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-ok-4"
+   }
+  },
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-quote"
+   }
+  },
+  {
+   "revision": "2026-10-06T16:30:00-07:00|",
+   "subject": {
+    "id": "e-ballet"
+   }
+  },
+  {
+   "revision": "2026-10-07T20:00:00-07:00|",
+   "subject": {
+    "id": "e-bins"
+   }
+  },
+  {
+   "revision": "2026-10-06T09:30:00-07:00|2026-10-06T10:15:00-07:00",
+   "subject": {
+    "id": "e-budget"
+   }
+  },
+  {
+   "revision": "2026-10-06T09:00:00-07:00|2026-10-06T10:00:00-07:00",
+   "subject": {
+    "id": "e-dentist"
+   }
+  },
+  {
+   "revision": "1.0",
+   "subject": {
+    "id": "scheduled:s1"
+   }
+  },
+  {
+   "revision": "1.0",
+   "subject": {
+    "id": "scheduled:s9"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [
+   {
+    "count": 1,
+    "rule": "attention-cap"
+   },
+   {
+    "count": 1,
+    "from": "cards",
+    "rule": "snoozed"
+   }
+  ],
+  "included": [
+   {
+    "count": 5,
+    "group": "g-needs-you",
+    "rule": "card"
+   },
+   {
+    "count": 5,
+    "group": "g-today",
+    "rule": "visible-event"
+   },
+   {
+    "count": 1,
+    "group": "g-coming-up",
+    "rule": "visible-event"
+   }
+  ],
+  "ordering": [
+   "priority",
+   "time",
+   "time"
+  ]
+ },
+ "fingerprint": "sha256:b8c7508306fadad52a75e1e3655c6fde8975254d825569b07b9270db5720d9ac",
+ "groups": [
+  {
+   "id": "g-needs-you",
+   "label": {
+    "key": "brief.needs_you",
+    "text": "Needs you"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [
+       {
+        "id": "approve",
+        "kind": "reply",
+        "label": "Approve",
+        "value": "approve"
+       }
+      ],
+      "approval": true,
+      "can_mute": true,
+      "created_at": 1791330300.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-quote",
+      "kind": "info",
+      "source": "approve-cap",
+      "title": "Approve Alex's plumber quote?",
+      "to": "[\"alex\"]",
+      "updated_at": 1791330600.0,
+      "urgency": 2
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-ask-c-quote",
+       "op-act-c-quote-approve",
+       "op-later-c-quote",
+       "op-done-c-quote",
+       "op-mute-c-quote"
+      ],
+      "meta": "approve-cap",
+      "status": {
+       "text": "card.urgent",
+       "tone": "attention"
+      },
+      "title": "Approve Alex's plumber quote?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-quote",
+      "kind": "card"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [],
+      "approval": true,
+      "can_mute": true,
+      "created_at": 1791330300.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-ok-1",
+      "kind": "info",
+      "source": "approve-cap",
+      "title": "Approve Alex's request 1?",
+      "to": "[\"alex\"]",
+      "updated_at": 1791330600.0,
+      "urgency": 1
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-ask-c-ok-1",
+       "op-later-c-ok-1",
+       "op-done-c-ok-1",
+       "op-mute-c-ok-1"
+      ],
+      "meta": "approve-cap",
+      "title": "Approve Alex's request 1?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-ok-1",
+      "kind": "card"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [],
+      "approval": true,
+      "can_mute": true,
+      "created_at": 1791330300.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-ok-2",
+      "kind": "info",
+      "source": "approve-cap",
+      "title": "Approve Alex's request 2?",
+      "to": "[\"alex\"]",
+      "updated_at": 1791330600.0,
+      "urgency": 1
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-ask-c-ok-2",
+       "op-later-c-ok-2",
+       "op-done-c-ok-2",
+       "op-mute-c-ok-2"
+      ],
+      "meta": "approve-cap",
+      "title": "Approve Alex's request 2?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-ok-2",
+      "kind": "card"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [],
+      "approval": true,
+      "can_mute": true,
+      "created_at": 1791330300.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-ok-3",
+      "kind": "info",
+      "source": "approve-cap",
+      "title": "Approve Alex's request 3?",
+      "to": "[\"alex\"]",
+      "updated_at": 1791330600.0,
+      "urgency": 1
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-ask-c-ok-3",
+       "op-later-c-ok-3",
+       "op-done-c-ok-3",
+       "op-mute-c-ok-3"
+      ],
+      "meta": "approve-cap",
+      "title": "Approve Alex's request 3?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-ok-3",
+      "kind": "card"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [],
+      "approval": true,
+      "can_mute": true,
+      "created_at": 1791330300.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-ok-4",
+      "kind": "info",
+      "source": "approve-cap",
+      "title": "Approve Alex's request 4?",
+      "to": "[\"alex\"]",
+      "updated_at": 1791330600.0,
+      "urgency": 1
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-ask-c-ok-4",
+       "op-later-c-ok-4",
+       "op-done-c-ok-4",
+       "op-mute-c-ok-4"
+      ],
+      "meta": "approve-cap",
+      "title": "Approve Alex's request 4?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-ok-4",
+      "kind": "card"
+     }
+    }
+   ],
+   "ordering": "priority",
+   "role": "attention"
+  },
+  {
+   "focus": true,
+   "id": "g-today",
+   "label": {
+    "key": "brief.today",
+    "text": "Today"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Work",
+      "end": "2026-10-06T10:00:00-07:00",
+      "id": "e-dentist",
+      "location": null,
+      "managed_by": "alex",
+      "managed_by_you": true,
+      "start": "2026-10-06T09:00:00-07:00",
+      "title": "Alex's dentist"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e-dentist",
+       "op-ask-e-dentist"
+      ],
+      "meta": "2026-10-06T09:00:00-07:00",
+      "title": "Alex's dentist"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-dentist",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "alex",
+      "name": "Alex",
+      "you": true
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Work",
+      "end": "2026-10-06T10:15:00-07:00",
+      "id": "e-budget",
+      "location": null,
+      "managed_by": "alex",
+      "managed_by_you": true,
+      "start": "2026-10-06T09:30:00-07:00",
+      "title": "Alex's budget call"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e-budget",
+       "op-ask-e-budget"
+      ],
+      "meta": "2026-10-06T09:30:00-07:00",
+      "title": "Alex's budget call"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-budget",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "alex",
+      "name": "Alex",
+      "you": true
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Ava",
+      "end": null,
+      "id": "e-ballet",
+      "location": null,
+      "managed_by": "ava",
+      "managed_by_you": false,
+      "start": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e-ballet",
+       "op-ask-e-ballet"
+      ],
+      "audience": "Ava",
+      "meta": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-ballet",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "ava",
+      "name": "Ava",
+      "you": false
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "today"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-scheduled:s1",
+       "op-remove-scheduled:s1",
+       "op-file-scheduled:s1",
+       "op-later-scheduled:s1"
+      ],
+      "audience": "private",
+      "meta": "2026-10-06T16:00:00Z",
+      "projects": [],
+      "title": "Call Alex's bank"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "scheduled:s1",
+      "kind": "scheduled"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "today"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-scheduled:s9",
+       "op-remove-scheduled:s9",
+       "op-file-scheduled:s9",
+       "op-later-scheduled:s9"
+      ],
+      "audience": "household",
+      "meta": "2026-10-06T17:30:00Z",
+      "projects": [],
+      "title": "Pick up the groceries"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "scheduled:s9",
+      "kind": "scheduled"
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "primary"
+  },
+  {
+   "id": "g-coming-up",
+   "label": {
+    "key": "brief.coming_up",
+    "text": "Coming up"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Family",
+      "end": null,
+      "id": "e-bins",
+      "location": null,
+      "managed_by": "household",
+      "managed_by_you": false,
+      "start": "2026-10-07T20:00:00-07:00",
+      "title": "Bins out"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e-bins",
+       "op-ask-e-bins"
+      ],
+      "meta": "2026-10-07T20:00:00-07:00",
+      "title": "Bins out"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-bins",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "household",
+      "name": null,
+      "you": false
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "supporting"
+  }
+ ],
+ "header": {
+  "date": "Tue Oct 6",
+  "weather": {
+   "place": "Home",
+   "sky": "clear"
+  }
+ },
+ "operations": [
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-quote",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-quote",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "action": {
+    "id": "approve",
+    "kind": "reply",
+    "value": "approve"
+   },
+   "contract": "jellybean.card.action@1",
+   "exposure": "available",
+   "id": "op-act-c-quote-approve",
+   "label": {
+    "text": "Approve"
+   },
+   "params": {
+    "action_id": "approve"
+   },
+   "reversibility": "unknown",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-quote/action"
+   },
+   "subject": {
+    "id": "c-quote",
+    "kind": "card"
+   },
+   "variant": "primary",
+   "verb": "reply",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "available",
+   "id": "op-later-c-quote",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-quote/snooze"
+   },
+   "subject": {
+    "id": "c-quote",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-quote",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-quote/ack"
+   },
+   "subject": {
+    "id": "c-quote",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "available",
+   "id": "op-mute-c-quote",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-quote/mute"
+   },
+   "subject": {
+    "id": "c-quote",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-ok-1",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-ok-1",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "available",
+   "id": "op-later-c-ok-1",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-1/snooze"
+   },
+   "subject": {
+    "id": "c-ok-1",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-ok-1",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-1/ack"
+   },
+   "subject": {
+    "id": "c-ok-1",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "available",
+   "id": "op-mute-c-ok-1",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-1/mute"
+   },
+   "subject": {
+    "id": "c-ok-1",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-ok-2",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-ok-2",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "available",
+   "id": "op-later-c-ok-2",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-2/snooze"
+   },
+   "subject": {
+    "id": "c-ok-2",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-ok-2",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-2/ack"
+   },
+   "subject": {
+    "id": "c-ok-2",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "available",
+   "id": "op-mute-c-ok-2",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-2/mute"
+   },
+   "subject": {
+    "id": "c-ok-2",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-ok-3",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-ok-3",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "available",
+   "id": "op-later-c-ok-3",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-3/snooze"
+   },
+   "subject": {
+    "id": "c-ok-3",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-ok-3",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-3/ack"
+   },
+   "subject": {
+    "id": "c-ok-3",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "available",
+   "id": "op-mute-c-ok-3",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-3/mute"
+   },
+   "subject": {
+    "id": "c-ok-3",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-ok-4",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-ok-4",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "available",
+   "id": "op-later-c-ok-4",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-4/snooze"
+   },
+   "subject": {
+    "id": "c-ok-4",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-ok-4",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-4/ack"
+   },
+   "subject": {
+    "id": "c-ok-4",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "available",
+   "id": "op-mute-c-ok-4",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-ok-4/mute"
+   },
+   "subject": {
+    "id": "c-ok-4",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.open@1",
+   "exposure": "available",
+   "id": "op-open-scheduled:s1",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.remove@1",
+   "exposure": "available",
+   "id": "op-remove-scheduled:s1",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/scheduled/s1"
+   },
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.file@1",
+   "exposure": "available",
+   "id": "op-file-scheduled:s1",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s1/file"
+   },
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.later@1",
+   "exposure": "available",
+   "id": "op-later-scheduled:s1",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s1/later"
+   },
+   "subject": {
+    "id": "scheduled:s1",
+    "kind": "scheduled"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.open@1",
+   "exposure": "available",
+   "id": "op-open-scheduled:s9",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.remove@1",
+   "exposure": "available",
+   "id": "op-remove-scheduled:s9",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/scheduled/s9"
+   },
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.file@1",
+   "exposure": "available",
+   "id": "op-file-scheduled:s9",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s9/file"
+   },
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.later@1",
+   "exposure": "available",
+   "id": "op-later-scheduled:s9",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s9/later"
+   },
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-dentist",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-dentist",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-dentist",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-dentist",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-dentist",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-budget",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-budget",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-budget",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-budget",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-budget",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-ballet",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-ballet",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-ballet",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-ballet",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-ballet",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-bins",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-bins",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-bins",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-bins",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-bins",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  }
+ ],
+ "profile": "temporal",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "schedule@1",
+   "items@1",
+   "cards@1",
+   "weather",
+   "today",
+   "viewer"
+  ],
+  "resolver": "brief@1"
+ },
+ "purpose": "orient",
+ "resolutionId": "rs-b8c7508306fadad5",
+ "sizeClass": "dozens",
+ "sources": {
+  "cards": "cards@1",
+  "items": "items@1",
+  "schedule": "schedule@1"
+ },
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

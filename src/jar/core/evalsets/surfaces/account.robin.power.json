@@ -1,0 +1,255 @@
+{
+ "accessProjection": {
+  "role": "adult",
+  "rule": "obligations per viewer (their words, words shared with them, their own device's texts)",
+  "viewer": "p-robin"
+ },
+ "dependencies": [
+  {
+   "revision": "failed:2",
+   "subject": {
+    "id": "bill:hale power:2026-10-01"
+   }
+  },
+  {
+   "revision": "failed:90.0",
+   "subject": {
+    "id": "bill:hale power:2026-10-01"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 1,
+    "group": "g-now",
+    "rule": "settled-in-code"
+   },
+   {
+    "count": 2,
+    "group": "g-cycle-2026-10-01",
+    "rule": "from-mail-or-records"
+   }
+  ],
+  "ordering": [
+   "current",
+   "oldest-first"
+  ]
+ },
+ "fingerprint": "sha256:893b110f36a4d04e6f1bf6c3af9c2a3e643efe1ceb7e72819c600800808fe0be",
+ "groups": [
+  {
+   "id": "g-now",
+   "label": {
+    "key": "account.now",
+    "text": "Now"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "derived",
+       "rule": "settled-in-code"
+      }
+     ],
+     "priority": 0,
+     "slots": {
+      "actions": [
+       "op-say-paid-acct-c3a707b613cbda6e",
+       "op-say-disputed-acct-c3a707b613cbda6e",
+       "op-say-not_mine-acct-c3a707b613cbda6e"
+      ],
+      "meta": "2026-10-12",
+      "status": {
+       "text": "payment failed",
+       "tone": "critical"
+      },
+      "title": "Hale Power",
+      "trailing": {
+       "value": "$90.00"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "bill:hale power:2026-10-01",
+      "kind": "bill"
+     }
+    }
+   ],
+   "ordering": "current",
+   "role": "attention"
+  },
+  {
+   "id": "g-cycle-2026-10-01",
+   "label": {
+    "key": "account.cycle",
+    "text": "Billed Oct 1"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "observed",
+       "rule": "from-mail-or-records"
+      }
+     ],
+     "piece": {
+      "amount": 90.0,
+      "kind": "failed",
+      "on": "2026-10-01",
+      "relation": "supports"
+     },
+     "priority": 2,
+     "slots": {
+      "meta": "2026-10-01",
+      "status": {
+       "text": "supports",
+       "tone": "positive"
+      },
+      "title": "failed Oct 1",
+      "trailing": {
+       "value": "$90.00"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "piece:acct-c3a707b613cbda6e:2026-10-01:0",
+      "kind": "bill"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "derived",
+       "rule": "a-text-on-its-owners-device"
+      }
+     ],
+     "piece": {
+      "amount": 90.0,
+      "kind": "failed",
+      "on": "2026-10-08",
+      "relation": "supports",
+      "via": "text"
+     },
+     "priority": 2,
+     "slots": {
+      "meta": "2026-10-08",
+      "status": {
+       "text": "supports",
+       "tone": "positive"
+      },
+      "title": "failed Oct 8 (a text)",
+      "trailing": {
+       "value": "$90.00"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "piece:acct-c3a707b613cbda6e:2026-10-01:1",
+      "kind": "message"
+     }
+    }
+   ],
+   "ordering": "oldest-first",
+   "role": "evidence"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.bill.say@1",
+   "exposure": "available",
+   "id": "op-say-paid-acct-c3a707b613cbda6e",
+   "params": {
+    "kind": "paid"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/obligations/acct-c3a707b613cbda6e/say"
+   },
+   "subject": {
+    "id": "bill:hale power:2026-10-01",
+    "kind": "bill"
+   },
+   "variant": "primary",
+   "verb": "set",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.bill.say@1",
+   "exposure": "available",
+   "id": "op-say-disputed-acct-c3a707b613cbda6e",
+   "params": {
+    "kind": "disputed"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/obligations/acct-c3a707b613cbda6e/say"
+   },
+   "subject": {
+    "id": "bill:hale power:2026-10-01",
+    "kind": "bill"
+   },
+   "variant": "secondary",
+   "verb": "set",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.bill.say@1",
+   "exposure": "available",
+   "id": "op-say-not_mine-acct-c3a707b613cbda6e",
+   "params": {
+    "kind": "not_mine"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/obligations/acct-c3a707b613cbda6e/say"
+   },
+   "subject": {
+    "id": "bill:hale power:2026-10-01",
+    "kind": "bill"
+   },
+   "variant": "secondary",
+   "verb": "set",
+   "verification": "none"
+  }
+ ],
+ "profile": "explain",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-09T17:00:00Z",
+  "inputs": [
+   "records:bill",
+   "records:receipt",
+   "obligation_claims",
+   "obligation_signals",
+   "viewer"
+  ],
+  "resolver": "account@1"
+ },
+ "purpose": "trace",
+ "resolutionId": "rs-893b110f36a4d04e",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ },
+ "subject": {
+  "id": "acct-c3a707b613cbda6e",
+  "kind": "bill"
+ }
+}

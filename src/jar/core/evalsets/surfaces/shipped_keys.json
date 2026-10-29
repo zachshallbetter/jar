@@ -1,0 +1,92 @@
+{
+ "always_shared.alex": [
+  "sharing.asker",
+  "sharing.needs_a_look"
+ ],
+ "always_shared.empty": [
+  "sharing.needs_a_look"
+ ],
+ "brief.admin": [
+  "brief.coming_up",
+  "brief.needs_you",
+  "brief.today"
+ ],
+ "brief.adult": [
+  "brief.coming_up",
+  "brief.needs_you",
+  "brief.today"
+ ],
+ "brief.alex": [
+  "brief.coming_up",
+  "brief.needs_you",
+  "brief.today"
+ ],
+ "brief.kid": [
+  "brief.coming_up",
+  "brief.needs_you",
+  "brief.today"
+ ],
+ "brief.screen": [
+  "brief.coming_up",
+  "brief.needs_you",
+  "brief.today"
+ ],
+ "cards.admin": [
+  "cards.all",
+  "cards.done_today",
+  "cards.engineering",
+  "cards.needs_a_decision"
+ ],
+ "cards.kid.empty": [
+  "cards.all",
+  "cards.done_today",
+  "cards.needs_a_decision"
+ ],
+ "cards.screen": [
+  "cards.all",
+  "cards.done_today",
+  "cards.needs_a_decision"
+ ],
+ "documents.household": [
+  "documents.all",
+  "documents.on_devices"
+ ],
+ "household_facts.admin": [
+  "household.entity",
+  "household.needs_a_look"
+ ],
+ "household_facts.kid": [
+  "household.entity",
+  "household.needs_a_look"
+ ],
+ "items.now": [
+  "items.now.moving",
+  "items.now.needs_a_home",
+  "items.now.open",
+  "items.now.today",
+  "items.now.waiting_on_you"
+ ],
+ "items.project": [
+  "items.project"
+ ],
+ "items.time": [
+  "items.time.day"
+ ],
+ "items.unsorted": [
+  "items.unsorted"
+ ],
+ "schedule.alex": [
+  "schedule.day",
+  "schedule.overlaps"
+ ],
+ "schedule.ava": [
+  "schedule.day"
+ ],
+ "schedule.screen": [
+  "schedule.day"
+ ],
+ "threads.alex": [
+  "threads.other",
+  "threads.thread"
+ ]
+}

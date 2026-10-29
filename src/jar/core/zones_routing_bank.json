@@ -1,0 +1,287 @@
+[
+ {
+  "q": "What's the wifi password?",
+  "first": "facts"
+ },
+ {
+  "q": "Which night does the recycling go out?",
+  "first": "facts"
+ },
+ {
+  "q": "What's the garage door code?",
+  "first": "facts"
+ },
+ {
+  "q": "What size shoes does Leo wear?",
+  "first": "facts"
+ },
+ {
+  "q": "Who is Ava's pediatrician?",
+  "first": "facts"
+ },
+ {
+  "q": "What's the name of the plumber we like?",
+  "first": "facts"
+ },
+ {
+  "q": "Where do we keep the spare house key?",
+  "first": "facts"
+ },
+ {
+  "q": "What's Jordan allergic to?",
+  "first": "facts"
+ },
+ {
+  "q": "How much was the October phone bill estimate?",
+  "first": "facts"
+ },
+ {
+  "q": "What's the license plate on the Subaru?",
+  "first": "facts"
+ },
+ {
+  "q": "What are the rules for screen time?",
+  "first": "facts"
+ },
+ {
+  "q": "What's the vet's phone number?",
+  "first": "facts"
+ },
+ {
+  "q": "Remind me what the babysitter charges.",
+  "first": "facts"
+ },
+ {
+  "q": "What did we decide about the summer camp budget?",
+  "first": "facts"
+ },
+ {
+  "q": "Which bank is the mortgage with?",
+  "first": "facts"
+ },
+ {
+  "q": "Did Robin email me about the fence?",
+  "first": "sync"
+ },
+ {
+  "q": "Any new mail from the school?",
+  "first": "sync"
+ },
+ {
+  "q": "What was in the last newsletter from the library?",
+  "first": "sync"
+ },
+ {
+  "q": "Did my Amazon order ship?",
+  "first": "sync"
+ },
+ {
+  "q": "Has the package from Hale Outdoors been delivered?",
+  "first": "sync"
+ },
+ {
+  "q": "Was there a receipt for the dishwasher?",
+  "first": "sync"
+ },
+ {
+  "q": "Did a card payment get declined recently?",
+  "first": "sync"
+ },
+ {
+  "q": "What did the landlord say in his email?",
+  "first": "sync"
+ },
+ {
+  "q": "Is there an invoice from the electrician?",
+  "first": "sync"
+ },
+ {
+  "q": "Check my inbox for anything from Jordan.",
+  "first": "sync"
+ },
+ {
+  "q": "What's the tracking number for the new chairs?",
+  "first": "sync"
+ },
+ {
+  "q": "Did the insurance company send a statement?",
+  "first": "sync"
+ },
+ {
+  "q": "When is Ava's ballet recital?",
+  "first": "sync"
+ },
+ {
+  "q": "What's on the calendar this weekend?",
+  "first": "sync"
+ },
+ {
+  "q": "What time is Leo's soccer practice on Thursday?",
+  "first": "sync"
+ },
+ {
+  "q": "When is the dentist appointment?",
+  "first": "sync"
+ },
+ {
+  "q": "Do I have any meetings tomorrow?",
+  "first": "sync"
+ },
+ {
+  "q": "When's the parent-teacher conference?",
+  "first": "sync"
+ },
+ {
+  "q": "Who's doing pickup on Friday?",
+  "first": "sync"
+ },
+ {
+  "q": "What's happening next week?",
+  "first": "sync"
+ },
+ {
+  "q": "When is Robin's birthday?",
+  "first": "sync"
+ },
+ {
+  "q": "Is there a game this Saturday?",
+  "first": "sync"
+ },
+ {
+  "q": "When does piano lesson start?",
+  "first": "sync"
+ },
+ {
+  "q": "What do we have tonight?",
+  "first": "sync"
+ },
+ {
+  "q": "What was that article about memory I saved?",
+  "first": "web"
+ },
+ {
+  "q": "Find the blog post I bookmarked about sourdough.",
+  "first": "web"
+ },
+ {
+  "q": "What did the page I saved say about solar panels?",
+  "first": "web"
+ },
+ {
+  "q": "Pull up that Reddit thread I saved.",
+  "first": "web"
+ },
+ {
+  "q": "What was the link I saved about camping gear?",
+  "first": "web"
+ },
+ {
+  "q": "Summarize the article on sleep I saved last week.",
+  "first": "web"
+ },
+ {
+  "q": "How do I deploy titan?",
+  "first": "system"
+ },
+ {
+  "q": "Which GPU runs the local model?",
+  "first": "system"
+ },
+ {
+  "q": "What does the runbook say about backups?",
+  "first": "system"
+ },
+ {
+  "q": "How does the canary work?",
+  "first": "system"
+ },
+ {
+  "q": "Where does the world model keep its claims?",
+  "first": "system"
+ },
+ {
+  "q": "How do the runtimes authenticate?",
+  "first": "system"
+ },
+ {
+  "q": "What's the Postgres setup for retrieval?",
+  "first": "system"
+ },
+ {
+  "q": "How do I restart the Jellybean server?",
+  "first": "system"
+ },
+ {
+  "q": "Which systemd units run the evals?",
+  "first": "system"
+ },
+ {
+  "q": "What's Leo's teacher's name?",
+  "first": "facts"
+ },
+ {
+  "q": "How do we split the chores?",
+  "first": "facts"
+ },
+ {
+  "q": "What's our address for deliveries at the cabin?",
+  "first": "facts"
+ },
+ {
+  "q": "Who should I call if the furnace breaks?",
+  "first": "facts"
+ },
+ {
+  "q": "What's the school's lunch account login?",
+  "first": "facts"
+ },
+ {
+  "q": "Did Hale Dental send the bill by email?",
+  "first": "sync"
+ },
+ {
+  "q": "Is this interesting? https://www.reddit.com/r/HomeLab/s/Xy12Ab",
+  "first": "web",
+  "real": "a pasted link the person had also saved (10-04 turn review: the plan had dropped it)"
+ },
+ {
+  "q": "Where am I now, without using my calendar as a reference?",
+  "first": "facts",
+  "real": "negated calendar word"
+ },
+ {
+  "q": "What time is my dentist appt today and where is it?",
+  "first": "sync",
+  "real": true
+ },
+ {
+  "q": "Tomorrow at 2:00 PM: Alex & Robin 1:1. Anything I should know or plan around?",
+  "first": "sync",
+  "real": true
+ },
+ {
+  "q": "titan's health check reports: the household eval failed. What's wrong?",
+  "first": "system",
+  "real": true
+ },
+ {
+  "q": "Which note asked you to ignore your instructions?",
+  "first": "facts",
+  "real": true
+ },
+ {
+  "q": "What items are in downloads?",
+  "first": "facts",
+  "real": true
+ },
+ {
+  "q": "Is anything waiting on me?",
+  "first": "facts",
+  "real": true
+ },
+ {
+  "q": "Add a reminder for the failed Hale Utilities payment.",
+  "first": "sync",
+  "real": "zone replay 10-04: the default plan's 2 mail slots dropped the 2nd failed-payment mail"
+ }
+]

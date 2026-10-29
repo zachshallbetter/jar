@@ -1,0 +1,298 @@
+{
+ "benchmark": {
+  "scans": 300,
+  "seed": 1499,
+  "traps": 40,
+  "version": 1
+ },
+ "pipeline": "baseline",
+ "tasks": {
+  "account": {
+   "f1": null,
+   "precision": null,
+   "predicted": 0,
+   "recall": 0.0,
+   "relevant": 172,
+   "tp": 0
+  },
+  "amount": {
+   "f1": 0.8914,
+   "precision": 0.8815,
+   "predicted": 135,
+   "recall": 0.9015,
+   "relevant": 132,
+   "tp": 119
+  },
+  "association": {
+   "kind": {
+    "f1": 0.5911,
+    "precision": 0.8889,
+    "predicted": 135,
+    "recall": 0.4428,
+    "relevant": 271,
+    "tp": 120
+   },
+   "kind_and_key": {
+    "f1": 0.4828,
+    "precision": 0.7259,
+    "predicted": 135,
+    "recall": 0.3616,
+    "relevant": 271,
+    "tp": 98
+   },
+   "per_kind": {
+    "bill_cycle": {
+     "kind": {
+      "f1": 0.9125,
+      "precision": 0.8889,
+      "predicted": 135,
+      "recall": 0.9375,
+      "relevant": 128,
+      "tp": 120
+     },
+     "kind_and_key": {
+      "f1": 0.7452,
+      "precision": 0.7259,
+      "predicted": 135,
+      "recall": 0.7656,
+      "relevant": 128,
+      "tp": 98
+     }
+    },
+    "bundle": {
+     "kind": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 50,
+      "tp": 0
+     },
+     "kind_and_key": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 50,
+      "tp": 0
+     }
+    },
+    "event": {
+     "kind": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 28,
+      "tp": 0
+     },
+     "kind_and_key": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 28,
+      "tp": 0
+     }
+    },
+    "junk": {
+     "kind": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 37,
+      "tp": 0
+     },
+     "kind_and_key": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 37,
+      "tp": 0
+     }
+    },
+    "thread": {
+     "kind": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 28,
+      "tp": 0
+     },
+     "kind_and_key": {
+      "f1": null,
+      "precision": null,
+      "predicted": 0,
+      "recall": 0.0,
+      "relevant": 28,
+      "tp": 0
+     }
+    }
+   }
+  },
+  "dedupe": {
+   "by_kind": {
+    "exact": {
+     "pairs": 15,
+     "recall": 1.0
+    },
+    "multipage": {
+     "pairs": 36,
+     "recall": 0.0
+    },
+    "paper_email": {
+     "pairs": 15,
+     "recall": 1.0
+    },
+    "rescan": {
+     "pairs": 15,
+     "recall": 0.6667
+    }
+   },
+   "cross_owner_merges": 0,
+   "f1": 0.6299,
+   "false_merges": 6,
+   "precision": 0.8696,
+   "predicted": 46,
+   "recall": 0.4938,
+   "relevant": 81,
+   "tp": 40
+  },
+  "due_date": {
+   "f1": 0.9462,
+   "precision": 1.0,
+   "predicted": 88,
+   "recall": 0.898,
+   "relevant": 98,
+   "tp": 88
+  },
+  "privacy": {
+   "by_trap": {},
+   "examples": [],
+   "leaks": 0,
+   "per_viewer": {
+    "alex": 0,
+    "ava": 0,
+    "jordan": 0,
+    "leo": 0,
+    "robin": 0,
+    "screen": 0
+   }
+  },
+  "sender": {
+   "f1": 0.5563,
+   "precision": 0.8963,
+   "predicted": 135,
+   "recall": 0.4033,
+   "relevant": 300,
+   "tp": 121
+  },
+  "type": {
+   "accuracy": 0.4,
+   "macro_f1": 0.2261,
+   "per_class": {
+    "appointment": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 18,
+     "tp": 0
+    },
+    "bill": {
+     "f1": 1.0,
+     "precision": 1.0,
+     "predicted": 88,
+     "recall": 1.0,
+     "relevant": 88,
+     "tp": 88
+    },
+    "claim_letter": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 28,
+     "tp": 0
+    },
+    "deadline": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 10,
+     "tp": 0
+    },
+    "junk": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 37,
+     "tp": 0
+    },
+    "letter": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 29,
+     "tp": 0
+    },
+    "policy": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 19,
+     "tp": 0
+    },
+    "receipt": {
+     "f1": 0.8205,
+     "precision": 0.6957,
+     "predicted": 23,
+     "recall": 1.0,
+     "relevant": 16,
+     "tp": 16
+    },
+    "statement": {
+     "f1": 0.6667,
+     "precision": 0.6667,
+     "predicted": 24,
+     "recall": 0.6667,
+     "relevant": 24,
+     "tp": 16
+    },
+    "tax_form": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 24,
+     "tp": 0
+    },
+    "warranty": {
+     "f1": null,
+     "precision": null,
+     "predicted": 0,
+     "recall": 0.0,
+     "relevant": 7,
+     "tp": 0
+    }
+   }
+  },
+  "waiting": {
+   "f1": 0.7742,
+   "precision": 0.7619,
+   "predicted": 63,
+   "recall": 0.7869,
+   "relevant": 61,
+   "rows_expected": 61,
+   "rows_shown": 63,
+   "tp": 48
+  }
+ }
+}

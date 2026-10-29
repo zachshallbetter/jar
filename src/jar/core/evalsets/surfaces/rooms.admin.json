@@ -1,0 +1,343 @@
+{
+ "accessProjection": {
+  "role": "admin",
+  "rule": "the household's rooms (no person's whereabouts)",
+  "viewer": "alex"
+ },
+ "dependencies": [
+  {
+   "revision": "Kitchen:True:1",
+   "subject": {
+    "id": "rm-v1"
+   }
+  },
+  {
+   "revision": "Family Room:True:0",
+   "subject": {
+    "id": "rm-v2"
+   }
+  },
+  {
+   "revision": "Playroom:False:1",
+   "subject": {
+    "id": "rm-v3"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 3,
+    "group": "g-rooms",
+    "rule": "room"
+   }
+  ],
+  "ordering": [
+   "name"
+  ]
+ },
+ "fingerprint": "sha256:40720a498676a71a472b9199d78fabfb600cb679cd4dce16f1a756d3f6118e74",
+ "groups": [
+  {
+   "id": "g-rooms",
+   "label": {
+    "key": "rooms.all",
+    "text": "Rooms"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "rooms store",
+        "home assistant areas"
+       ],
+       "kind": "declared",
+       "rule": "room"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-room-rename-rm-v2",
+       "op-room-remove-rm-v2"
+      ],
+      "media": {
+       "symbol": "house"
+      },
+      "meta": "Home Assistant area",
+      "title": "Family Room",
+      "trailing": {
+       "value": "0"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "rm-v2",
+      "kind": "room"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "rooms store",
+        "home assistant areas"
+       ],
+       "kind": "declared",
+       "rule": "room"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-room-rename-rm-v1",
+       "op-room-remove-rm-v1"
+      ],
+      "media": {
+       "symbol": "house"
+      },
+      "meta": "Home Assistant area",
+      "title": "Kitchen",
+      "trailing": {
+       "value": "1"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "rm-v1",
+      "kind": "room"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "rooms store",
+        "home assistant areas"
+       ],
+       "kind": "declared",
+       "rule": "room"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-room-rename-rm-v3",
+       "op-room-remove-rm-v3"
+      ],
+      "media": {
+       "symbol": "house"
+      },
+      "meta": "Added here",
+      "title": "Playroom",
+      "trailing": {
+       "value": "1"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "rm-v3",
+      "kind": "room"
+     }
+    }
+   ],
+   "operations": [
+    "op-room-add"
+   ],
+   "ordering": "name",
+   "role": "primary"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.room.add@1",
+   "exposure": "available",
+   "fields": [
+    {
+     "key": "name",
+     "kind": "text",
+     "label": "Name",
+     "required": true
+    }
+   ],
+   "id": "op-room-add",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/rooms"
+   },
+   "subject": {
+    "id": "g-rooms",
+    "kind": "group"
+   },
+   "verb": "add",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.room.rename@1",
+   "exposure": "available",
+   "fields": [
+    {
+     "key": "name",
+     "kind": "text",
+     "label": "Name",
+     "required": true,
+     "value": "Family Room"
+    }
+   ],
+   "id": "op-room-rename-rm-v2",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/rooms/rm-v2"
+   },
+   "subject": {
+    "id": "rm-v2",
+    "kind": "room"
+   },
+   "verb": "rename",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.room.remove@1",
+   "exposure": "available",
+   "id": "op-room-remove-rm-v2",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/rooms/rm-v2"
+   },
+   "subject": {
+    "id": "rm-v2",
+    "kind": "room"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.room.rename@1",
+   "exposure": "available",
+   "fields": [
+    {
+     "key": "name",
+     "kind": "text",
+     "label": "Name",
+     "required": true,
+     "value": "Kitchen"
+    }
+   ],
+   "id": "op-room-rename-rm-v1",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/rooms/rm-v1"
+   },
+   "subject": {
+    "id": "rm-v1",
+    "kind": "room"
+   },
+   "verb": "rename",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.room.remove@1",
+   "exposure": "available",
+   "id": "op-room-remove-rm-v1",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/rooms/rm-v1"
+   },
+   "subject": {
+    "id": "rm-v1",
+    "kind": "room"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.room.rename@1",
+   "exposure": "available",
+   "fields": [
+    {
+     "key": "name",
+     "kind": "text",
+     "label": "Name",
+     "required": true,
+     "value": "Playroom"
+    }
+   ],
+   "id": "op-room-rename-rm-v3",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "PATCH",
+    "path": "/v1/rooms/rm-v3"
+   },
+   "subject": {
+    "id": "rm-v3",
+    "kind": "room"
+   },
+   "verb": "rename",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.room.remove@1",
+   "exposure": "available",
+   "id": "op-room-remove-rm-v3",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/rooms/rm-v3"
+   },
+   "subject": {
+    "id": "rm-v3",
+    "kind": "room"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  }
+ ],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "rooms",
+   "home assistant areas",
+   "household screens"
+  ],
+  "resolver": "rooms@1"
+ },
+ "purpose": "edit",
+ "resolutionId": "rs-40720a498676a71a",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

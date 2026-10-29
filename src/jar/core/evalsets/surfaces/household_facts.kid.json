@@ -1,0 +1,448 @@
+{
+ "accessProjection": {
+  "role": "kid",
+  "rule": "world.entity_list (household bubble, per viewer)",
+  "viewer": "ava"
+ },
+ "dependencies": [
+  {
+   "revision": "known:dog:2024-05-01T00:00:00-07:00",
+   "subject": {
+    "id": "household:biscuit#species"
+   }
+  },
+  {
+   "revision": "stale:Maple Animal Clinic:2020-01-10T00:00:00-08:00",
+   "subject": {
+    "id": "household:biscuit#vet"
+   }
+  },
+  {
+   "revision": "known:12 Elm Road:2026-09-01T00:00:00-07:00",
+   "subject": {
+    "id": "household:maple-animal-clinic#address"
+   }
+  },
+  {
+   "revision": "stale:(555) 0142:2019-03-01T00:00:00-08:00",
+   "subject": {
+    "id": "household:maple-animal-clinic#phone"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 2,
+    "group": "g-needs-a-look",
+    "rule": "household-fact"
+   },
+   {
+    "count": 2,
+    "group": "g-entity-household:maple-animal-clinic",
+    "rule": "household-fact"
+   },
+   {
+    "count": 2,
+    "group": "g-entity-household:biscuit",
+    "rule": "household-fact"
+   }
+  ],
+  "ordering": [
+   "oldest-first",
+   "attribute",
+   "attribute"
+  ]
+ },
+ "fingerprint": "sha256:4bae4d590d530738189c215b7c69a402fad99d84f01203e1194f4207856e85e6",
+ "groups": [
+  {
+   "id": "g-needs-a-look",
+   "label": {
+    "key": "household.needs_a_look",
+    "text": "Needs a look"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:maple-animal-clinic#phone"
+      ],
+      "meta": "2019-03-01T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "phone",
+      "trailing": {
+       "value": "(555) 0142"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:maple-animal-clinic#phone",
+      "kind": "fact"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:biscuit#vet"
+      ],
+      "meta": "2020-01-10T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "vet",
+      "trailing": {
+       "value": "Maple Animal Clinic"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:biscuit#vet",
+      "kind": "fact"
+     }
+    }
+   ],
+   "ordering": "oldest-first",
+   "role": "attention"
+  },
+  {
+   "id": "g-entity-household:maple-animal-clinic",
+   "label": {
+    "key": "household.entity",
+    "text": "Maple Animal Clinic"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:maple-animal-clinic#address"
+      ],
+      "meta": "2026-09-01T00:00:00-07:00",
+      "title": "address",
+      "trailing": {
+       "value": "12 Elm Road"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:maple-animal-clinic#address",
+      "kind": "fact"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:maple-animal-clinic#phone"
+      ],
+      "meta": "2019-03-01T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "phone",
+      "trailing": {
+       "value": "(555) 0142"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:maple-animal-clinic#phone",
+      "kind": "fact"
+     }
+    }
+   ],
+   "operations": [
+    "op-confirm-all-household:maple-animal-clinic"
+   ],
+   "ordering": "attribute",
+   "role": "primary"
+  },
+  {
+   "id": "g-entity-household:biscuit",
+   "label": {
+    "key": "household.entity",
+    "text": "Biscuit"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:biscuit#species"
+      ],
+      "meta": "2024-05-01T00:00:00-07:00",
+      "title": "species",
+      "trailing": {
+       "value": "dog"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:biscuit#species",
+      "kind": "fact"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "household bubble",
+        "evidence"
+       ],
+       "kind": "observed",
+       "rule": "household-fact"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-confirm-household:biscuit#vet"
+      ],
+      "meta": "2020-01-10T00:00:00-08:00",
+      "status": {
+       "text": "fact.stale",
+       "tone": "attention"
+      },
+      "title": "vet",
+      "trailing": {
+       "value": "Maple Animal Clinic"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "household:biscuit#vet",
+      "kind": "fact"
+     }
+    }
+   ],
+   "operations": [
+    "op-confirm-all-household:biscuit"
+   ],
+   "ordering": "attribute",
+   "role": "primary"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:biscuit#species",
+   "params": {
+    "attribute": "species",
+    "value": "dog"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:biscuit/facts"
+   },
+   "subject": {
+    "id": "household:biscuit#species",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:biscuit#vet",
+   "params": {
+    "attribute": "vet",
+    "value": "Maple Animal Clinic"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:biscuit/facts"
+   },
+   "subject": {
+    "id": "household:biscuit#vet",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm_all@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-all-household:biscuit",
+   "params": {
+    "entity": "household:biscuit"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/surfaces/household-facts/confirm"
+   },
+   "subject": {
+    "id": "household:biscuit",
+    "kind": "entity"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:maple-animal-clinic#address",
+   "params": {
+    "attribute": "address",
+    "value": "12 Elm Road"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:maple-animal-clinic/facts"
+   },
+   "subject": {
+    "id": "household:maple-animal-clinic#address",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-household:maple-animal-clinic#phone",
+   "params": {
+    "attribute": "phone",
+    "value": "(555) 0142"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/world/entities/household:maple-animal-clinic/facts"
+   },
+   "subject": {
+    "id": "household:maple-animal-clinic#phone",
+    "kind": "fact"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.fact.confirm_all@1",
+   "exposure": "unavailable",
+   "id": "op-confirm-all-household:maple-animal-clinic",
+   "params": {
+    "entity": "household:maple-animal-clinic"
+   },
+   "reason": {
+    "key": "kids.propose_only"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/surfaces/household-facts/confirm"
+   },
+   "subject": {
+    "id": "household:maple-animal-clinic",
+    "kind": "entity"
+   },
+   "verb": "confirm",
+   "verification": "none"
+  }
+ ],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "world:household",
+   "now",
+   "viewer"
+  ],
+  "resolver": "household-facts@1"
+ },
+ "purpose": "edit",
+ "resolutionId": "rs-4bae4d590d530738",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

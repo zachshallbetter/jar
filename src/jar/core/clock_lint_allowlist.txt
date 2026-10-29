@@ -1,0 +1,6 @@
+# Functions that take a clock parameter and still read the real one, on purpose (test_clock_lint_prod.py, #1515).
+# One per line: file.py:function  # why. An entry that stops matching fails the lint, so delete it when the code changes.
+our_year.py:remember  # the stamp of a row, built into an executemany tuple (not a decision)
+our_year.py:set_photo_days  # the same: a row's own stamp
+places.py:record  # received_at is when the row arrived; `at` is the event's own time, not a clock
+trip_push.py:deliver  # flush timer: a real-time wait for the gap to pass, scheduled on the real clock

@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "live_runtimes": [
+    {
+      "name": "identity-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "required",
+      "failure_classes": [
+        "unreachable",
+        "unauthorized",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "image-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "text-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "posture-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "fetch-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/api/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "none",
+      "failure_classes": [
+        "unreachable",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "epistemic-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        },
+        {
+          "method": "POST",
+          "path": "/route",
+          "payload": {
+            "input": "Should I answer or request more fields?"
+          },
+          "expected_status": 200
+        }
+      ],
+      "auth": "none",
+      "auth_note": "internal-only; no coordinator JWT; relies on Titan loopback isolation",
+      "failure_classes": [
+        "unreachable",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "policy-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "record-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "none",
+      "failure_classes": [
+        "unreachable",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "retrieval-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "event-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    },
+    {
+      "name": "document-runtime",
+      "smoke": [
+        {
+          "method": "GET",
+          "path": "/v1/health",
+          "expected_status": 200
+        }
+      ],
+      "auth": "coordinator",
+      "failure_classes": [
+        "unreachable",
+        "auth_missing",
+        "protocol_mismatch"
+      ]
+    }
+  ],
+  "consumer_smokes": [
+    {
+      "name": "resumate",
+      "cwd": "/Users/zachshallbetter/Projects/resumate",
+      "command": "USE_TITAN_BRIDGE=true TITAN_BRIDGE_MODE=direct bash scripts/titan_smoke.sh",
+      "timeout_seconds": 900
+    }
+  ],
+  "proposal_docs": []
+}

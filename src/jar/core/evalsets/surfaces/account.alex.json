@@ -1,0 +1,341 @@
+{
+ "accessProjection": {
+  "role": "adult",
+  "rule": "obligations per viewer (their words, words shared with them, their own device's texts)",
+  "viewer": "p-alex"
+ },
+ "dependencies": [
+  {
+   "revision": "resolved:2",
+   "subject": {
+    "id": "bill:hale water:2026-08-31"
+   }
+  },
+  {
+   "revision": "resolved:2",
+   "subject": {
+    "id": "bill:hale water:2026-09-30"
+   }
+  },
+  {
+   "revision": "resolved:48.2",
+   "subject": {
+    "id": "bill:hale water:2026-09-30"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 1,
+    "group": "g-now",
+    "rule": "settled-in-code"
+   },
+   {
+    "count": 2,
+    "group": "g-cycle-2026-09-30",
+    "rule": "from-mail-or-records"
+   },
+   {
+    "count": 2,
+    "group": "g-cycle-2026-08-31",
+    "rule": "from-mail-or-records"
+   }
+  ],
+  "ordering": [
+   "current",
+   "oldest-first",
+   "oldest-first"
+  ]
+ },
+ "fingerprint": "sha256:7c8f429fb215de2e3cab135e0f23e30ad41987a7da72493363da08815c32c803",
+ "groups": [
+  {
+   "id": "g-now",
+   "label": {
+    "key": "account.now",
+    "text": "Now"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "derived",
+       "rule": "settled-in-code"
+      }
+     ],
+     "priority": 0,
+     "slots": {
+      "actions": [
+       "op-say-paid-acct-760408c8cee47453",
+       "op-say-disputed-acct-760408c8cee47453",
+       "op-say-not_mine-acct-760408c8cee47453"
+      ],
+      "meta": "2026-10-20",
+      "status": {
+       "text": "paid",
+       "tone": "positive"
+      },
+      "title": "Hale Water",
+      "trailing": {
+       "value": "$48.20"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "bill:hale water:2026-09-30",
+      "kind": "bill"
+     }
+    }
+   ],
+   "ordering": "current",
+   "role": "primary"
+  },
+  {
+   "id": "g-cycle-2026-09-30",
+   "label": {
+    "key": "account.cycle",
+    "text": "Billed Sep 30"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "observed",
+       "rule": "from-mail-or-records"
+      }
+     ],
+     "piece": {
+      "amount": 48.2,
+      "kind": "due",
+      "on": "2026-09-30",
+      "relation": "context"
+     },
+     "priority": 2,
+     "slots": {
+      "meta": "2026-09-30",
+      "status": {
+       "text": "context",
+       "tone": "neutral"
+      },
+      "title": "billed Sep 30",
+      "trailing": {
+       "value": "$48.20"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "piece:acct-760408c8cee47453:2026-09-30:0",
+      "kind": "bill"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "declared",
+       "rule": "a-persons-word"
+      }
+     ],
+     "piece": {
+      "kind": "said_paid",
+      "on": "2026-10-09",
+      "relation": "supports"
+     },
+     "priority": 2,
+     "slots": {
+      "meta": "2026-10-09",
+      "status": {
+       "text": "supports",
+       "tone": "positive"
+      },
+      "title": "Robin said it's done Oct 9"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "piece:acct-760408c8cee47453:2026-09-30:1",
+      "kind": "fact"
+     }
+    }
+   ],
+   "ordering": "oldest-first",
+   "role": "evidence"
+  },
+  {
+   "id": "g-cycle-2026-08-31",
+   "label": {
+    "key": "account.earlier",
+    "text": "Billed Aug 31"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "observed",
+       "rule": "from-mail-or-records"
+      }
+     ],
+     "piece": {
+      "amount": 46.1,
+      "kind": "due",
+      "on": "2026-08-31",
+      "relation": "context"
+     },
+     "priority": 2,
+     "slots": {
+      "meta": "2026-08-31",
+      "status": {
+       "text": "context",
+       "tone": "neutral"
+      },
+      "title": "billed Aug 31",
+      "trailing": {
+       "value": "$46.10"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "piece:acct-760408c8cee47453:2026-08-31:0",
+      "kind": "bill"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "pieces"
+       ],
+       "kind": "observed",
+       "rule": "from-mail-or-records"
+      }
+     ],
+     "piece": {
+      "amount": 46.1,
+      "kind": "paid",
+      "on": "2026-09-18",
+      "relation": "supports"
+     },
+     "priority": 2,
+     "slots": {
+      "meta": "2026-09-18",
+      "status": {
+       "text": "supports",
+       "tone": "positive"
+      },
+      "title": "paid Sep 18",
+      "trailing": {
+       "value": "$46.10"
+      }
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "piece:acct-760408c8cee47453:2026-08-31:1",
+      "kind": "bill"
+     }
+    }
+   ],
+   "ordering": "oldest-first",
+   "role": "history"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.bill.say@1",
+   "exposure": "available",
+   "id": "op-say-paid-acct-760408c8cee47453",
+   "params": {
+    "kind": "paid"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/obligations/acct-760408c8cee47453/say"
+   },
+   "subject": {
+    "id": "bill:hale water:2026-09-30",
+    "kind": "bill"
+   },
+   "variant": "primary",
+   "verb": "set",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.bill.say@1",
+   "exposure": "available",
+   "id": "op-say-disputed-acct-760408c8cee47453",
+   "params": {
+    "kind": "disputed"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/obligations/acct-760408c8cee47453/say"
+   },
+   "subject": {
+    "id": "bill:hale water:2026-09-30",
+    "kind": "bill"
+   },
+   "variant": "secondary",
+   "verb": "set",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.bill.say@1",
+   "exposure": "available",
+   "id": "op-say-not_mine-acct-760408c8cee47453",
+   "params": {
+    "kind": "not_mine"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/obligations/acct-760408c8cee47453/say"
+   },
+   "subject": {
+    "id": "bill:hale water:2026-09-30",
+    "kind": "bill"
+   },
+   "variant": "secondary",
+   "verb": "set",
+   "verification": "none"
+  }
+ ],
+ "profile": "explain",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-09T17:00:00Z",
+  "inputs": [
+   "records:bill",
+   "records:receipt",
+   "obligation_claims",
+   "obligation_signals",
+   "viewer"
+  ],
+  "resolver": "account@1"
+ },
+ "purpose": "trace",
+ "resolutionId": "rs-7c8f429fb215de2e",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ },
+ "subject": {
+  "id": "acct-760408c8cee47453",
+  "kind": "bill"
+ }
+}

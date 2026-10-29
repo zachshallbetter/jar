@@ -1,0 +1,9 @@
+# Tests the deploy gate never runs: they touch live titan (the real agent, its stores or runtimes) or need a
+# device. Every test is exactly one of: listed in scripts/deploy_titan_node.sh, marked "# gate: hermetic" (run by
+# the gate's discovery pass, #350), or here. test_gate_discovery.py fails on any test that is none of these. One file name per line, then why. Never sweep these: on 10-01 a sweep of every
+# test_*.py ran test_household_agent.py under a 120 s alarm and left 9 fixture notes in Zach's KB.
+test_household_agent.py   drives the real agent and writes made-up facts (needs --live; the nightly runs it)
+test_household.py         writes test bills, a KB note and a filed bill to titan's real stores (only with --live on titan; rolls back, #400)
+test_phase4.py            plans and runs a task through the real workflow runtime
+test_field_state.py       needs Jellybean running on a Mac with the device bridge
+test_local_coding_e2e.py  live local Qwen3-8B tool turns (AGENT_TOOL_BRAIN=local; needs :8010)

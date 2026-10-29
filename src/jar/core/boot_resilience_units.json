@@ -1,0 +1,80 @@
+{
+  "_comment": "Units titan must come back with after a brownout or reboot. boot_resilience.sh check/apply reads this. Platform units are OS packages; titan units live under server-setup/ or were installed by runtime deploy. optional stays listed so check reports them without enabling.",
+  "bios": [
+    "UEFI/BIOS: set AC Power Loss / Restore After AC Power Loss / After Power Loss to Power On (not Stay Off / Last State). Without this the chassis stays dark after a brownout until someone presses the power button — no software can fix that.",
+    "Leave Wake-on-LAN optional; do not rely on it for brownouts.",
+    "If the board has a hardware watchdog, enable it."
+  ],
+  "platform": [
+    "ssh.service",
+    "tailscaled.service",
+    "docker.service",
+    "nvidia-persistenced.service"
+  ],
+  "platform_any_of": [
+    ["systemd-networkd.service", "NetworkManager.service"]
+  ],
+  "always_on_services": [
+    "titan-firewall.service",
+    "titan-gpu-init.service",
+    "titan-gpu-fan-policy.service",
+    "titan-local-agent.service",
+    "titan-agent-api.service",
+    "titan-embeddings.service",
+    "titan-decider.service",
+    "titan-code-model.service",
+    "titan-reranker.service",
+    "titan-homeassistant.service",
+    "titan-matter-server.service",
+    "titan-kokoro.service"
+  ],
+  "always_on_paths": [
+    "titan-model-switch.path"
+  ],
+  "always_on_timers": [
+    "titan-preflight.timer",
+    "titan-agent-canary.timer",
+    "titan-device-health.timer",
+    "titan-scheduled.timer",
+    "titan-graph-sync.timer",
+    "titan-system-world.timer",
+    "titan-scorecard.timer",
+    "titan-todo-issues.timer",
+    "titan-mail-server.timer",
+    "titan-mail-bills.timer",
+    "titan-backup.timer",
+    "titan-tmp-sweep.timer",
+    "titan-household-eval.timer",
+    "titan-main-health.timer",
+    "titan-clock-canary.timer",
+    "titan-reflection-letter.timer",
+    "titan-reflection-dream.timer",
+    "titan-task-digest.timer",
+    "titan-household-coordination.timer",
+    "titan-correction-digest.timer",
+    "titan-world-notes.timer",
+    "titan-agent-turn-report.timer",
+    "titan-turn-review.timer",
+    "titan-autonomous-coder.timer",
+    "titan-model-eval.timer",
+    "titan-family-meeting.timer",
+    "titan-github-stars.timer",
+    "titan-kb-digest.timer",
+    "titan-kb-lifecycle.timer",
+    "titan-kb-questions.timer",
+    "titan-memory-review.timer",
+    "titan-me-purge.timer",
+    "titan-chat-links.timer",
+    "titan-cite-precision.timer",
+    "titan-verification.timer",
+    "titan-youtube-sync.timer",
+    "titan-box-backup.timer"
+  ],
+  "optional": [
+    "titan-mail-idle.service",
+    "titan-mail-compare.timer",
+    "titan-perception-m1.timer",
+    "titan-vision.service"
+  ],
+  "registry_units": true
+}

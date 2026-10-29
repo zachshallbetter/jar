@@ -1,0 +1,353 @@
+{
+ "accessProjection": {
+  "role": "kid",
+  "rule": "schedule_view.for_viewer (audience, calendars, kids' calendars, fences)",
+  "viewer": "ava"
+ },
+ "dependencies": [
+  {
+   "revision": "2026-10-06T16:30:00-07:00|2026-10-06T17:30:00-07:00",
+   "subject": {
+    "id": "e1"
+   }
+  },
+  {
+   "revision": "2026-10-07T20:00:00-07:00|",
+   "subject": {
+    "id": "e2"
+   }
+  },
+  {
+   "revision": "2026-10-07|",
+   "subject": {
+    "id": "e6"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 1,
+    "group": "g-day-2026-10-06",
+    "rule": "visible-event"
+   },
+   {
+    "count": 2,
+    "group": "g-day-2026-10-07",
+    "rule": "visible-event"
+   }
+  ],
+  "ordering": [
+   "time",
+   "time"
+  ]
+ },
+ "fingerprint": "sha256:1b4e3fc84d429276a87d8fbc1d3e9787b96561ca26ef7dec05e503562ee1ba6a",
+ "groups": [
+  {
+   "id": "g-day-2026-10-06",
+   "label": {
+    "args": {
+     "date": "2026-10-06"
+    },
+    "key": "schedule.day",
+    "text": "Today"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Ava",
+      "end": "2026-10-06T17:30:00-07:00",
+      "id": "e1",
+      "location": null,
+      "managed_by": "ava",
+      "managed_by_you": true,
+      "start": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e1",
+       "op-ask-e1"
+      ],
+      "meta": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e1",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "ava",
+      "name": "Ava",
+      "you": true
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "primary"
+  },
+  {
+   "id": "g-day-2026-10-07",
+   "label": {
+    "args": {
+     "date": "2026-10-07"
+    },
+    "key": "schedule.day",
+    "text": "Wed Oct 7"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": true,
+      "calendar": "Family",
+      "end": null,
+      "id": "e6",
+      "location": null,
+      "managed_by": "household",
+      "managed_by_you": false,
+      "start": "2026-10-07",
+      "title": "School holiday"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e6",
+       "op-ask-e6"
+      ],
+      "all_day": true,
+      "meta": "2026-10-07",
+      "title": "School holiday"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e6",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "household",
+      "name": null,
+      "you": false
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Family",
+      "end": null,
+      "id": "e2",
+      "location": null,
+      "managed_by": "household",
+      "managed_by_you": false,
+      "start": "2026-10-07T20:00:00-07:00",
+      "title": "Take out the bins"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e2",
+       "op-ask-e2"
+      ],
+      "meta": "2026-10-07T20:00:00-07:00",
+      "title": "Take out the bins"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e2",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "household",
+      "name": null,
+      "you": false
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "supporting"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e1",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e1",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e1",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e1",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e1",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e6",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e6",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e6",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e6",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e6",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e2",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e2",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e2",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e2",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e2",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  }
+ ],
+ "partial": false,
+ "profile": "temporal",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "appointments",
+   "people",
+   "household_calendars",
+   "fences",
+   "today",
+   "viewer"
+  ],
+  "resolver": "schedule@1"
+ },
+ "purpose": "monitor",
+ "resolutionId": "rs-1b4e3fc84d429276",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

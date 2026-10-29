@@ -1,0 +1,19 @@
+{
+ "body": {
+  "projects": [
+   {
+    "audience": "adults",
+    "color": "blue",
+    "created_at": 1791554440.0,
+    "group": null,
+    "icon": "folder",
+    "id": "pr-kitchen",
+    "name": "Kitchen remodel",
+    "name_source": "person",
+    "owner": "p-alex"
+   }
+  ]
+ },
+ "not_sss": "GET /v1/projects: the plain project list, not a ResolvedSurface",
+ "status": 200
+}

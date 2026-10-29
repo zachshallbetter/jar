@@ -1,0 +1,14 @@
+{
+  "default": "coordination",
+  "prefixes": {
+    "long-chat": "box",
+    "graph": "kb",
+    "find": "desktop",
+    "routine": "coordination",
+    "text": "coordination",
+    "task": "coordination",
+    "weather": "coordination",
+    "repeat": "coordination",
+    "capabilities": "coordination"
+  }
+}

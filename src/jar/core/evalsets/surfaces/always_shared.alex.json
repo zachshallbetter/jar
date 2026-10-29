@@ -1,0 +1,318 @@
+{
+ "accessProjection": {
+  "role": "admin",
+  "rule": "item_open.grants_of (the owner's own)",
+  "viewer": "alex"
+ },
+ "dependencies": [
+  {
+   "revision": "1788739200.0:None",
+   "subject": {
+    "id": "gr-3b0efed8ee9d0c9a"
+   }
+  },
+  {
+   "revision": "1780963200.0:None",
+   "subject": {
+    "id": "gr-6bac7a42b22e395a"
+   }
+  },
+  {
+   "revision": "1774051200.0:1791158400.0",
+   "subject": {
+    "id": "gr-918dd65ca3789b61"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 1,
+    "group": "g-needs-a-look",
+    "rule": "always-grant"
+   },
+   {
+    "count": 2,
+    "group": "g-asker-robin",
+    "rule": "always-grant"
+   },
+   {
+    "count": 1,
+    "group": "g-asker-jordan",
+    "rule": "always-grant"
+   }
+  ],
+  "ordering": [
+   "least-recently-used",
+   "kind",
+   "kind"
+  ]
+ },
+ "fingerprint": "sha256:065d0143eb8cf584031e9c1a96f299624b0dd938f0466e0b929cf61002183063",
+ "groups": [
+  {
+   "id": "g-needs-a-look",
+   "label": {
+    "key": "sharing.needs_a_look",
+    "text": "Needs a look"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "body_grants"
+       ],
+       "kind": "declared",
+       "rule": "always-grant"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-remove-gr-6bac7a42b22e395a"
+      ],
+      "status": {
+       "text": "grant.unused",
+       "tone": "attention"
+      },
+      "subtitle": "Robin",
+      "title": "mail"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "gr-6bac7a42b22e395a",
+      "kind": "grant"
+     }
+    }
+   ],
+   "ordering": "least-recently-used",
+   "role": "attention"
+  },
+  {
+   "id": "g-asker-robin",
+   "label": {
+    "key": "sharing.asker",
+    "text": "Robin"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "body_grants"
+       ],
+       "kind": "declared",
+       "rule": "always-grant"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-remove-gr-6bac7a42b22e395a"
+      ],
+      "status": {
+       "text": "grant.unused",
+       "tone": "attention"
+      },
+      "subtitle": "Robin",
+      "title": "mail"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "gr-6bac7a42b22e395a",
+      "kind": "grant"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "body_grants"
+       ],
+       "kind": "declared",
+       "rule": "always-grant"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-remove-gr-918dd65ca3789b61"
+      ],
+      "meta": "2026-10-05T00:00:00Z",
+      "subtitle": "Robin",
+      "title": "scan"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "gr-918dd65ca3789b61",
+      "kind": "grant"
+     }
+    }
+   ],
+   "operations": [
+    "op-stop-robin"
+   ],
+   "ordering": "kind",
+   "role": "primary"
+  },
+  {
+   "id": "g-asker-jordan",
+   "label": {
+    "key": "sharing.asker",
+    "text": "Jordan"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "body_grants"
+       ],
+       "kind": "declared",
+       "rule": "always-grant"
+      }
+     ],
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-remove-gr-3b0efed8ee9d0c9a"
+      ],
+      "subtitle": "Jordan",
+      "title": "mail"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "gr-3b0efed8ee9d0c9a",
+      "kind": "grant"
+     }
+    }
+   ],
+   "operations": [
+    "op-stop-jordan"
+   ],
+   "ordering": "kind",
+   "role": "primary"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.grant.remove@1",
+   "exposure": "available",
+   "id": "op-remove-gr-6bac7a42b22e395a",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/sharing/grants/gr-6bac7a42b22e395a"
+   },
+   "subject": {
+    "id": "gr-6bac7a42b22e395a",
+    "kind": "grant"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.grant.remove@1",
+   "exposure": "available",
+   "id": "op-remove-gr-918dd65ca3789b61",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/sharing/grants/gr-918dd65ca3789b61"
+   },
+   "subject": {
+    "id": "gr-918dd65ca3789b61",
+    "kind": "grant"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.grant.stop_all@1",
+   "exposure": "available",
+   "id": "op-stop-robin",
+   "params": {
+    "asker": "robin"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/sharing/grants/stop"
+   },
+   "subject": {
+    "id": "robin",
+    "kind": "person"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.grant.remove@1",
+   "exposure": "available",
+   "id": "op-remove-gr-3b0efed8ee9d0c9a",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/sharing/grants/gr-3b0efed8ee9d0c9a"
+   },
+   "subject": {
+    "id": "gr-3b0efed8ee9d0c9a",
+    "kind": "grant"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.grant.stop_all@1",
+   "exposure": "available",
+   "id": "op-stop-jordan",
+   "params": {
+    "asker": "jordan"
+   },
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/sharing/grants/stop"
+   },
+   "subject": {
+    "id": "jordan",
+    "kind": "person"
+   },
+   "variant": "destructive",
+   "verb": "remove",
+   "verification": "none"
+  }
+ ],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "body_grants",
+   "now",
+   "viewer"
+  ],
+  "resolver": "always-shared@1"
+ },
+ "purpose": "edit",
+ "resolutionId": "rs-065d0143eb8cf584",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

@@ -1,0 +1,440 @@
+{
+ "about": "#951 step 4: text-derived payment evidence. GET /v1/obligations/watch (per viewer) and POST /v1/hooks {kind: obligation_signal} (docs/obligation-signals.md). Fictional house; today is fixed. The Mac reads `watch` and `posts` (request \u2192 status, response); `settled` is titan's own settlement, per viewer.",
+ "today": "2026-10-09",
+ "house": {
+  "records": [
+   {
+    "node_id": "b-water",
+    "node_type": "bill",
+    "data": {
+     "doc_type": "bill",
+     "vendor": "Hale Water",
+     "amount": 48.2,
+     "due_date": "2026-10-20",
+     "mail_date": "2026-09-30",
+     "payment_status": "due",
+     "provenance": {
+      "source": "mail",
+      "owner": "alex",
+      "audience": "household"
+     }
+    }
+   },
+   {
+    "node_id": "b-phone",
+    "node_type": "bill",
+    "data": {
+     "doc_type": "bill",
+     "vendor": "Harbor Mobile",
+     "amount": 61.0,
+     "due_date": "2026-10-24",
+     "mail_date": "2026-10-02",
+     "payment_status": "due",
+     "provenance": {
+      "source": "mail",
+      "owner": "robin",
+      "audience": "private"
+     }
+    }
+   },
+   {
+    "node_id": "b-power",
+    "node_type": "bill",
+    "data": {
+     "doc_type": "bill",
+     "vendor": "Hale Power",
+     "amount": 90.0,
+     "due_date": "2026-10-12",
+     "mail_date": "2026-10-01",
+     "payment_status": "failed",
+     "provenance": {
+      "source": "mail",
+      "owner": "alex",
+      "audience": "adults"
+     }
+    }
+   },
+   {
+    "node_id": "b-gym",
+    "node_type": "bill",
+    "data": {
+     "doc_type": "bill",
+     "vendor": "Ridge Gym",
+     "amount": 30.0,
+     "due_date": "2026-10-15",
+     "mail_date": "2026-10-03",
+     "payment_status": "due",
+     "provenance": {
+      "source": "mail",
+      "owner": "alex",
+      "audience": "private"
+     }
+    }
+   }
+  ],
+  "viewers": {
+   "robin": {
+    "role": "adult",
+    "sees": [
+     "b-water",
+     "b-phone",
+     "b-power"
+    ]
+   },
+   "alex": {
+    "role": "admin",
+    "sees": [
+     "b-water",
+     "b-power",
+     "b-gym"
+    ]
+   },
+   "ava": {
+    "role": "kid",
+    "sees": []
+   },
+   "screen": {
+    "role": "household",
+    "sees": []
+   }
+  }
+ },
+ "watch": {
+  "robin": {
+   "status": 200,
+   "obligations": [
+    {
+     "account_ref": "acct-c3a707b613cbda6e",
+     "vendor": "Hale Power",
+     "amount": 90.0,
+     "due": "2026-10-12",
+     "state": "failed"
+    },
+    {
+     "account_ref": "acct-760408c8cee47453",
+     "vendor": "Hale Water",
+     "amount": 48.2,
+     "due": "2026-10-20",
+     "state": "due"
+    },
+    {
+     "account_ref": "acct-d4cdffd79ab77308",
+     "vendor": "Harbor Mobile",
+     "amount": 61.0,
+     "due": "2026-10-24",
+     "state": "due"
+    }
+   ]
+  },
+  "alex": {
+   "status": 200,
+   "obligations": [
+    {
+     "account_ref": "acct-c3a707b613cbda6e",
+     "vendor": "Hale Power",
+     "amount": 90.0,
+     "due": "2026-10-12",
+     "state": "failed"
+    },
+    {
+     "account_ref": "acct-bab28dd14fd6429d",
+     "vendor": "Ridge Gym",
+     "amount": 30.0,
+     "due": "2026-10-15",
+     "state": "due"
+    },
+    {
+     "account_ref": "acct-760408c8cee47453",
+     "vendor": "Hale Water",
+     "amount": 48.2,
+     "due": "2026-10-20",
+     "state": "due"
+    }
+   ]
+  },
+  "ava": {
+   "status": 403
+  },
+  "screen": {
+   "status": 403
+  }
+ },
+ "posts": [
+  {
+   "name": "a text confirms the water payment",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "a1a1a1a1a1a1a1a1"
+   },
+   "status": 200,
+   "response": {
+    "kind": "obligation_signal",
+    "sig_id": "a1a1a1a1a1a1a1a1",
+    "accepted": true
+   }
+  },
+  {
+   "name": "a text says the phone payment failed (no amount)",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "payment_failed",
+    "account_ref": "acct-d4cdffd79ab77308",
+    "amount": null,
+    "on": "2026-10-07",
+    "confidence": 0.8,
+    "sig_id": "b2b2b2b2b2b2b2b2"
+   },
+   "status": 200,
+   "response": {
+    "kind": "obligation_signal",
+    "sig_id": "b2b2b2b2b2b2b2b2",
+    "accepted": true
+   }
+  },
+  {
+   "name": "below 0.6: kept, but never counts",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-c3a707b613cbda6e",
+    "amount": 90.0,
+    "on": "2026-10-08",
+    "confidence": 0.4,
+    "sig_id": "c3c3c3c3c3c3c3c3"
+   },
+   "status": 200,
+   "response": {
+    "kind": "obligation_signal",
+    "sig_id": "c3c3c3c3c3c3c3c3",
+    "accepted": true
+   }
+  },
+  {
+   "name": "the same sig_id again replaces it",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.95,
+    "sig_id": "a1a1a1a1a1a1a1a1"
+   },
+   "status": 200,
+   "response": {
+    "kind": "obligation_signal",
+    "sig_id": "a1a1a1a1a1a1a1a1",
+    "accepted": true
+   }
+  },
+  {
+   "name": "never the text",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4",
+    "text": "Payment received, thanks"
+   },
+   "status": 400
+  },
+  {
+   "name": "never a vendor name from the text",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4",
+    "vendor": "Hale Water"
+   },
+   "status": 400
+  },
+  {
+   "name": "never the sender",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4",
+    "sender": "+15550100"
+   },
+   "status": 400
+  },
+  {
+   "name": "only paid or payment_failed (credit kinds come later)",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "credit_applied",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4"
+   },
+   "status": 400
+  },
+  {
+   "name": "a ref is acct- and 16 hex",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "Hale Water",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4"
+   },
+   "status": 400
+  },
+  {
+   "name": "not in the future",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2099-01-01",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4"
+   },
+   "status": 400
+  },
+  {
+   "name": "no negative amount",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": -5,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4"
+   },
+   "status": 400
+  },
+  {
+   "name": "confidence is 0 to 1",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 1.5,
+    "sig_id": "d4d4d4d4d4d4d4d4"
+   },
+   "status": 400
+  },
+  {
+   "name": "a field missing",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "confidence": 0.9,
+    "sig_id": "d4d4d4d4d4d4d4d4"
+   },
+   "status": 400
+  },
+  {
+   "name": "another adult's private obligation isn't the poster's",
+   "as": "robin",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-bab28dd14fd6429d",
+    "amount": 30.0,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "e5e5e5e5e5e5e5e5"
+   },
+   "status": 404
+  },
+  {
+   "name": "a kid has no bills",
+   "as": "ava",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "f6f6f6f6f6f6f6f6"
+   },
+   "status": 403
+  },
+  {
+   "name": "a shared screen has no personal items",
+   "as": "screen",
+   "body": {
+    "kind": "obligation_signal",
+    "signal": "paid",
+    "account_ref": "acct-760408c8cee47453",
+    "amount": 48.2,
+    "on": "2026-10-08",
+    "confidence": 0.9,
+    "sig_id": "f6f6f6f6f6f6f6f6"
+   },
+   "status": 403
+  }
+ ],
+ "settled": {
+  "robin": {
+   "Hale Water": {
+    "state": "resolved",
+    "chain_has": "paid Oct 8 (a text)"
+   },
+   "Harbor Mobile": {
+    "state": "failed",
+    "chain_has": "failed Oct 7 (a text)"
+   },
+   "Hale Power": {
+    "state": "failed",
+    "chain_lacks": "(a text)"
+   }
+  },
+  "alex": {
+   "Hale Water": {
+    "state": "due",
+    "chain_lacks": "(a text)"
+   },
+   "Hale Power": {
+    "state": "failed",
+    "chain_lacks": "(a text)"
+   },
+   "Ridge Gym": {
+    "state": "due",
+    "chain_lacks": "(a text)"
+   }
+  }
+ }
+}

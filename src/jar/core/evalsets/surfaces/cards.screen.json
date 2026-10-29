@@ -1,0 +1,415 @@
+{
+ "accessProjection": {
+  "role": "household",
+  "rule": "proactive.list_cards (this viewer's own cards) + card_items",
+  "viewer": "living-room"
+ },
+ "dependencies": [
+  {
+   "revision": "1791330600.0::",
+   "subject": {
+    "id": "c-lock"
+   }
+  },
+  {
+   "revision": "1791331080.0::",
+   "subject": {
+    "id": "c-pickup"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 1,
+    "group": "g-needs-a-decision",
+    "rule": "card"
+   },
+   {
+    "count": 1,
+    "group": "g-cards",
+    "rule": "card"
+   },
+   {
+    "count": 0,
+    "group": "g-done-today",
+    "rule": null
+   }
+  ],
+  "ordering": [
+   "priority,then-newest",
+   "priority,then-newest",
+   "newest-first"
+  ]
+ },
+ "fingerprint": "sha256:0e6e7c64863348619a65cc278db1ce00a3639acac3f6b9d854182754a3500be3",
+ "groups": [
+  {
+   "id": "g-needs-a-decision",
+   "label": {
+    "key": "cards.needs_a_decision",
+    "text": "Needs a decision"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [
+       {
+        "id": "a0",
+        "kind": "reply",
+        "label": "Lock up"
+       }
+      ],
+      "approval": true,
+      "can_mute": false,
+      "created_at": 1791330540.0,
+      "data": null,
+      "detail": null,
+      "expires_at": null,
+      "id": "c-lock",
+      "kind": "info",
+      "source": "lock-up",
+      "title": "Lock up for the night?",
+      "updated_at": 1791330600.0,
+      "urgency": 2
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-ask-c-lock",
+       "op-act-c-lock-a0",
+       "op-later-c-lock",
+       "op-done-c-lock",
+       "op-mute-c-lock"
+      ],
+      "meta": "lock-up",
+      "status": {
+       "text": "card.urgent",
+       "tone": "attention"
+      },
+      "title": "Lock up for the night?"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-lock",
+      "kind": "card"
+     }
+    }
+   ],
+   "ordering": "priority,then-newest",
+   "role": "attention"
+  },
+  {
+   "id": "g-cards",
+   "label": {
+    "key": "cards.all",
+    "text": "Cards"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "source",
+        "urgency",
+        "updated_at"
+       ],
+       "kind": "declared",
+       "rule": "card"
+      }
+     ],
+     "card": {
+      "acked_at": null,
+      "action_prompt": null,
+      "actions": [],
+      "approval": false,
+      "can_mute": true,
+      "created_at": 1791331020.0,
+      "data": null,
+      "detail": "School pickup, Thursday",
+      "expires_at": null,
+      "id": "c-pickup",
+      "item": {
+       "id": "routine:r-9"
+      },
+      "kind": "info",
+      "source": "calendar",
+      "title": "Leo's pickup moved to 3:30",
+      "updated_at": 1791331080.0,
+      "urgency": 1
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-c-pickup",
+       "op-ask-c-pickup",
+       "op-later-c-pickup",
+       "op-done-c-pickup",
+       "op-mute-c-pickup"
+      ],
+      "meta": "calendar",
+      "subtitle": "School pickup, Thursday",
+      "title": "Leo's pickup moved to 3:30"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "c-pickup",
+      "kind": "card"
+     }
+    }
+   ],
+   "ordering": "priority,then-newest",
+   "role": "supporting"
+  },
+  {
+   "id": "g-done-today",
+   "label": {
+    "key": "cards.done_today",
+    "text": "Done today"
+   },
+   "members": [],
+   "ordering": "newest-first",
+   "role": "history"
+  }
+ ],
+ "now": 1791331200.0,
+ "operations": [
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-lock",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "action": {
+    "id": "a0",
+    "kind": "reply",
+    "value": null
+   },
+   "contract": "jellybean.card.action@1",
+   "exposure": "available",
+   "id": "op-act-c-lock-a0",
+   "label": {
+    "text": "Lock up"
+   },
+   "params": {
+    "action_id": "a0"
+   },
+   "reversibility": "unknown",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/action"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "variant": "primary",
+   "verb": "reply",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "withheld",
+   "id": "op-later-c-lock",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/snooze"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-lock",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/ack"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "withheld",
+   "id": "op-mute-c-lock",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-lock/mute"
+   },
+   "subject": {
+    "id": "c-lock",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.open@1",
+   "exposure": "available",
+   "id": "op-open-c-pickup",
+   "params": {
+    "item": "routine:r-9",
+    "view": "now"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "GET",
+    "path": "/v1/items"
+   },
+   "subject": {
+    "id": "c-pickup",
+    "kind": "card"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.ask@1",
+   "exposure": "available",
+   "id": "op-ask-c-pickup",
+   "label": {
+    "key": "card.tell_me_more",
+    "text": "Tell me more"
+   },
+   "params": {
+    "prompt_key": "card.tell_me_more"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "c-pickup",
+    "kind": "card"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.later@1",
+   "exposure": "withheld",
+   "id": "op-later-c-pickup",
+   "params": {
+    "until": null
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-pickup/snooze"
+   },
+   "subject": {
+    "id": "c-pickup",
+    "kind": "card"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.done@1",
+   "exposure": "available",
+   "id": "op-done-c-pickup",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-pickup/ack"
+   },
+   "subject": {
+    "id": "c-pickup",
+    "kind": "card"
+   },
+   "verb": "done",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.card.mute@1",
+   "exposure": "withheld",
+   "id": "op-mute-c-pickup",
+   "recovery": [
+    "unmute"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/proactive/c-pickup/mute"
+   },
+   "subject": {
+    "id": "c-pickup",
+    "kind": "card"
+   },
+   "verb": "mute",
+   "verification": "none"
+  }
+ ],
+ "profile": "attention",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "proactive:cards",
+   "now",
+   "day_start",
+   "viewer"
+  ],
+  "resolver": "cards@1"
+ },
+ "purpose": "act",
+ "resolutionId": "rs-0e6e7c6486334861",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

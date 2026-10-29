@@ -1,0 +1,136 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "kid",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-ava"
+  },
+  "dependencies": [
+   {
+    "revision": "1791554427.0",
+    "subject": {
+     "id": "scheduled:sch-alex"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 1,
+     "group": "g-person",
+     "rule": "theirs"
+    }
+   ],
+   "ordering": [
+    "id"
+   ]
+  },
+  "fingerprint": "sha256:542ebe8705dcdf6721c1415eaeb9650a25e6d179f0b0ca648ae4e3bd7bad83ef",
+  "groups": [
+   {
+    "id": "g-person",
+    "label": {
+     "key": "items.person",
+     "text": "Person"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "owner"
+        ],
+        "kind": "declared",
+        "rule": "theirs"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-scheduled:sch-alex",
+        "op-remove-scheduled:sch-alex"
+       ],
+       "audience": "household",
+       "meta": "2026-10-10T19:00:00Z",
+       "projects": [],
+       "title": "Water the plants"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "scheduled:sch-alex",
+       "kind": "scheduled"
+      }
+     }
+    ],
+    "ordering": "id",
+    "role": "primary"
+   }
+  ],
+  "operations": [
+   {
+    "contract": "jellybean.scheduled.open@1",
+    "exposure": "available",
+    "id": "op-open-scheduled:sch-alex",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.remove@1",
+    "exposure": "available",
+    "id": "op-remove-scheduled:sch-alex",
+    "reversibility": "compensatable",
+    "route": {
+     "method": "DELETE",
+     "path": "/v1/scheduled/sch-alex"
+    },
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "remove",
+    "verification": "none"
+   }
+  ],
+  "profile": "collection",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "resolutionId": "rs-542ebe8705dcdf67",
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  },
+  "subject": {
+   "id": "p-alex",
+   "kind": "person"
+  }
+ },
+ "status": 200
+}

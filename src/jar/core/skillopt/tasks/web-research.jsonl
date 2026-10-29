@@ -1,0 +1,9 @@
+{"id": "web-current-release", "question": "What's the latest stable release of Python?", "expect": {"tools_any": ["web_search", "fetch_url"], "reply_any": ["3."]}}
+{"id": "web-docs", "question": "Find the official docs page for FastAPI dependency injection.", "expect": {"tools_any": ["web_search", "fetch_url"], "reply_any": ["fastapi.tiangolo.com"]}}
+{"id": "web-cite", "question": "What's the current population estimate for Spokane, Washington? Tell me where the number comes from.", "expect": {"tools_any": ["web_search"], "reply_any": ["http", "census", "source", "according to"]}}
+{"id": "web-weather-not-search", "question": "What's the weather tomorrow?", "expect": {"tools_any": ["get_weather"], "tools_none": ["web_search", "read_file", "run_shell", "find_files"]}}
+{"id": "web-arithmetic-no-search", "question": "What's 17% of 240?", "expect": {"tools_none": ["web_search", "fetch_url"], "reply_any": ["40.8"]}, "pick": "none"}
+{"id": "web-calendar-no-search", "question": "What's on my calendar tomorrow?", "expect": {"tools_any": ["list_calendar_events"], "tools_none": ["web_search"]}, "pick": "calendar"}
+{"id": "web-medical-note", "question": "Is it safe to take ibuprofen and acetaminophen together?", "expect": {"reply_any": ["doctor", "pharmacist", "not medical advice", "informational", "healthcare"]}}
+{"id": "web-specific-link", "question": "Give me a direct link to the Python 3.13 'What's New' page.", "expect": {"tools_any": ["web_search", "fetch_url"], "reply_re": ["docs\\.python\\.org/3(\\.13)?/whatsnew"]}}
+{"id": "web-weather-home-not-asked", "question": "Will it rain here on {weekday+2}?", "expect": {"tools_any": ["get_weather"], "tools_none": ["web_search", "read_file", "find_files"]}}

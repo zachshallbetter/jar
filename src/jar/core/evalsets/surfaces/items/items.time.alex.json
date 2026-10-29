@@ -1,0 +1,377 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "admin",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-alex"
+  },
+  "dependencies": [
+   {
+    "revision": "1791554427.0",
+    "subject": {
+     "id": "scheduled:sch-alex"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:00:50+00:00",
+    "subject": {
+     "id": "chat:s-uuid-1"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:01:00+00:00",
+    "subject": {
+     "id": "chat:th-alex-filed"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:01:01+00:00",
+    "subject": {
+     "id": "chat:th-alex-new"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 3,
+     "group": "g-day-2026-10-09",
+     "rule": "in-range"
+    },
+    {
+     "count": 1,
+     "group": "g-day-2026-10-10",
+     "rule": "in-range"
+    }
+   ],
+   "ordering": [
+    "time",
+    "time"
+   ]
+  },
+  "fingerprint": "sha256:c6b0b7f6448d06f5838fc1698b6a0783b2c51ca7ae39d7c3c9a22876405fadde",
+  "groups": [
+   {
+    "id": "g-day-2026-10-09",
+    "label": {
+     "args": {
+      "date": "2026-10-09"
+     },
+     "key": "items.time.day",
+     "text": "Today"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:s-uuid-1",
+        "op-file-chat:s-uuid-1"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:00:50+00:00",
+       "projects": [],
+       "title": "Which tiles did we pick for the backsplash?"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:s-uuid-1",
+       "kind": "chat"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-alex-filed",
+        "op-file-chat:th-alex-filed",
+        "op-unfile-chat:th-alex-filed"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:00+00:00",
+       "projects": [
+        "pr-kitchen"
+       ],
+       "title": "Grout colour for the kitchen"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-alex-filed",
+       "kind": "chat"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-alex-new",
+        "op-file-chat:th-alex-new"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:01+00:00",
+       "projects": [],
+       "title": "the grout colour again"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-alex-new",
+       "kind": "chat"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "primary"
+   },
+   {
+    "id": "g-day-2026-10-10",
+    "label": {
+     "args": {
+      "date": "2026-10-10"
+     },
+     "key": "items.time.day",
+     "text": "Sat Oct 10"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "time"
+        ],
+        "kind": "declared",
+        "rule": "in-range"
+       }
+      ],
+      "priority": 1,
+      "slots": {
+       "actions": [
+        "op-open-scheduled:sch-alex",
+        "op-remove-scheduled:sch-alex",
+        "op-file-scheduled:sch-alex"
+       ],
+       "audience": "household",
+       "meta": "2026-10-10T19:00:00Z",
+       "projects": [],
+       "title": "Water the plants"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "scheduled:sch-alex",
+       "kind": "scheduled"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "supporting"
+   }
+  ],
+  "operations": [
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:s-uuid-1",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:s-uuid-1",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:s-uuid-1",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/s-uuid-1"
+    },
+    "subject": {
+     "id": "chat:s-uuid-1",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-alex-filed",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-alex-filed",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-alex-filed",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-alex-filed"
+    },
+    "subject": {
+     "id": "chat:th-alex-filed",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.unfile@1",
+    "exposure": "available",
+    "id": "op-unfile-chat:th-alex-filed",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/chat:th-alex-filed/unfile"
+    },
+    "subject": {
+     "id": "chat:th-alex-filed",
+     "kind": "chat"
+    },
+    "verb": "unfile",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-alex-new",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-alex-new",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-alex-new",
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-alex-new"
+    },
+    "subject": {
+     "id": "chat:th-alex-new",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.open@1",
+    "exposure": "available",
+    "id": "op-open-scheduled:sch-alex",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.remove@1",
+    "exposure": "available",
+    "id": "op-remove-scheduled:sch-alex",
+    "reversibility": "compensatable",
+    "route": {
+     "method": "DELETE",
+     "path": "/v1/scheduled/sch-alex"
+    },
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "remove",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.scheduled.file@1",
+    "exposure": "available",
+    "id": "op-file-scheduled:sch-alex",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/scheduled:sch-alex/file"
+    },
+    "subject": {
+     "id": "scheduled:sch-alex",
+     "kind": "scheduled"
+    },
+    "verb": "file",
+    "verification": "none"
+   }
+  ],
+  "profile": "temporal",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "resolutionId": "rs-c6b0b7f6448d06f5",
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  }
+ },
+ "status": 200
+}

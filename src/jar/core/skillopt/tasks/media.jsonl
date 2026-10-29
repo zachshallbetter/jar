@@ -1,0 +1,16 @@
+{"id": "media-now-playing", "question": "What's playing on Plex?", "expect": {"tools_none": ["fetch_url", "web_search"], "reply_all": ["budapest"], "reply_any": ["living room"], "calls_max": {"get_plex_state": 0}}}
+{"id": "media-tv", "question": "Is anything on the TV right now?", "expect": {"tools_none": ["get_screen", "get_field_state"], "reply_all": ["budapest"], "calls_max": {"get_plex_state": 0}}}
+{"id": "media-progress", "question": "How far into the movie are we?", "expect": {"reply_any": ["42", "less than half", "under half", "almost halfway", "nearly halfway"], "calls_max": {"get_plex_state": 0}}}
+{"id": "media-listening-not-plex", "question": "I'm listening to a podcast about bees, remind me later to look up the episode name.", "expect": {"tools_none": ["get_plex_state", "fetch_url"], "tools_any": ["create_reminder"]}, "pick": "calendar"}
+{"id": "media-no-fabrication", "question": "Do I have Dune in my Plex library?", "expect": {"tools_none": ["web_search", "run_shell", "read_file", "find_files", "search_file_contents"], "reply_none": ["yes, you have dune", "dune is in your library"]}}
+{"id": "media-social-not-media", "question": "What's a good time of day to post on social media?", "expect": {"tools_none": ["get_plex_state"]}, "pick": "none"}
+{"id": "media-who-watching", "question": "Which TV is playing something right now?", "expect": {"reply_any": ["living room"], "calls_max": {"get_plex_state": 0}}}
+{"id": "media-what-was-i-watching", "question": "What was I watching earlier?", "expect": {"reply_all": ["budapest"], "calls_max": {"get_plex_state": 0}}}
+{"id": "media-plex-not-web", "question": "Is Plex up?", "expect": {"tools_none": ["web_search", "fetch_url", "run_shell"], "calls_max": {"get_plex_state": 0}}}
+{"id": "media-song-not-screen", "question": "What song is this?", "expect": {"tools_none": ["get_screen", "run_shell", "read_file"]}}
+{"id": "media-phone-play-album", "question": "Play Kind of Blue.", "client": "iphone", "mac": "never", "expect": {"tools_any": ["play_music"], "args": [{"tool": "play_music", "key": "query", "re": "kind of blue"}], "reply_any": ["kind of blue"], "tools_none": ["home_control"]}}
+{"id": "media-phone-now-playing", "question": "What's playing on my phone?", "client": "iphone", "mac": "never", "expect": {"tools_any": ["now_playing"], "reply_any": ["so what"], "tools_none": ["home_status", "get_plex_state"]}}
+{"id": "media-phone-tv-is-home", "question": "What's on the living room TV?", "client": "iphone", "mac": "never", "expect": {"tools_none": ["now_playing", "play_music", "get_plex_state"], "reply_any": ["living room", "tv"]}}
+{"id": "media-phone-pause", "question": "Pause the music.", "client": "iphone", "mac": "never", "expect": {"tools_any": ["music_control"], "args": [{"tool": "music_control", "key": "action", "re": "pause"}], "tools_none": ["home_control"]}}
+{"id": "media-phone-not-found", "question": "Play the album Zzyzx Road Sessions.", "client": "iphone", "mac": "never", "expect": {"tools_any": ["play_music"], "reply_any": ["couldn't find", "could not find", "not find", "isn't in", "not in your"], "reply_none": ["playing the album"]}}
+{"id": "media-mac-music-on-phone", "question": "Play Kind of Blue on my phone.", "expect": {"tools_none": ["play_music"], "reply_any": ["iphone", "your phone", "from the phone"]}}

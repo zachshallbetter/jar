@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Jar CLI launcher
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+export PYTHONPATH="$PROJECT_ROOT/src:$PROJECT_ROOT/src/jar/core:$PYTHONPATH"
+
+# Prefer project venv if it exists
+if [ -x "$PROJECT_ROOT/venv/bin/python3" ]; then
+    PYTHON="$PROJECT_ROOT/venv/bin/python3"
+elif [ -x "$HOME/.jar/venv/bin/python3" ]; then
+    PYTHON="$HOME/.jar/venv/bin/python3"
+else
+    PYTHON="python3"
+fi
+
+exec "$PYTHON" -m jar.cli "$@"

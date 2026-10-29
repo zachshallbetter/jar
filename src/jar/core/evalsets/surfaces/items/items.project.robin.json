@@ -1,0 +1,145 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "adult",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-robin"
+  },
+  "dependencies": [],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 0,
+     "group": "g-project",
+     "rule": null
+    }
+   ],
+   "ordering": [
+    "id"
+   ]
+  },
+  "fingerprint": "sha256:6b59afb6f448f935f868107cd7f18246876948aa3d69a5c86597a9e32acd8226",
+  "groups": [
+   {
+    "id": "g-project",
+    "label": {
+     "key": "items.project",
+     "text": "Project"
+    },
+    "members": [],
+    "operations": [
+     "op-add-todo-pr-kitchen",
+     "op-ask-pr-kitchen"
+    ],
+    "ordering": "id",
+    "role": "primary"
+   }
+  ],
+  "name_source": "person",
+  "next": null,
+  "operations": [
+   {
+    "contract": "jellybean.todo.add@1",
+    "exposure": "available",
+    "id": "op-add-todo-pr-kitchen",
+    "params": {
+     "project": "pr-kitchen"
+    },
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos"
+    },
+    "subject": {
+     "id": "pr-kitchen",
+     "kind": "project"
+    },
+    "verb": "add",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.project.ask@1",
+    "exposure": "available",
+    "id": "op-ask-pr-kitchen",
+    "params": {
+     "project": "pr-kitchen"
+    },
+    "reversibility": "compensatable",
+    "route": {
+     "method": "POST",
+     "path": "/v1/prompt/stream"
+    },
+    "subject": {
+     "id": "pr-kitchen",
+     "kind": "project"
+    },
+    "verb": "ask",
+    "verification": "none"
+   }
+  ],
+  "people": [
+   {
+    "id": "p-alex",
+    "name": "Alex",
+    "role": "admin"
+   },
+   {
+    "id": "p-robin",
+    "name": "Robin",
+    "role": "adult"
+   }
+  ],
+  "profile": "collection",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "consume",
+  "related": [],
+  "resolutionId": "rs-6b59afb6f448f935",
+  "sentence": {
+   "facts": {
+    "next": null,
+    "open": 0,
+    "project": "Kitchen remodel",
+    "waiting_on": [],
+    "waiting_on_you": 0
+   },
+   "key": "items.project.sentence",
+   "source": "template",
+   "text": "Kitchen remodel: 0 open."
+  },
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  },
+  "subject": {
+   "id": "pr-kitchen",
+   "kind": "project"
+  }
+ },
+ "status": 200
+}

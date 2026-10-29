@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Set up your box</title>
+<style>
+  :root { --bg: #faf7f2; --fg: #2b2622; --muted: #7a7068; --line: #e4ddd3; --accent: #b4532a; --ok: #3d7a4a; --card: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1d1a17; --fg: #eee7df; --muted: #a39a90; --line: #3a342e; --accent: #e08a5b; --ok: #7fbf8c; --card: #26221e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.45 -apple-system, system-ui, sans-serif; }
+  main { max-width: 34rem; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  p.lead { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+  h2 { font-size: 1.05rem; margin: 0 0 8px; display: flex; gap: 8px; align-items: center; }
+  h2 .n { width: 1.6em; height: 1.6em; border-radius: 50%; display: inline-grid; place-items: center; font-size: .85rem;
+          border: 1px solid var(--line); }
+  h2 .n.done { background: var(--ok); border-color: var(--ok); color: var(--bg); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg);
+                  color: var(--fg); flex: 1 1 10rem; min-width: 0; }
+  button { font: inherit; padding: 8px 14px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; cursor: pointer; }
+  button.quiet { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+  ul { list-style: none; padding: 0; margin: 8px 0 0; }
+  li { padding: 8px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  li:first-child { border-top: 0; }
+  .muted { color: var(--muted); font-size: .9rem; }
+  .code { font: 600 1.6rem/1 ui-monospace, Menlo, monospace; letter-spacing: .15em; }
+  .err { color: var(--accent); margin-top: 8px; min-height: 1.2em; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Set up your box</h1>
+  <p class="lead">Name yourself, add the household, pair your phones. Everything stays on the box.</p>
+  <div id="nokey" hidden><section><p>Open this page from the link on the box's sticker; it carries the box's setup key.</p></section></div>
+  <div id="app" hidden>
+    <section>
+      <h2><span class="n" id="s1">1</span> You</h2>
+      <p class="muted">You'll be the box's owner: the one who can add people and devices later.</p>
+      <div class="row"><input id="owner" placeholder="Your first name" autocomplete="given-name" maxlength="40"><button id="saveOwner">Save</button></div>
+    </section>
+    <section>
+      <h2><span class="n" id="s2">2</span> The household</h2>
+      <p class="muted">Adults see the house; kids see their own things; a household device is a shared screen like a TV.</p>
+      <ul id="people"></ul>
+      <div class="row">
+        <input id="pname" placeholder="Name" maxlength="40">
+        <select id="prole"><option value="adult">Adult</option><option value="kid">Kid</option><option value="household">Household device</option></select>
+        <button id="addPerson">Add</button>
+      </div>
+    </section>
+    <section>
+      <h2><span class="n" id="s3">3</span> Pair phones</h2>
+      <p class="muted">On the phone, open Jellybean: it finds the box on your Wi-Fi. Enter the code, or open this page on that phone and tap the link. Codes last 10 minutes.</p>
+      <div id="pairOut"></div>
+    </section>
+    <section>
+      <h2><span class="n" id="s4">4</span> Whose calendar is whose</h2>
+      <p class="muted">After pairing, each phone shares its calendars with the box. Name the calendars that belong to each person (comma separated).</p>
+      <ul id="cals"></ul>
+    </section>
+    <section>
+      <h2><span class="n" id="s5">5</span> Recovery phrase</h2>
+      <p class="muted">Backups of the box are locked with a phrase only you keep. It's shown once: write it down and keep it somewhere safe, away from the box. Without it, a backup can't be opened.</p>
+      <div class="row"><button id="showPhrase">Show my recovery phrase</button></div>
+      <div id="phraseOut"></div>
+    </section>
+    <section>
+      <h2><span class="n" id="s6">6</span> Connect the house</h2>
+      <p class="muted">The box runs Home Assistant for your lights, thermostat and the rest. This sets it up for you. Locks, alarms, garage doors and cameras are listed but never controlled from here.</p>
+      <div class="row"><button id="connectHome">Connect the house</button></div>
+      <div id="homeOut"></div>
+    </section>
+    <section>
+      <h2><span class="n">7</span> Done</h2>
+      <p class="muted">Setup closes by itself once your own phone is paired. Finishing now also deletes the setup key.</p>
+      <div class="row"><button id="finish" class="quiet">Finish setup</button></div>
+    </section>
+    <div class="err" id="err" role="alert"></div>
+  </div>
+  <div id="done" hidden><section><h2>Your box is set up</h2><p>Open Jellybean on your phone: adding people and devices lives in Settings › Household.</p></section></div>
+</main>
+<script>
+(function () {
+  "use strict";
+  var key = new URLSearchParams(location.hash.slice(1)).get("k");
+  if (key) { try { history.replaceState(null, "", location.pathname); } catch (e) {} }
+  var $ = function (id) { return document.getElementById(id); };
+  if (!key) { $("nokey").hidden = false; return; }
+  $("app").hidden = false;
+
+  function el(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+  function say(msg) { $("err").textContent = msg || ""; }
+
+  function call(method, path, body) {
+    return fetch(path, { method: method, headers: { "X-Setup-Key": key, "Content-Type": "application/json" },
+                         body: body ? JSON.stringify(body) : undefined })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (r.status === 404) { $("app").hidden = true; $("done").hidden = false; throw new Error(""); }
+          if (!r.ok) throw new Error(j.error || ("error " + r.status));
+          return j;
+        });
+      });
+  }
+
+  function mark(id, done) { $(id).classList.toggle("done", !!done); }
+
+  function render(st) {
+    mark("s1", st.steps.owner_named); mark("s2", st.steps.people_added); mark("s4", st.steps.calendars);
+    mark("s5", st.steps.recovery); $("showPhrase").hidden = !!st.steps.recovery;
+    mark("s6", st.steps.home);
+    if (st.owner && st.steps.owner_named && document.activeElement !== $("owner")) $("owner").value = st.owner.name;
+    var roles = { admin: "Owner", adult: "Adult", kid: "Kid", household: "Household device" };
+    var ul = $("people"), cl = $("cals"); ul.textContent = ""; cl.textContent = "";
+    st.people.forEach(function (p) {
+      var li = el("li"), left = el("div");
+      left.appendChild(el("strong", p.name)); left.appendChild(el("span", " · " + (roles[p.role] || p.role), "muted"));
+      if (p.devices.length) left.appendChild(el("div", "Paired: " + p.devices.join(", "), "muted"));
+      var b = el("button", "Pair a device", "quiet");
+      b.onclick = function () { pair(p); };
+      li.appendChild(left); li.appendChild(b); ul.appendChild(li);
+      if (p.role === "household") return;
+      var ci = el("li"), inp = el("input"), sb = el("button", "Save", "quiet");
+      inp.value = (p.calendars || []).join(", "); inp.placeholder = p.name + "'s calendars";
+      sb.onclick = function () {
+        var titles = inp.value.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+        call("POST", "/v1/setup/calendars", { person_id: p.id, calendars: titles }).then(refresh, function (e) { say(e.message); });
+      };
+      ci.appendChild(el("strong", p.name)); ci.appendChild(inp); ci.appendChild(sb); cl.appendChild(ci);
+    });
+  }
+
+  function pair(p) {
+    say("");
+    call("POST", "/v1/setup/pair", { person_id: p.id }).then(function (r) {
+      var out = $("pairOut"); out.textContent = "";
+      out.appendChild(el("div", "Code for " + p.name, "muted"));
+      out.appendChild(el("div", r.code.slice(0, 3) + " " + r.code.slice(3), "code"));
+      var a = el("a", "Open in Jellybean on this phone"); a.href = r.qr; out.appendChild(a);
+      mark("s3", true);
+    }, function (e) { say(e.message); });
+  }
+
+  function refresh() { say(""); return call("GET", "/v1/setup/state").then(render, function (e) { say(e.message); }); }
+
+  $("saveOwner").onclick = function () {
+    call("POST", "/v1/setup/owner", { name: $("owner").value }).then(refresh, function (e) { say(e.message); });
+  };
+  $("addPerson").onclick = function () {
+    call("POST", "/v1/setup/people", { name: $("pname").value, role: $("prole").value })
+      .then(function () { $("pname").value = ""; return refresh(); }, function (e) { say(e.message); });
+  };
+  $("connectHome").onclick = function () {
+    say("");
+    $("connectHome").disabled = true;
+    call("POST", "/v1/setup/home").then(function (r) {
+      var out = $("homeOut"); out.textContent = "";
+      var kinds = Object.keys(r.devices || {});
+      out.appendChild(el("div", kinds.length ? "Found: " + kinds.map(function (k) { return r.devices[k] + " " + k.replace(/_/g, " "); }).join(", ") + "." : "Connected. No devices yet: add them in Home Assistant's app.", "muted"));
+      if ((r.hands_off || []).length) {
+        out.appendChild(el("div", "Seen but hands-off (Jellybean won't control these):", "muted"));
+        var ul = el("ul");
+        r.hands_off.forEach(function (h) { ul.appendChild(el("li", h.name + " (" + h.kind + ")")); });
+        out.appendChild(ul);
+      }
+      mark("s6", true);
+    }, function (e) { say(e.message); }).then(function () { $("connectHome").disabled = false; });
+  };
+  $("showPhrase").onclick = function () {
+    say("");
+    call("POST", "/v1/setup/recovery").then(function (r) {
+      var out = $("phraseOut"); out.textContent = "";
+      out.appendChild(el("div", r.phrase, "code"));
+      out.appendChild(el("div", r.groups + " groups of four, dashes optional. Box key " + r.key + ", sender " + r.sender + " (write these beside it).", "muted"));
+      out.appendChild(el("div", "This is the only time the box shows it.", "muted"));
+      $("showPhrase").hidden = true; mark("s5", true);
+    }, function (e) { say(e.message); });
+  };
+  $("finish").onclick = function () {
+    call("POST", "/v1/setup/finish").then(function () { $("app").hidden = true; $("done").hidden = false; }, function (e) { say(e.message); });
+  };
+  refresh();
+  // Poll (to see the owner's phone pair) only until the owner is named: the key crosses the LAN in the clear on
+  // every call, so the page sends it as few times as it can. Any later action still shows "set up" once it's over.
+  var poll = setInterval(function () {
+    refresh().then(function () { if ($("s1").classList.contains("done")) clearInterval(poll); });
+  }, 15000);
+})();
+</script>
+</body>
+</html>

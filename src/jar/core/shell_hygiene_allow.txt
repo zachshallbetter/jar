@@ -1,0 +1,14 @@
+# Justified lines for test_shell_hygiene.py (#1520). Format: file | rule | text on the line | reason
+cleanup_ai.sh | rm-unsafe | rm -rf "${path}" | path comes from collect_paths under ${AI_ROOT}/logs|tmp and the loop skips an empty one just above
+clockshift/run_one.sh | rm-unsafe | rm -rf "$TEST_STATE" | TEST_STATE is a mktemp -d result (set -e aborts if mktemp fails)
+deploy_titan_node.sh | rm-unsafe | rm -rf "$TEST_STATE" | TEST_STATE is a mktemp -d result
+deploy_titan_node.sh | missing-file-substitution | cat /tmp/deploy-canary.txt | the canary step above redirects into that file, so it exists
+main_health.sh | rm-unsafe | rm -rf "$tree" | tree is a mktemp -d result, and the line exits when mktemp fails
+run_deploy_gate.sh | rm-unsafe | rm -rf "$RUN_TMP" | RUN_TMP is a mktemp -d result
+run_deploy_gate.sh | rm-unsafe | rm -rf "$TEST_STATE" | TEST_STATE is a mktemp -d result
+runtime_ops.sh | rm-unsafe | rm -rf "${TMP_DIR}" | TMP_DIR is a mktemp -d result
+test_agent_bridge.sh | rm-unsafe | rm -rf "${TMP_DIR}" | guarded by [[ -n TMP_DIR && -d TMP_DIR ]] on the line above
+test_model_gateway.sh | rm-unsafe | rm -rf "${TMP_DIR}" | guarded by [[ -n TMP_DIR && -d TMP_DIR ]] on the line above
+tmp_sweep.sh | rm-unsafe | rm -rf -- "$p" | p is one entry of a glob under the swept dir, checked -S/-mmin above, never empty
+ab_run.sh | rm-unsafe | rm -rf -- "$D"/code-* | D=${AB_DIR:-/ai/tmp/ab-$NAME} is never empty, and test_ab_readout pins this exact line
+clockshift/canary.sh | rm-unsafe | trap 'rm -rf "$tmp"' EXIT | tmp is a mktemp -d result on the line above (|| exit 1 when it fails)

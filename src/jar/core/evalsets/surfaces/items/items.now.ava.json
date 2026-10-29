@@ -1,0 +1,290 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "kid",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-ava"
+  },
+  "dependencies": [
+   {
+    "revision": "1791554412.0",
+    "subject": {
+     "id": "todo:todo-ava"
+    }
+   },
+   {
+    "revision": "1791554413.0",
+    "subject": {
+     "id": "todo:todo-house"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 0,
+     "group": "g-today",
+     "rule": null
+    },
+    {
+     "count": 2,
+     "group": "g-open",
+     "rule": "open-todo"
+    }
+   ],
+   "ordering": [
+    "time",
+    "time"
+   ]
+  },
+  "fingerprint": "sha256:97b37ed64257b216c341052249debc805e0cc9719d5fa43151cfce76177069ff",
+  "groups": [
+   {
+    "id": "g-today",
+    "label": {
+     "key": "items.now.today",
+     "text": "Today"
+    },
+    "members": [],
+    "ordering": "time",
+    "role": "primary"
+   },
+   {
+    "id": "g-open",
+    "label": {
+     "key": "items.now.open",
+     "text": "Open"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "state"
+        ],
+        "kind": "declared",
+        "rule": "open-todo"
+       }
+      ],
+      "priority": 2,
+      "slots": {
+       "actions": [
+        "op-open-todo:todo-ava",
+        "op-done-todo:todo-ava",
+        "op-file-todo:todo-ava",
+        "op-later-todo:todo-ava"
+       ],
+       "audience": "private",
+       "projects": [],
+       "title": "Finish the reading log"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "todo:todo-ava",
+       "kind": "todo"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "state"
+        ],
+        "kind": "declared",
+        "rule": "open-todo"
+       }
+      ],
+      "priority": 2,
+      "slots": {
+       "actions": [
+        "op-open-todo:todo-house",
+        "op-done-todo:todo-house",
+        "op-later-todo:todo-house"
+       ],
+       "audience": "household",
+       "projects": [],
+       "title": "Bins out tonight"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "todo:todo-house",
+       "kind": "todo"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "supporting"
+   }
+  ],
+  "moving": [],
+  "next": [
+   {
+    "at": "2026-10-10T13:00:00Z",
+    "id": "scheduled:sch-ava",
+    "kind": "scheduled",
+    "owner": "p-ava",
+    "title": "Pack the swim bag"
+   },
+   {
+    "id": "todo:todo-ava",
+    "kind": "todo",
+    "owner": "p-ava",
+    "title": "Finish the reading log"
+   }
+  ],
+  "operations": [
+   {
+    "contract": "jellybean.todo.open@1",
+    "exposure": "available",
+    "id": "op-open-todo:todo-ava",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "todo:todo-ava",
+     "kind": "todo"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.done@1",
+    "exposure": "available",
+    "id": "op-done-todo:todo-ava",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos/todo-ava/done"
+    },
+    "subject": {
+     "id": "todo:todo-ava",
+     "kind": "todo"
+    },
+    "verb": "done",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.file@1",
+    "exposure": "available",
+    "id": "op-file-todo:todo-ava",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-ava/file"
+    },
+    "subject": {
+     "id": "todo:todo-ava",
+     "kind": "todo"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.later@1",
+    "exposure": "available",
+    "id": "op-later-todo:todo-ava",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-ava/later"
+    },
+    "subject": {
+     "id": "todo:todo-ava",
+     "kind": "todo"
+    },
+    "verb": "later",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.open@1",
+    "exposure": "available",
+    "id": "op-open-todo:todo-house",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.done@1",
+    "exposure": "available",
+    "id": "op-done-todo:todo-house",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos/todo-house/done"
+    },
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "done",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.later@1",
+    "exposure": "available",
+    "id": "op-later-todo:todo-house",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-house/later"
+    },
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "later",
+    "verification": "none"
+   }
+  ],
+  "profile": "temporal",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "monitor",
+  "resolutionId": "rs-97b37ed64257b216",
+  "sentence": {
+   "facts": {
+    "moving": 0,
+    "name": "Ava",
+    "part_of_day": "morning",
+    "waiting_on_you": 0
+   },
+   "key": "items.now.sentence",
+   "source": "template",
+   "text": "Good morning, Ava. Nothing waits on you."
+  },
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  },
+  "waiting_on_others": [],
+  "waiting_on_you": []
+ },
+ "status": 200
+}

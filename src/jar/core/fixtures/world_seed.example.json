@@ -1,0 +1,133 @@
+{
+ "seeds": [
+  [
+   "Maple Health",
+   "org",
+   "address",
+   "1200 Birch St, Springfield",
+   {
+    "purpose": "pharmacy"
+   },
+   {
+    "ref": "chat:zach:2026-10-01T23:44",
+    "label": "Alex, chat 10-01 23:44",
+    "observed_at": "2026-10-01T23:44:00"
+   }
+  ],
+  [
+   "Cedar Dental",
+   "org",
+   "address",
+   "45 Oak Ave, Springfield",
+   {
+    "purpose": "dental"
+   },
+   {
+    "ref": "chat:zach:2026-10-01T23:46",
+    "label": "Alex, chat 10-01 23:46",
+    "observed_at": "2026-10-01T23:46:00"
+   }
+  ],
+  [
+   "Ava",
+   "person",
+   "medical",
+   "sees a therapist, Dr. Hale",
+   null,
+   {
+    "ref": "note:note-ava-therapist",
+    "label": "the note “Ava's therapist”",
+    "observed_at": "2026-10-01T06:52:00"
+   }
+  ],
+  [
+   "Corner Grocery",
+   "org",
+   "role",
+   "the household's grocery store",
+   null,
+   {
+    "ref": "chat:zach:2026-10-01T22:10",
+    "label": "Alex, chat 10-01 22:10",
+    "observed_at": "2026-10-01T22:10:00"
+   }
+  ],
+  [
+   "Corner Grocery",
+   "org",
+   "serves",
+   "Alex",
+   null,
+   {
+    "ref": "chat:zach:2026-10-01T22:10",
+    "label": "Alex, chat 10-01 22:10",
+    "observed_at": "2026-10-01T22:10:00"
+   }
+  ],
+  [
+   "Corner Grocery",
+   "org",
+   "serves",
+   "Robin",
+   null,
+   {
+    "ref": "chat:zach:2026-10-01T22:10",
+    "label": "Alex, chat 10-01 22:10",
+    "observed_at": "2026-10-01T22:10:00"
+   }
+  ],
+  [
+   "Alex",
+   "person",
+   "dentist",
+   "Cedar Dental",
+   null,
+   {
+    "ref": "chat:zach:2026-10-01T23:50",
+    "label": "Alex, chat 10-01 23:50",
+    "observed_at": "2026-10-01T23:50:00"
+   }
+  ],
+  [
+   "Swim lessons",
+   "activity",
+   "schedule",
+   "every Tuesday, 4:30 PM",
+   {
+    "for": "Ava"
+   },
+   {
+    "ref": "note:note-ava-swim",
+    "label": "the note “Ava's swim lessons”",
+    "observed_at": "2026-10-01T06:49:00"
+   }
+  ]
+ ],
+ "chore_note": {
+  "ref": "note:note-chores",
+  "label": "the note “Chores”",
+  "observed_at": "2026-10-01T07:00:00"
+ },
+ "chores": [
+  [
+   "Garbage",
+   "Wednesday nights",
+   null
+  ],
+  [
+   "Recycling",
+   "Wednesday nights",
+   {
+    "when": "kids away"
+   }
+  ]
+ ],
+ "questions": [
+  "Is Robin's work address the one on the insurance card?",
+  "Does Leo still have piano on Thursdays?",
+  "Is Maple Health also the household's lab?",
+  "Which dentist does Robin see?",
+  "Is Corner Grocery's delivery day Friday?",
+  "Who picks Ava up from swim?"
+ ]
+}

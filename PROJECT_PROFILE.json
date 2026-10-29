@@ -1,0 +1,27 @@
+{
+  "project_id": "jar",
+  "project_name": "Jar",
+  "version": "0.1.0",
+  "status": "active",
+  "description": "Sovereign household AI appliance node — dedicated, self-contained build of the Titan agent stack.",
+  "author": "Zach Shallbetter",
+  "architecture": {
+    "type": "single-process appliance",
+    "runtime": "python3",
+    "framework": "fastapi",
+    "storage": "sqlite3",
+    "inference": "llama.cpp / unified-memory / hybrid-cloud-fallback"
+  },
+  "interfaces": {
+    "api_port": 7770,
+    "onboarding_route": "/setup",
+    "client": "jellybean",
+    "discovery": "mdns (_titan._tcp.local.)"
+  },
+  "authority_chain": [
+    "PROJECT_INTENT.md",
+    "AUTHORITY.md",
+    "docs/architecture.md",
+    "src/jar/"
+  ]
+}

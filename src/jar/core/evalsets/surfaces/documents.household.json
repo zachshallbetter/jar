@@ -1,0 +1,429 @@
+{
+ "accessProjection": {
+  "role": "admin",
+  "rule": "documents.listing (household audience only, the same for every caller)",
+  "viewer": "alex"
+ },
+ "dependencies": [
+  {
+   "revision": "2026-09-30:1",
+   "subject": {
+    "id": "kb:doc-wifi"
+   }
+  },
+  {
+   "revision": "2026-10-04:1",
+   "subject": {
+    "id": "kb:note-recycling"
+   }
+  },
+  {
+   "revision": "2026-10-02:1",
+   "subject": {
+    "id": "rf-0000000000000001"
+   }
+  },
+  {
+   "revision": "2026-10-01:0",
+   "subject": {
+    "id": "rf-0000000000000002"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 3,
+    "group": "g-documents",
+    "rule": "household-document"
+   },
+   {
+    "count": 1,
+    "group": "g-on-devices",
+    "rule": "household-document"
+   }
+  ],
+  "ordering": [
+   "newest-first",
+   "newest-first"
+  ]
+ },
+ "fingerprint": "sha256:5de3ec6bd562ae73e6df03a5f9b7ecacfd5231de9359e71ef93103db5f4d2b8a",
+ "groups": [
+  {
+   "id": "g-documents",
+   "label": {
+    "key": "documents.all",
+    "text": "Documents"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "audience",
+        "file_shared"
+       ],
+       "kind": "declared",
+       "rule": "household-document"
+      }
+     ],
+     "document": {
+      "available": true,
+      "content_type": "text/markdown",
+      "id": "kb:note-recycling",
+      "kind": "note",
+      "modified": "2026-10-04",
+      "original": false,
+      "size": null,
+      "source": "kb",
+      "title": "Recycling days"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-kb:note-recycling",
+       "op-ask-kb:note-recycling"
+      ],
+      "meta": "2026-10-04",
+      "subtitle": "note",
+      "title": "Recycling days"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "kb:note-recycling",
+      "kind": "document"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "audience",
+        "file_shared"
+       ],
+       "kind": "declared",
+       "rule": "household-document"
+      }
+     ],
+     "document": {
+      "available": true,
+      "content_type": "application/pdf",
+      "file_shared": true,
+      "id": "rf-0000000000000001",
+      "kind": "scan",
+      "modified": "2026-10-02",
+      "original": true,
+      "size": null,
+      "source": "device",
+      "title": "Lease"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-rf-0000000000000001",
+       "op-ask-rf-0000000000000001"
+      ],
+      "meta": "2026-10-02",
+      "subtitle": "scan",
+      "title": "Lease"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "rf-0000000000000001",
+      "kind": "document"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "audience",
+        "file_shared"
+       ],
+       "kind": "declared",
+       "rule": "household-document"
+      }
+     ],
+     "document": {
+      "available": true,
+      "content_type": "text/markdown",
+      "id": "kb:doc-wifi",
+      "kind": "document",
+      "modified": "2026-09-30",
+      "original": false,
+      "size": null,
+      "source": "kb",
+      "title": "Guest wifi"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-kb:doc-wifi",
+       "op-ask-kb:doc-wifi"
+      ],
+      "meta": "2026-09-30",
+      "subtitle": "document",
+      "title": "Guest wifi"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "kb:doc-wifi",
+      "kind": "document"
+     }
+    }
+   ],
+   "ordering": "newest-first",
+   "role": "primary"
+  },
+  {
+   "id": "g-on-devices",
+   "label": {
+    "key": "documents.on_devices",
+    "text": "On people's devices"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "audience",
+        "file_shared"
+       ],
+       "kind": "declared",
+       "rule": "household-document"
+      }
+     ],
+     "document": {
+      "available": false,
+      "content_type": "application/pdf",
+      "file_shared": false,
+      "id": "rf-0000000000000002",
+      "kind": "file",
+      "modified": "2026-10-01",
+      "original": true,
+      "size": null,
+      "source": "device",
+      "title": "Menu"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-rf-0000000000000002",
+       "op-ask-rf-0000000000000002"
+      ],
+      "meta": "2026-10-01",
+      "subtitle": "file",
+      "title": "Menu"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "rf-0000000000000002",
+      "kind": "document"
+     }
+    }
+   ],
+   "ordering": "newest-first",
+   "role": "supporting"
+  }
+ ],
+ "operations": [
+  {
+   "contract": "jellybean.document.open@1",
+   "exposure": "available",
+   "id": "op-open-kb:note-recycling",
+   "reversibility": "reversible",
+   "route": {
+    "method": "GET",
+    "path": "/v1/documents/kb:note-recycling/content"
+   },
+   "subject": {
+    "id": "kb:note-recycling",
+    "kind": "document"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.ask@1",
+   "exposure": "available",
+   "id": "op-ask-kb:note-recycling",
+   "label": {
+    "key": "document.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "kb:note-recycling",
+     "kind": "document"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "kb:note-recycling",
+    "kind": "document"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.open@1",
+   "exposure": "available",
+   "id": "op-open-rf-0000000000000001",
+   "reversibility": "reversible",
+   "route": {
+    "method": "GET",
+    "path": "/v1/documents/rf-0000000000000001/content"
+   },
+   "subject": {
+    "id": "rf-0000000000000001",
+    "kind": "document"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.ask@1",
+   "exposure": "available",
+   "id": "op-ask-rf-0000000000000001",
+   "label": {
+    "key": "document.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "rf-0000000000000001",
+     "kind": "document"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "rf-0000000000000001",
+    "kind": "document"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.open@1",
+   "exposure": "unavailable",
+   "id": "op-open-rf-0000000000000002",
+   "reason": {
+    "key": "document.on_device"
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "GET",
+    "path": "/v1/documents/rf-0000000000000002/content"
+   },
+   "subject": {
+    "id": "rf-0000000000000002",
+    "kind": "document"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.ask@1",
+   "exposure": "available",
+   "id": "op-ask-rf-0000000000000002",
+   "label": {
+    "key": "document.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "rf-0000000000000002",
+     "kind": "document"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "rf-0000000000000002",
+    "kind": "document"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.open@1",
+   "exposure": "available",
+   "id": "op-open-kb:doc-wifi",
+   "reversibility": "reversible",
+   "route": {
+    "method": "GET",
+    "path": "/v1/documents/kb:doc-wifi/content"
+   },
+   "subject": {
+    "id": "kb:doc-wifi",
+    "kind": "document"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.document.ask@1",
+   "exposure": "available",
+   "id": "op-ask-kb:doc-wifi",
+   "label": {
+    "key": "document.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "kb:doc-wifi",
+     "kind": "document"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "kb:doc-wifi",
+    "kind": "document"
+   },
+   "verb": "ask",
+   "verification": "none"
+  }
+ ],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "kb:household",
+   "references:household",
+   "file_share",
+   "viewer"
+  ],
+  "resolver": "documents@1"
+ },
+ "purpose": "browse",
+ "resolutionId": "rs-5de3ec6bd562ae73",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

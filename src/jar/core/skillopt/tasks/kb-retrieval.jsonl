@@ -1,0 +1,9 @@
+{"id": "kb-agent-port", "question": "Which port does titan's agent API listen on?", "expect": {"tools_any": ["kb_retrieve"], "reply_all": ["7770"]}}
+{"id": "kb-unknown-no-fabrication", "question": "What's the license plate on our car?", "expect": {"tools_any": ["kb_retrieve"], "reply_any": ["don't have", "don't know", "not in", "couldn't find", "no record", "not saved", "haven't"]}}
+{"id": "kb-remember-uses-ingest", "question": "Remember that the water shutoff valve is in the garage behind the shelves.", "expect": {"tools_any": ["ingest_text"], "tools_none": ["create_reminder", "create_calendar_event"]}}
+{"id": "kb-not-for-weather", "question": "Will it rain tomorrow?", "expect": {"tools_any": ["get_weather"], "tools_none": ["kb_retrieve", "kb_list"]}, "pick": "none|web-research"}
+{"id": "kb-not-for-math", "question": "How many minutes are in three and a half hours?", "expect": {"tools_none": ["kb_retrieve", "kb_list"], "reply_any": ["210"]}, "pick": "none"}
+{"id": "kb-retrieve-not-list", "question": "Look up what we decided about backups for titan.", "expect": {"tools_any": ["kb_retrieve"], "tools_none": ["kb_list"]}}
+{"id": "kb-notes-are-apple-notes", "question": "Find my notes about the plumber.", "expect": {"tools_any": ["search_notes"], "tools_none": ["run_applescript", "run_shell"], "reply_any": ["rivera", "luis"]}}
+{"id": "kb-notes-detail", "question": "Did I write down anything about the water heater?", "expect": {"tools_any": ["search_notes", "kb_retrieve"], "reply_any": ["11 years", "eleven years"]}}
+{"id": "kb-texts-search", "question": "What did Sam text me about Saturday?", "expect": {"tools_any": ["search_messages"], "tools_none": ["run_shell", "run_applescript", "read_file"], "reply_any": ["coffee", "blue door", "10:30"]}}

@@ -1,0 +1,12 @@
+{
+ "version": 1,
+ "note": "The reviewed class of sensitive senders and words (titan-node#1508, D2). Either layer here, or the local model's label, marks a scan sensitive: errors fall toward private. A change is a reviewed PR with the scans_bench privacy traps as the regression set. An owner may add a sender to their own facet map; nobody can remove one from another person's.",
+ "medical": {
+  "senders": ["clinic", "dental", "dentist", "orthodont", "pediatric", "pharmacy", "laborator", "lab services", "hospital", "dermatolog", "physical therapy", "urgent care", "wellness", "sleep center", "medical", "health", "optometr", "radiology", "surgery", "physician"],
+  "terms": ["explanation of benefits", "patient responsibility", "patient balance", "patient statement", "date of service", "diagnosis", "prescription", "copay", "laboratory results", "your physician", "patient:", "well-child", "vaccination"]
+ },
+ "legal": {
+  "senders": ["law group", "law firm", "llp", "attorney", "court", "estate planning", "legal services"],
+  "terms": ["attorney-client", "attorney correspondence", "custody", "notice of hearing", "subpoena", "summons", "settlement terms", "will and trust", "plaintiff", "defendant"]
+ }
+}

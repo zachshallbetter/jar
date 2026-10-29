@@ -1,0 +1,426 @@
+{
+ "body": {
+  "accessProjection": {
+   "role": "admin",
+   "rule": "per-store readers (audience.py, todos, kb_privacy, spaces)",
+   "viewer": "p-alex"
+  },
+  "dependencies": [
+   {
+    "revision": "1791554410.0",
+    "subject": {
+     "id": "todo:todo-alex"
+    }
+   },
+   {
+    "revision": "1791554413.0",
+    "subject": {
+     "id": "todo:todo-house"
+    }
+   },
+   {
+    "revision": "2026-10-09T14:01:01+00:00",
+    "subject": {
+     "id": "chat:th-alex-new"
+    }
+   }
+  ],
+  "explanation": {
+   "excluded": [],
+   "included": [
+    {
+     "count": 0,
+     "group": "g-today",
+     "rule": null
+    },
+    {
+     "count": 2,
+     "group": "g-open",
+     "rule": "open-todo"
+    },
+    {
+     "count": 1,
+     "group": "g-needs-a-home",
+     "rule": "not-filed"
+    }
+   ],
+   "ordering": [
+    "time",
+    "time",
+    "time"
+   ]
+  },
+  "fingerprint": "sha256:bb9c622b0b303c962b554be94fef06a86d006df9cff7d6ca45be5af4ca07469d",
+  "groups": [
+   {
+    "id": "g-today",
+    "label": {
+     "key": "items.now.today",
+     "text": "Today"
+    },
+    "members": [],
+    "ordering": "time",
+    "role": "primary"
+   },
+   {
+    "id": "g-open",
+    "label": {
+     "key": "items.now.open",
+     "text": "Open"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "state"
+        ],
+        "kind": "declared",
+        "rule": "open-todo"
+       }
+      ],
+      "priority": 2,
+      "slots": {
+       "actions": [
+        "op-open-todo:todo-alex",
+        "op-done-todo:todo-alex",
+        "op-file-todo:todo-alex",
+        "op-unfile-todo:todo-alex",
+        "op-later-todo:todo-alex"
+       ],
+       "audience": "private",
+       "projects": [
+        "pr-kitchen"
+       ],
+       "title": "Renew the parking permit"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "todo:todo-alex",
+       "kind": "todo"
+      }
+     },
+     {
+      "basis": [
+       {
+        "inputs": [
+         "state"
+        ],
+        "kind": "declared",
+        "rule": "open-todo"
+       }
+      ],
+      "priority": 2,
+      "slots": {
+       "actions": [
+        "op-open-todo:todo-house",
+        "op-done-todo:todo-house",
+        "op-file-todo:todo-house",
+        "op-later-todo:todo-house"
+       ],
+       "audience": "household",
+       "projects": [],
+       "title": "Bins out tonight"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "todo:todo-house",
+       "kind": "todo"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "supporting"
+   },
+   {
+    "id": "g-needs-a-home",
+    "label": {
+     "key": "items.now.needs_a_home",
+     "text": "Needs a home"
+    },
+    "members": [
+     {
+      "basis": [
+       {
+        "inputs": [
+         "projects"
+        ],
+        "kind": "declared",
+        "rule": "not-filed"
+       },
+       {
+        "inputs": [
+         "links"
+        ],
+        "kind": "derived",
+        "rule": "suggested-project"
+       }
+      ],
+      "priority": 3,
+      "slots": {
+       "actions": [
+        "op-open-chat:th-alex-new",
+        "op-file-chat:th-alex-new"
+       ],
+       "audience": "private",
+       "meta": "2026-10-09T14:01:01+00:00",
+       "projects": [],
+       "subtitle": "Same record touched as a chat in Kitchen remodel",
+       "title": "the grout colour again"
+      },
+      "state": "eligible",
+      "subject": {
+       "id": "chat:th-alex-new",
+       "kind": "chat"
+      },
+      "suggestion": {
+       "auto": false,
+       "project": "pr-kitchen",
+       "state": "accepted"
+      }
+     }
+    ],
+    "ordering": "time",
+    "role": "supporting"
+   }
+  ],
+  "moving": [],
+  "next": [
+   {
+    "at": "2026-10-10T19:00:00Z",
+    "id": "scheduled:sch-alex",
+    "kind": "scheduled",
+    "owner": "p-alex",
+    "title": "Water the plants"
+   },
+   {
+    "id": "todo:todo-alex",
+    "kind": "todo",
+    "owner": "p-alex",
+    "title": "Renew the parking permit"
+   }
+  ],
+  "operations": [
+   {
+    "contract": "jellybean.chat.open@1",
+    "exposure": "available",
+    "id": "op-open-chat:th-alex-new",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "chat:th-alex-new",
+     "kind": "chat"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.chat.file@1",
+    "exposure": "available",
+    "id": "op-file-chat:th-alex-new",
+    "params": {
+     "project": "pr-kitchen"
+    },
+    "reversibility": "reversible",
+    "route": {
+     "method": "PATCH",
+     "path": "/v1/conversations/th-alex-new"
+    },
+    "subject": {
+     "id": "chat:th-alex-new",
+     "kind": "chat"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.open@1",
+    "exposure": "available",
+    "id": "op-open-todo:todo-alex",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.done@1",
+    "exposure": "available",
+    "id": "op-done-todo:todo-alex",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos/todo-alex/done"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "done",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.file@1",
+    "exposure": "available",
+    "id": "op-file-todo:todo-alex",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-alex/file"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.unfile@1",
+    "exposure": "available",
+    "id": "op-unfile-todo:todo-alex",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-alex/unfile"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "unfile",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.later@1",
+    "exposure": "available",
+    "id": "op-later-todo:todo-alex",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-alex/later"
+    },
+    "subject": {
+     "id": "todo:todo-alex",
+     "kind": "todo"
+    },
+    "verb": "later",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.open@1",
+    "exposure": "available",
+    "id": "op-open-todo:todo-house",
+    "reversibility": "reversible",
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "open",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.done@1",
+    "exposure": "available",
+    "id": "op-done-todo:todo-house",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/todos/todo-house/done"
+    },
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "done",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.file@1",
+    "exposure": "available",
+    "id": "op-file-todo:todo-house",
+    "recovery": [
+     "undo"
+    ],
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-house/file"
+    },
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "file",
+    "verification": "none"
+   },
+   {
+    "contract": "jellybean.todo.later@1",
+    "exposure": "available",
+    "id": "op-later-todo:todo-house",
+    "reversibility": "reversible",
+    "route": {
+     "method": "POST",
+     "path": "/v1/items/todo:todo-house/later"
+    },
+    "subject": {
+     "id": "todo:todo-house",
+     "kind": "todo"
+    },
+    "verb": "later",
+    "verification": "none"
+   }
+  ],
+  "profile": "temporal",
+  "profileVersion": "jb-1",
+  "protocol": "sss",
+  "protocolVersion": "0.1.0",
+  "provenance": {
+   "generated_at": "2026-10-09T15:00:00Z",
+   "inputs": [
+    "bills",
+    "chats",
+    "events",
+    "linked",
+    "mail",
+    "notes",
+    "references",
+    "routines",
+    "scheduled",
+    "tasks",
+    "todos",
+    "now",
+    "viewer"
+   ],
+   "resolver": "items@1"
+  },
+  "purpose": "monitor",
+  "resolutionId": "rs-bb9c622b0b303c96",
+  "sentence": {
+   "facts": {
+    "moving": 0,
+    "name": "Alex",
+    "part_of_day": "morning",
+    "waiting_on_you": 0
+   },
+   "key": "items.now.sentence",
+   "source": "template",
+   "text": "Good morning, Alex. Nothing waits on you."
+  },
+  "sizeClass": "few",
+  "states": {
+   "unknown": 0,
+   "withheld": 0
+  },
+  "waiting_on_others": [],
+  "waiting_on_you": []
+ },
+ "status": 200
+}

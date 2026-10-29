@@ -1,0 +1,7 @@
+// Read-only on purpose: only Mac read tools the harness's fake Mac answers, so nothing runs on titan or the Mac.
+{"id": "code-search-contents", "question": "Which files in ~/Projects/demo still have TODOs?", "expect": {"tools_any": ["search_file_contents"], "tools_none": ["run_shell", "run_applescript"], "reply_all": ["main.py", "api.py"]}}
+{"id": "code-git-status", "question": "Is ~/Projects/demo clean, or do I have uncommitted changes?", "expect": {"tools_any": ["git_status"], "tools_none": ["run_shell", "run_applescript"], "reply_any": ["modified", "uncommitted", "changes"]}}
+{"id": "code-port", "question": "Is anything listening on port 5173?", "expect": {"tools_any": ["list_listening_ports"], "tools_none": ["run_shell", "run_applescript"], "reply_any": ["vite", "node", "yes"]}}
+{"id": "code-log-tail", "question": "Show me the last few lines of ~/Projects/demo/server.log. Any errors?", "expect": {"tools_any": ["read_file"], "tools_none": ["run_shell", "run_applescript"], "reply_any": ["500", "timeout", "upload"]}}
+{"id": "code-find-file", "question": "Where's the README for the demo project?", "expect": {"tools_any": ["find_files", "list_files"], "tools_none": ["run_shell", "run_applescript"], "reply_any": ["projects/demo/readme.md", "~/projects/demo"]}}
+{"id": "code-not-titan-files", "question": "Search my demo project on my Mac for 'paginate'.", "expect": {"tools_any": ["search_file_contents"], "tools_none": ["run_shell", "file_read", "file_list"]}}

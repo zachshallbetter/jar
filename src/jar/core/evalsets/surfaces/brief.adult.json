@@ -1,0 +1,577 @@
+{
+ "accessProjection": {
+  "role": "adult",
+  "rule": "composition of this viewer's schedule, items (now) and cards surfaces; titan's sources only",
+  "viewer": "robin"
+ },
+ "dependencies": [
+  {
+   "revision": "2026-10-06T16:30:00-07:00|",
+   "subject": {
+    "id": "e-ballet"
+   }
+  },
+  {
+   "revision": "2026-10-07T20:00:00-07:00|",
+   "subject": {
+    "id": "e-bins"
+   }
+  },
+  {
+   "revision": "2026-10-07T07:00:00-07:00|",
+   "subject": {
+    "id": "e-run"
+   }
+  },
+  {
+   "revision": "1.0",
+   "subject": {
+    "id": "scheduled:s2"
+   }
+  },
+  {
+   "revision": "1.0",
+   "subject": {
+    "id": "scheduled:s9"
+   }
+  }
+ ],
+ "explanation": {
+  "excluded": [
+   {
+    "count": 1,
+    "from": "cards",
+    "rule": "muted"
+   }
+  ],
+  "included": [
+   {
+    "count": 0,
+    "group": "g-needs-you",
+    "rule": null
+   },
+   {
+    "count": 3,
+    "group": "g-today",
+    "rule": "visible-event"
+   },
+   {
+    "count": 2,
+    "group": "g-coming-up",
+    "rule": "visible-event"
+   }
+  ],
+  "ordering": [
+   "priority",
+   "time",
+   "time"
+  ]
+ },
+ "fingerprint": "sha256:a43f01b8df5d66aa8f622e090278136fdb0d5b5aa761c2e3f40b1ccb0ae8026f",
+ "groups": [
+  {
+   "id": "g-needs-you",
+   "label": {
+    "key": "brief.needs_you",
+    "text": "Needs you"
+   },
+   "members": [],
+   "ordering": "priority",
+   "role": "attention"
+  },
+  {
+   "focus": true,
+   "id": "g-today",
+   "label": {
+    "key": "brief.today",
+    "text": "Today"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Ava",
+      "end": null,
+      "id": "e-ballet",
+      "location": null,
+      "managed_by": "ava",
+      "managed_by_you": false,
+      "start": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-e-ballet",
+       "op-ask-e-ballet"
+      ],
+      "audience": "Ava",
+      "meta": "2026-10-06T16:30:00-07:00",
+      "title": "Ballet"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-ballet",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "ava",
+      "name": "Ava",
+      "you": false
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "today"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-scheduled:s2",
+       "op-remove-scheduled:s2",
+       "op-file-scheduled:s2",
+       "op-later-scheduled:s2"
+      ],
+      "audience": "private",
+      "meta": "2026-10-06T16:30:00Z",
+      "projects": [],
+      "title": "Robin's call with Hale"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "scheduled:s2",
+      "kind": "scheduled"
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "today"
+      }
+     ],
+     "priority": 1,
+     "slots": {
+      "actions": [
+       "op-open-scheduled:s9",
+       "op-remove-scheduled:s9",
+       "op-file-scheduled:s9",
+       "op-later-scheduled:s9"
+      ],
+      "audience": "household",
+      "meta": "2026-10-06T17:30:00Z",
+      "projects": [],
+      "title": "Pick up the groceries"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "scheduled:s9",
+      "kind": "scheduled"
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "primary"
+  },
+  {
+   "id": "g-coming-up",
+   "label": {
+    "key": "brief.coming_up",
+    "text": "Coming up"
+   },
+   "members": [
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Robin",
+      "end": null,
+      "id": "e-run",
+      "location": null,
+      "managed_by": "robin",
+      "managed_by_you": true,
+      "start": "2026-10-07T07:00:00-07:00",
+      "title": "Robin's run"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e-run",
+       "op-ask-e-run"
+      ],
+      "meta": "2026-10-07T07:00:00-07:00",
+      "title": "Robin's run"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-run",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "robin",
+      "name": "Robin",
+      "you": true
+     }
+    },
+    {
+     "basis": [
+      {
+       "inputs": [
+        "calendar",
+        "audience",
+        "fences",
+        "time"
+       ],
+       "kind": "declared",
+       "rule": "visible-event"
+      }
+     ],
+     "event": {
+      "all_day": false,
+      "calendar": "Family",
+      "end": null,
+      "id": "e-bins",
+      "location": null,
+      "managed_by": "household",
+      "managed_by_you": false,
+      "start": "2026-10-07T20:00:00-07:00",
+      "title": "Bins out"
+     },
+     "priority": 2,
+     "slots": {
+      "actions": [
+       "op-open-e-bins",
+       "op-ask-e-bins"
+      ],
+      "meta": "2026-10-07T20:00:00-07:00",
+      "title": "Bins out"
+     },
+     "state": "eligible",
+     "subject": {
+      "id": "e-bins",
+      "kind": "event"
+     },
+     "whose": {
+      "id": "household",
+      "name": null,
+      "you": false
+     }
+    }
+   ],
+   "ordering": "time",
+   "role": "supporting"
+  }
+ ],
+ "header": {
+  "date": "Tue Oct 6",
+  "weather": {
+   "place": "Home",
+   "sky": "clear"
+  }
+ },
+ "operations": [
+  {
+   "contract": "jellybean.scheduled.open@1",
+   "exposure": "available",
+   "id": "op-open-scheduled:s2",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.remove@1",
+   "exposure": "available",
+   "id": "op-remove-scheduled:s2",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/scheduled/s2"
+   },
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.file@1",
+   "exposure": "available",
+   "id": "op-file-scheduled:s2",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s2/file"
+   },
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.later@1",
+   "exposure": "available",
+   "id": "op-later-scheduled:s2",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s2/later"
+   },
+   "subject": {
+    "id": "scheduled:s2",
+    "kind": "scheduled"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.open@1",
+   "exposure": "available",
+   "id": "op-open-scheduled:s9",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.remove@1",
+   "exposure": "available",
+   "id": "op-remove-scheduled:s9",
+   "reversibility": "compensatable",
+   "route": {
+    "method": "DELETE",
+    "path": "/v1/scheduled/s9"
+   },
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "remove",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.file@1",
+   "exposure": "available",
+   "id": "op-file-scheduled:s9",
+   "recovery": [
+    "undo"
+   ],
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s9/file"
+   },
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "file",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.scheduled.later@1",
+   "exposure": "available",
+   "id": "op-later-scheduled:s9",
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/items/scheduled:s9/later"
+   },
+   "subject": {
+    "id": "scheduled:s9",
+    "kind": "scheduled"
+   },
+   "verb": "later",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-run",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-run",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-run",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-run",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-run",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-ballet",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-ballet",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-ballet",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-ballet",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-ballet",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.open@1",
+   "exposure": "available",
+   "id": "op-open-e-bins",
+   "reversibility": "reversible",
+   "subject": {
+    "id": "e-bins",
+    "kind": "event"
+   },
+   "verb": "open",
+   "verification": "none"
+  },
+  {
+   "contract": "jellybean.event.ask@1",
+   "exposure": "available",
+   "id": "op-ask-e-bins",
+   "label": {
+    "key": "event.ask",
+    "text": "Ask about this"
+   },
+   "params": {
+    "about": {
+     "id": "e-bins",
+     "kind": "event"
+    },
+    "prompt": "Tell me about this."
+   },
+   "reversibility": "reversible",
+   "route": {
+    "method": "POST",
+    "path": "/v1/prompt"
+   },
+   "subject": {
+    "id": "e-bins",
+    "kind": "event"
+   },
+   "verb": "ask",
+   "verification": "none"
+  }
+ ],
+ "profile": "temporal",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "schedule@1",
+   "items@1",
+   "cards@1",
+   "weather",
+   "today",
+   "viewer"
+  ],
+  "resolver": "brief@1"
+ },
+ "purpose": "orient",
+ "resolutionId": "rs-a43f01b8df5d66aa",
+ "sizeClass": "few",
+ "sources": {
+  "cards": "cards@1",
+  "items": "items@1",
+  "schedule": "schedule@1"
+ },
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

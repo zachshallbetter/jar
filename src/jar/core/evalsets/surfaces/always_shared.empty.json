@@ -1,0 +1,55 @@
+{
+ "accessProjection": {
+  "role": "adult",
+  "rule": "item_open.grants_of (the owner's own)",
+  "viewer": "robin"
+ },
+ "dependencies": [],
+ "explanation": {
+  "excluded": [],
+  "included": [
+   {
+    "count": 0,
+    "group": "g-needs-a-look",
+    "rule": null
+   }
+  ],
+  "ordering": [
+   "least-recently-used"
+  ]
+ },
+ "fingerprint": "sha256:6f7c335a40a10892e0f0cd0edd9003690d535f1433d503e5b3c7bf0e197343f9",
+ "groups": [
+  {
+   "id": "g-needs-a-look",
+   "label": {
+    "key": "sharing.needs_a_look",
+    "text": "Needs a look"
+   },
+   "members": [],
+   "ordering": "least-recently-used",
+   "role": "attention"
+  }
+ ],
+ "operations": [],
+ "profile": "collection",
+ "profileVersion": "jb-1",
+ "protocol": "sss",
+ "protocolVersion": "0.1.0",
+ "provenance": {
+  "generated_at": "2026-10-07T00:00:00Z",
+  "inputs": [
+   "body_grants",
+   "now",
+   "viewer"
+  ],
+  "resolver": "always-shared@1"
+ },
+ "purpose": "edit",
+ "resolutionId": "rs-6f7c335a40a10892",
+ "sizeClass": "few",
+ "states": {
+  "unknown": 0,
+  "withheld": 0
+ }
+}

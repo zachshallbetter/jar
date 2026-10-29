@@ -1,0 +1,30 @@
+{
+ "body": {
+  "projects": [
+   {
+    "audience": "adults",
+    "color": "blue",
+    "created_at": 1791554440.0,
+    "group": null,
+    "icon": "folder",
+    "id": "pr-kitchen",
+    "name": "Kitchen remodel",
+    "name_source": "person",
+    "owner": "p-alex"
+   },
+   {
+    "audience": "private",
+    "color": "blue",
+    "created_at": 1791554441.0,
+    "group": null,
+    "icon": "folder",
+    "id": "pr-party",
+    "name": "Surprise party",
+    "name_source": "person",
+    "owner": "p-robin"
+   }
+  ]
+ },
+ "not_sss": "GET /v1/projects: the plain project list, not a ResolvedSurface",
+ "status": 200
+}
