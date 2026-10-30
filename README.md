@@ -1,4 +1,4 @@
-# Jar 🏺
+# Jar
 
 **Jar is a sovereign, self-contained household AI appliance node.**
 
@@ -45,7 +45,7 @@ The installer will:
 Open the setup URL printed by the installer in your browser:
 
 ```
-👉  Setup URL: http://<your-machine-ip>:7770/setup#k=<your-setup-key>
+Setup URL: http://<your-machine-ip>:7770/setup#k=<your-setup-key>
 ```
 
 The web setup wizard walks you through:
