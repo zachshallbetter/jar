@@ -1,0 +1,39 @@
+name: Bug report
+description: Something in the Jar node, its setup wizard or the `jar` CLI isn't behaving as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for the report. A minimal reproduction is the fastest path to a fix.
+  - type: input
+    id: package
+    attributes:
+      label: Version
+      placeholder: jar-node 0.1.0 (or a commit hash)
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: What should have happened — quote the README or docs section if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Steps, a command, a code snippet, or a link.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: OS + version, Python version, output of `jar profile`

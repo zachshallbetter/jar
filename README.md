@@ -81,3 +81,38 @@ jar logs      # Stream live operational logs
 * [Hierarchy of Authority (AUTHORITY.md)](AUTHORITY.md)
 * [Project Intent (PROJECT_INTENT.md)](PROJECT_INTENT.md)
 
+---
+
+## Repository Map
+
+* `src/jar/`: the node: `server.py` (HTTP server), `cli.py` (the `jar` command), `hardware.py` (hardware profiling) and `core/` (agent runtime, world model, privacy fences and supporting modules)
+* `bin/jar`: management CLI launcher
+* `install.sh`: installer (virtual environment, `~/.jar`, background daemon)
+* `tests/`: unit tests
+* `docs/`: architecture, design decisions, hardware constraints, sharing and distribution
+* `PROJECT_INTENT.md`, `AUTHORITY.md`: purpose, and the order in which documents settle disputes
+
+---
+
+## Verification
+
+```bash
+PYTHONPATH=src python3 -m unittest discover tests
+```
+
+This runs the unit tests in `tests/test_jar.py` (hardware profiling and setup-URL generation) against a temporary `JAR_HOME`. There is no CI workflow, and no empirical evaluation is recorded in this repository.
+
+---
+
+## Status and Limitations
+
+* Version `0.1.0`, with no tagged releases. `PROJECT_INTENT.md` records the status as Active, with Stage 1 implementation initiated 2026-10-29.
+* Per `AUTHORITY.md`, documented does not mean implemented, tested or empirically validated. The test suite is two unit tests; treat the capabilities above as goals unless the source and tests show them.
+* By default the server listens on all network interfaces (`AGENT_API_HOST` defaults to `0.0.0.0`) on port 7770 (`AGENT_API_PORT`).
+* `docs/design-decisions.md` mentions a default port of 7779; the code and this README use 7770.
+
+---
+
+## License
+
+No license is declared yet. This repository contains no LICENSE file and `pyproject.toml` declares no license.
