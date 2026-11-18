@@ -115,4 +115,4 @@ This runs the unit tests in `tests/test_jar.py` (hardware profiling and setup-UR
 
 ## License
 
-No license is declared yet. This repository contains no LICENSE file and `pyproject.toml` declares no license.
+MIT. See [LICENSE](LICENSE).
